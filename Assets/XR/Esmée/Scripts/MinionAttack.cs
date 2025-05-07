@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class MinionAttack : MonoBehaviour
 {
-    private int damage = 15;
+    //private int damage = 15;
     private float coolDown = 2;
-    void Start()
-    {
-
-    }
 
     void Update()
     {
