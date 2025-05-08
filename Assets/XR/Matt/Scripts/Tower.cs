@@ -51,7 +51,7 @@ public class Tower : MonoBehaviour
         if (_direction.sqrMagnitude > 0.001f)
         {
             Quaternion _lookRotation = Quaternion.LookRotation(_direction);
-            muzzelLocation.transform.rotation = Quaternion.Lerp(muzzelLocation.transform.rotation, _lookRotation, Time.deltaTime * 5);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _lookRotation, Time.deltaTime * 5);
         }
     }
 
