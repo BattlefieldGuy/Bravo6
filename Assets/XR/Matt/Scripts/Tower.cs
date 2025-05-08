@@ -48,6 +48,9 @@ public class Tower : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, _target.transform.position, out hit))
         {
+            //spawn particle
+            //do damage
+
 
         }
     }
