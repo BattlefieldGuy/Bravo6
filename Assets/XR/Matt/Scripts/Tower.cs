@@ -6,12 +6,24 @@ public class Tower : MonoBehaviour
 
     public float Dammage = 5;
 
+    [SerializeField] private GameObject muzzelLocation;
+
+    [SerializeField] private GameObject projectilePrefab;
+
     [SerializeField] float range = 5;
+    [SerializeField] float targetOffset;
 
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
+    private Transform targetPosition = null;
+
     private float towerHealt = 100f;
+
+    public void TakeDamage(float _damageT)
+    {
+        towerHealt -= _damageT;
+    }
 
     void Update()
     {
@@ -21,16 +33,34 @@ public class Tower : MonoBehaviour
 
         Transform _nearestEnemy = GetEnemy(_enemiesInRange);
 
-        if (_nearestEnemy != null && cooldownT <= 0f)
+        if (_nearestEnemy != null)
         {
-            Attack(_nearestEnemy);
-            cooldownT = attackCooldown;
+            AimAt(_nearestEnemy);
+            if (cooldownT <= 0f)
+            {
+                Attack(_nearestEnemy);
+                cooldownT = attackCooldown;
+            }
+        }
+
+    }
+    void AimAt(Transform _target)
+    {
+        Vector3 _direction = _target.position - muzzelLocation.transform.position;
+        _direction.y = 0f;
+        if (_direction.sqrMagnitude > 0.001f)
+        {
+            Quaternion _lookRotation = Quaternion.LookRotation(_direction);
+            muzzelLocation.transform.rotation = Quaternion.Lerp(muzzelLocation.transform.rotation, _lookRotation, Time.deltaTime * 5);
         }
     }
 
-    public void TakeDamage(float _damageT)
+    void Attack(Transform _target)
     {
-        towerHealt -= _damageT;
+        Debug.Log("Attack: " + _target.name);
+        targetPosition = _target;
+        GameObject _proj = Instantiate(projectilePrefab, muzzelLocation.transform.position, muzzelLocation.transform.rotation);
+        Projectile prokectile = _proj.GetComponent<Projectile>();
     }
 
     Transform GetEnemy(Collider[] _enemies)
@@ -51,24 +81,11 @@ public class Tower : MonoBehaviour
         return _nearest;
     }
 
-    void Attack(Transform _target)
-    {
-        Debug.Log("Attack: " + _target.name);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, _target.transform.position, out hit))
-        {
-            //spawn particle
-            //do damage
-            hit.collider.GetComponent<MinionHealth>().TakeDamage(Dammage);
-            Debug.Log("Do damage to: " + hit.collider.name);
-
-        }
-    }
-
     //Debug
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawSphere(targetPosition.position, 0.1f);
     }
 }
