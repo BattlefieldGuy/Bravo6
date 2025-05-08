@@ -3,9 +3,13 @@ using UnityEngine;
 public class MinionMovement : MonoBehaviour
 {
     private float speed = 1;
-    [SerializeField] private int wallHealth = 100;
     [SerializeField] private Vector3 heart;
+    private Wall wHealth;
 
+    private void Start()
+    {
+        wHealth = FindFirstObjectByType<Wall>();
+    }
     void Update()
     {
         Walking();
@@ -13,13 +17,13 @@ public class MinionMovement : MonoBehaviour
 
     private void Walking()
     {
-        if (wallHealth <= 0)
+        if (wHealth.WallHealth >= 0.01f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, heart, Time.deltaTime * speed);
+            transform.position += Vector3.forward * Time.deltaTime * speed;
         }
         else
         {
-            transform.position += Vector3.forward * Time.deltaTime * speed;
+            transform.position = Vector3.MoveTowards(transform.position, heart, Time.deltaTime * speed);
         }
     }
 }
