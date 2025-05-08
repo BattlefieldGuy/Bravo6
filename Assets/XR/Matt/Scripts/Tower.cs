@@ -60,7 +60,8 @@ public class Tower : MonoBehaviour
         Debug.Log("Attack: " + _target.name);
         targetPosition = _target;
         GameObject _proj = Instantiate(projectilePrefab, muzzelLocation.transform.position, muzzelLocation.transform.rotation);
-        Projectile prokectile = _proj.GetComponent<Projectile>();
+        Projectile _projectile = _proj.GetComponent<Projectile>();
+        _projectile.SetTarget(_target);
     }
 
     Transform GetEnemy(Collider[] _enemies)

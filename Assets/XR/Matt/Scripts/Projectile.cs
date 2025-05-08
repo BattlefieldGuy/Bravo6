@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
     {
         if (target == null)
         {
+            Debug.Log("Target = null");
             Destroy(gameObject);
             return;
         }
@@ -30,7 +31,7 @@ public class Projectile : MonoBehaviour
             if (_enemy != null)
             {
                 _enemy.TakeDamage(Damage);
-                Destroy(_enemy);
+                Destroy(gameObject);
             }
         }
     }
