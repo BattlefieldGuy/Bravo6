@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public LayerMask mask;
+    public LayerMask Mask;
+
+    public float Dammage = 5;
 
     [SerializeField] float range = 5;
 
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
+    private float towerHealt = 100f;
+
     void Update()
     {
         cooldownT -= Time.deltaTime;
 
-        Collider[] _enemiesInRange = Physics.OverlapSphere(transform.position, range, mask);
+        Collider[] _enemiesInRange = Physics.OverlapSphere(transform.position, range, Mask);
 
         Transform _nearestEnemy = GetEnemy(_enemiesInRange);
 
@@ -22,6 +26,11 @@ public class Tower : MonoBehaviour
             Attack(_nearestEnemy);
             cooldownT = attackCooldown;
         }
+    }
+
+    public void TakeDamage(float _damageT)
+    {
+        towerHealt -= _damageT;
     }
 
     Transform GetEnemy(Collider[] _enemies)
@@ -50,11 +59,11 @@ public class Tower : MonoBehaviour
         {
             //spawn particle
             //do damage
-
+            hit.collider.GetComponent<MinionHealth>().TakeDamage(Dammage);
+            Debug.Log("Do damage to: " + hit.collider.name);
 
         }
     }
-
 
     //Debug
     void OnDrawGizmosSelected()
