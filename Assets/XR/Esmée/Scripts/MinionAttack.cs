@@ -12,7 +12,7 @@ public class MinionAttack : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.tag == "meow")
+        if (collision.collider.tag == "Damageable")
         {
             if (coolDown <= 0)
             {

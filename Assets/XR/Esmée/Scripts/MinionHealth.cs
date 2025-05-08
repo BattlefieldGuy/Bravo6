@@ -4,8 +4,8 @@ public class MinionHealth : MonoBehaviour
 {
     private float mHealth = 100;
 
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float _damageM)
     {
-        mHealth -= _damage;
+        mHealth -= _damageM;
     }
 }
