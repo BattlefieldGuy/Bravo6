@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MinionMovement : MonoBehaviour
 {
-    private float speed = 1;
+    private float speed = 0.1f;
     [SerializeField] private Vector3 heart;
     private Wall wHealth;
 
