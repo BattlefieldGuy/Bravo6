@@ -16,13 +16,15 @@ public class Tower : MonoBehaviour
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
-    private Transform targetPosition = null;
+    private Transform targetPosition;
 
     private float towerHealt = 100f;
 
     public void TakeDamage(float _damageT)
     {
         towerHealt -= _damageT;
+        if (CheckHealt())
+            Destroy(gameObject);
     }
 
     void Update()
@@ -82,11 +84,18 @@ public class Tower : MonoBehaviour
         return _nearest;
     }
 
+    bool CheckHealt()
+    {
+        if (towerHealt <= 0)
+            return true;
+        else return false;
+    }
+
     //Debug
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
-        Gizmos.DrawSphere(targetPosition.position, 0.1f);
+        //Gizmos.DrawSphere(targetPosition.position, 0.1f);
     }
 }
