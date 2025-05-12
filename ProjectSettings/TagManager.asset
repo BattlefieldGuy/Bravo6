@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Damageable
   - Heart
-  - Card
+  - TowerCard
+  - MinionCard
   layers:
   - Default
   - TransparentFX

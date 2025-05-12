@@ -3,10 +3,14 @@ using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
-public class MultiTouchDragManager : MonoBehaviour
+public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
+    private GameObject mouseDrag;
     private Camera cam;
+
+    [SerializeField] private GameObject minion;
+    [SerializeField] private GameObject tower;
 
     void OnEnable()
     {
@@ -29,28 +33,64 @@ public class MultiTouchDragManager : MonoBehaviour
         cam = Camera.main;
     }
 
+    void Update()
+    {
+        // Muisondersteuning
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 screenPos = Input.mousePosition;
+            Ray ray = cam.ScreenPointToRay(screenPos);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                GameObject target = hit.collider.gameObject;
+
+                if (target.CompareTag("MinionCard") || target.CompareTag("TowerCard"))
+                {
+                    mouseDrag = target;
+                }
+            }
+        }
+
+        if (Input.GetMouseButton(0) && mouseDrag != null)
+        {
+            Vector2 screenPos = Input.mousePosition;
+            float z = cam.WorldToScreenPoint(mouseDrag.transform.position).z;
+            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, z));
+
+            mouseDrag.transform.position = worldPos;
+        }
+
+        if (Input.GetMouseButtonUp(0) && mouseDrag != null)
+        {
+            Vector3 spawnPos = mouseDrag.transform.position;
+
+            if (mouseDrag.CompareTag("MinionCard"))
+            {
+                Instantiate(minion, spawnPos, Quaternion.identity);
+            }
+            else if (mouseDrag.CompareTag("TowerCard"))
+            {
+                Instantiate(tower, spawnPos, Quaternion.identity);
+            }
+
+            Destroy(mouseDrag);
+            mouseDrag = null;
+        }
+    }
+
     void OnFingerDown(Finger finger)
     {
         Vector2 screenPos = finger.screenPosition;
         Ray ray = cam.ScreenPointToRay(screenPos);
 
-        // Strikte raycast check naar alleen de kaarten
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             GameObject target = hit.collider.gameObject;
 
-            // Check of het object een Card component heeft
-            Cards card = target.GetComponent<Cards>();
-            if (card != null)
+            if (target.CompareTag("MinionCard") || target.CompareTag("TowerCard"))
             {
-                // Check of het object een kaart is en binnen de juiste speler's gebied valt
-                bool leftSide = screenPos.x < Screen.width / 2;
-
-                if ((leftSide && card.owner == Player.One) ||
-                    (!leftSide && card.owner == Player.Two))
-                {
-                    activeDrags[finger.index] = target;
-                }
+                activeDrags[finger.index] = target;
             }
         }
     }
@@ -60,18 +100,58 @@ public class MultiTouchDragManager : MonoBehaviour
         if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
             Vector2 screenPos = finger.screenPosition;
-            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f)); // pas 10f aan voor Z-diepte
+            float z = cam.WorldToScreenPoint(draggedCard.transform.position).z;
+            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, z));
+
             draggedCard.transform.position = worldPos;
         }
     }
 
     void OnFingerUp(Finger finger)
     {
-        if (activeDrags.ContainsKey(finger.index))
+        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
+            Vector3 spawnPos = draggedCard.transform.position;
+
+            if (draggedCard.CompareTag("MinionCard"))
+            {
+                Instantiate(minion, spawnPos, Quaternion.identity);
+            }
+            else if (draggedCard.CompareTag("TowerCard"))
+            {
+                Instantiate(tower, spawnPos, Quaternion.identity);
+            }
+
+            Destroy(draggedCard);
             activeDrags.Remove(finger.index);
         }
     }
+
+
+
+
+
+    /*#if UNITY_EDITOR
+        void Update()
+        {
+            if (Input.GetMouseButton(0))
+            {
+                Debug.Log("TAPTAP");
+                Vector3 screenPos = Input.mousePosition;
+                Ray ray = cam.ScreenPointToRay(screenPos);
+
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    if (hit.collider.tag == "MinionCard")
+                    {
+                        GameObject target = hit.collider.gameObject;
+                        // Test alsof dit een touch is
+                        target.transform.position = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
+                    }
+                }
+            }
+        }
+    #endif*/
 }
 
 
