@@ -526,6 +526,9 @@ MonoBehaviour:
   passiveIncomeAmount: 1
   passiveIncomeTime: 2
   towerPrizeMultiplier: 0.5
+  baseStealAmount: 20
+  baseStealTime: 35
+  stealLevelMultiplier: 1
   minionPrizeMultiplier: 0.65
 --- !u!1 &636857321
 GameObject:
