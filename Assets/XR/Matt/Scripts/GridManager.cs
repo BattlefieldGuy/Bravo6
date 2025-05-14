@@ -5,7 +5,7 @@ public class GridManager : MonoBehaviour
     [Header("Grid Settings")]
     public int width = 10;
     public int height = 10;
-    public float cellSize = 1f;
+    public float cellSize = 0.2f;
     public Vector3 origin = Vector3.zero;
 
     [Header("Visuals")]
