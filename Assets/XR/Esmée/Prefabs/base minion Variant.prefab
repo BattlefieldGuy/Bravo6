@@ -57,6 +57,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: heart
+      value: 
+      objectReference: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: heart.x
+      value: -4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: heart.y
+      value: 0.306
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: heart.z
+      value: 7.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: MSpeedData
       value: 
       objectReference: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}

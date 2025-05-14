@@ -32,7 +32,7 @@ public class Touchscreen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //uitleg voor dit is hetzelfde als hier onder maar dan voor de muis
         {
             Vector2 screenPos = Input.mousePosition;
             Ray ray = cam.ScreenPointToRay(screenPos);
@@ -76,7 +76,7 @@ public class Touchscreen : MonoBehaviour
         }
     }
 
-    void OnFingerDown(Finger finger)
+    void OnFingerDown(Finger finger) //wat er gebeurt wanneer je vinger het scherm raakt
     {
         Vector2 screenPos = finger.screenPosition;
         Ray ray = cam.ScreenPointToRay(screenPos);
@@ -96,7 +96,7 @@ public class Touchscreen : MonoBehaviour
 
     void OnFingerMove(Finger finger)
     {
-        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
+        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard)) //verplaatst hetgene wat je hebt aangeraakt mee met je vinger
         {
             Vector2 screenPos = finger.screenPosition;
             float z = cam.WorldToScreenPoint(draggedCard.transform.position).z;
@@ -106,7 +106,7 @@ public class Touchscreen : MonoBehaviour
         }
     }
 
-    void OnFingerUp(Finger finger)
+    void OnFingerUp(Finger finger) //laat de card functie uitvoeren wanneer je het hebt losgelaten 
     {
         if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {

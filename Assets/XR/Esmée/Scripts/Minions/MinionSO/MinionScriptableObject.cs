@@ -7,8 +7,7 @@ public class MinionScriptableObject : ScriptableObject
     public float MDamage;
     public float MHealth;
     public GameObject MPrefab;
-    //audioclip zou je hier ook kunnen doen hier. als je ander geluid per minion wil
+    //audioclip zou je hier ook kunnen doen hier. als je ander geluid per minion wil. voor bv lopen en slaan
     //wapen info kan ook hier
     //range kan ook??
-    //moet hier ook de minion prefab?
 }
