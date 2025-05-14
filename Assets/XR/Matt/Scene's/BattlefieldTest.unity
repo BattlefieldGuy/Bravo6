@@ -525,6 +525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passiveIncomeAmount: 1
   passiveIncomeTime: 2
+  towerPrizeMultiplier: 0.5
+  minionPrizeMultiplier: 0.65
 --- !u!1 &636857321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1303,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759724528}
   m_Mesh: {fileID: 7807538432633192378, guid: 3e97b892f0499d141be01f74203a4e2d, type: 3}
+--- !u!1001 &1811519545
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7733747
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0632
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1236286
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
+      propertyPath: m_Name
+      value: placeble wall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb072db0b17a46a478ff57ed57db3b93, type: 3}
 --- !u!1 &1822331327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1560,8 @@ MonoBehaviour:
   targetOffset: 0
   attackCooldown: 1
   cooldownT: 0
+  towerLevel: 0
+  towerPrize: 0
 --- !u!1 &1994147144
 GameObject:
   m_ObjectHideFlags: 0
@@ -5563,3 +5624,4 @@ SceneRoots:
   - {fileID: 1446277926}
   - {fileID: 660277704}
   - {fileID: 539312555}
+  - {fileID: 1811519545}
