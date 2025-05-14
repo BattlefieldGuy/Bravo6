@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class MinionMovement : MonoBehaviour
 {
-    private float speed = 0.1f;
     [SerializeField] private Vector3 heart;
     private Wall wHealth;
+
+    public MinionScriptableObject MSpeedData;
 
     private void Start()
     {
@@ -19,11 +20,11 @@ public class MinionMovement : MonoBehaviour
     {
         if (wHealth.WallHealth >= 0.01f)
         {
-            transform.position += Vector3.forward * Time.deltaTime * speed;
+            transform.position += Vector3.forward * Time.deltaTime * MSpeedData.MSpeed;
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, heart, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, heart, Time.deltaTime * MSpeedData.MSpeed);
         }
     }
 }

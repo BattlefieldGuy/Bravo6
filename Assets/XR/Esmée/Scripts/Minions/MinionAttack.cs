@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class MinionAttack : MonoBehaviour
 {
-    public int Damage = 15;
     private float coolDown = 2;
+    public MinionScriptableObject MDamageData;
+
 
     void Update()
     {
@@ -17,7 +18,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 Debug.Log("hit!");
-                collision.gameObject.GetComponent<Wall>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<Wall>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
         }
@@ -27,7 +28,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 Debug.Log("POOF");
-                collision.gameObject.GetComponent<Heart>().TakeDamage(Damage);
+                collision.gameObject.GetComponent<Heart>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
         }
