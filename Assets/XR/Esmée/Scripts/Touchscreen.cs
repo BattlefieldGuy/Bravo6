@@ -9,9 +9,6 @@ public class Touchscreen : MonoBehaviour
     private GameObject mouseDrag;
     private Camera cam;
 
-    [SerializeField] private GameObject minion;
-    [SerializeField] private GameObject tower;
-
     void OnEnable()
     {
         EnhancedTouchSupport.Enable();
@@ -35,7 +32,6 @@ public class Touchscreen : MonoBehaviour
 
     void Update()
     {
-        // Muisondersteuning
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 screenPos = Input.mousePosition;
@@ -45,12 +41,15 @@ public class Touchscreen : MonoBehaviour
             {
                 GameObject target = hit.collider.gameObject;
 
-                if (target.CompareTag("MinionCard") || target.CompareTag("TowerCard"))
+                Card card = target.GetComponent<Card>();
+
+                if (card != null)
                 {
                     mouseDrag = target;
                 }
             }
         }
+
 
         if (Input.GetMouseButton(0) && mouseDrag != null)
         {
@@ -61,17 +60,15 @@ public class Touchscreen : MonoBehaviour
             mouseDrag.transform.position = worldPos;
         }
 
+
         if (Input.GetMouseButtonUp(0) && mouseDrag != null)
         {
             Vector3 spawnPos = mouseDrag.transform.position;
 
-            if (mouseDrag.CompareTag("MinionCard"))
+            Card card = mouseDrag.GetComponent<Card>();
+            if (card != null)
             {
-                Instantiate(minion, spawnPos, Quaternion.identity);
-            }
-            else if (mouseDrag.CompareTag("TowerCard"))
-            {
-                Instantiate(tower, spawnPos, Quaternion.identity);
+                card.OnPlay();
             }
 
             Destroy(mouseDrag);
@@ -88,7 +85,9 @@ public class Touchscreen : MonoBehaviour
         {
             GameObject target = hit.collider.gameObject;
 
-            if (target.CompareTag("MinionCard") || target.CompareTag("TowerCard"))
+            Card card = target.GetComponent<Card>();
+
+            if (card != null)
             {
                 activeDrags[finger.index] = target;
             }
@@ -113,45 +112,16 @@ public class Touchscreen : MonoBehaviour
         {
             Vector3 spawnPos = draggedCard.transform.position;
 
-            if (draggedCard.CompareTag("MinionCard"))
+            Card card = draggedCard.GetComponent<Card>();
+            if (card != null)
             {
-                Instantiate(minion, spawnPos, Quaternion.identity);
-            }
-            else if (draggedCard.CompareTag("TowerCard"))
-            {
-                Instantiate(tower, spawnPos, Quaternion.identity);
+                card.OnPlay();
             }
 
             Destroy(draggedCard);
             activeDrags.Remove(finger.index);
         }
     }
-
-
-
-
-
-    /*#if UNITY_EDITOR
-        void Update()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                Debug.Log("TAPTAP");
-                Vector3 screenPos = Input.mousePosition;
-                Ray ray = cam.ScreenPointToRay(screenPos);
-
-                if (Physics.Raycast(ray, out RaycastHit hit))
-                {
-                    if (hit.collider.tag == "MinionCard")
-                    {
-                        GameObject target = hit.collider.gameObject;
-                        // Test alsof dit een touch is
-                        target.transform.position = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
-                    }
-                }
-            }
-        }
-    #endif*/
 }
 
 

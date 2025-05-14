@@ -6,7 +6,6 @@ public class MinionHealth : MonoBehaviour
     private void Update()
     {
         MDeath();
-        Debug.Log(MHealthData.MHealth);
     }
 
     public void TakeDamage(float _damageM)
