@@ -558,6 +558,8 @@ MonoBehaviour:
   targetOffset: 0
   attackCooldown: 1
   cooldownT: 0
+  towerLevel: 1
+  towerPrize: 30
 --- !u!65 &2287044985383614869
 BoxCollider:
   m_ObjectHideFlags: 0

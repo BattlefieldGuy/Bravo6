@@ -16,6 +16,9 @@ public class Tower : MonoBehaviour
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
+    [SerializeField] private int towerLevel;
+    [SerializeField] private int towerPrize;
+
     private Transform targetPosition;
 
     private float towerHealt = 100f;
@@ -24,7 +27,10 @@ public class Tower : MonoBehaviour
     {
         towerHealt -= _damageT;
         if (CheckHealt())
+        {
+            CoinManager.GainTowerPrize(towerLevel, towerPrize);
             Destroy(gameObject);
+        }
     }
 
     void Update()
