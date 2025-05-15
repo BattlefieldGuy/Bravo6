@@ -32,5 +32,15 @@ public class MinionAttack : MonoBehaviour
                 coolDown = 2;
             }
         }
+
+        if (collision.collider.tag == "Tower")
+        {
+            if (coolDown <= 0)
+            {
+                Debug.Log("boing");
+                collision.gameObject.GetComponent<Tower>().TakeDamage(MDamageData.MDamage);
+                coolDown = 2;
+            }
+        }
     }
 }

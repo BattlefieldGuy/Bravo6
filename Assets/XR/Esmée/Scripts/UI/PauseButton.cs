@@ -22,7 +22,6 @@ public class PauseButton : MonoBehaviour
 
     public void Credits()
     {
-        Debug.Log("creditjes");
         creds.SetActive(true);
     }
 

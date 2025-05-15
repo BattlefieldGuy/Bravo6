@@ -120,6 +120,7 @@ public class Touchscreen : MonoBehaviour
 
             Destroy(draggedCard);
             activeDrags.Remove(finger.index);
+            //plaats nieuwe kaart tussen de kaarten
         }
     }
 }
