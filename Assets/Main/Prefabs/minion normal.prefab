@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61df6a2cd3261428583573d98b5f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
+  MDamageData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
 --- !u!114 &861369584779979678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2409b4e004fcec4a937d8b01443648d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mHealth: 100
+  MHealthData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
 --- !u!114 &6174295212866699678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,3 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {x: 2.033156, y: 0.2275548, z: 0}
+  MSpeedData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
