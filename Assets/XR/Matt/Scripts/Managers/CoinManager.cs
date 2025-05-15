@@ -78,7 +78,7 @@ public class CoinManager : MonoBehaviour
         _gain = _towerPrize * _towerLevel;//multiply by level to increase reward by status
         int _amount = Mathf.RoundToInt(_gain * INSTANCE.towerPrizeMultiplier);//custum multiplier to tweak the final reward that is rounded to add to main counter
 #if UNITY_EDITOR //Debug
-        Debug.Log("Amount to add: " + _amount);
+        //Debug.Log("Amount to add: " + _amount);
 #endif
         INSTANCE.AttackersCoins += _amount;
     }

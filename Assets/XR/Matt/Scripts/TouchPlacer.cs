@@ -35,13 +35,23 @@ public class TouchPlacer : MonoBehaviour
             {
                 if (!gridOcupied[coords.x, coords.y])
                 {
-                    gridOcupied[coords.x, coords.y] = true;
                     Vector3 spawnPos = grid.GetWorldPosition(coords.x, coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
-                    Instantiate(towerPrefab, spawnPos, Quaternion.identity);
+                    GameObject _item = Instantiate(towerPrefab, spawnPos, Quaternion.identity);
+
+                    CellManager _manager = _item.GetComponent<CellManager>();
+                    _manager.GridPosition = coords;
+                    _manager.TouchPlacer = this;
+
+                    gridOcupied[coords.x, coords.y] = true;
                 }
                 else
                     Debug.Log("Tryed to place on an ocupied gridcell");
             }
         }
+    }
+
+    public void FreeGridCell(Vector2Int _coords)
+    {
+        gridOcupied[_coords.x, _coords.y] = false;
     }
 }

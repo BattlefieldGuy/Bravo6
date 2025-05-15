@@ -29,6 +29,7 @@ public class Tower : MonoBehaviour
         if (CheckHealt())
         {
             CoinManager.GainTowerPrize(towerLevel, towerPrize);
+            this.GetComponent<CellManager>().DestroyItem();
             Destroy(gameObject);
         }
     }
