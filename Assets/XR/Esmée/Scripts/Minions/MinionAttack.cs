@@ -33,7 +33,7 @@ public class MinionAttack : MonoBehaviour
             }
         }
 
-        if (collision.collider.tag == "Tower")
+        if (collision.collider.tag == "GridTower")
         {
             if (coolDown <= 0)
             {
@@ -42,5 +42,15 @@ public class MinionAttack : MonoBehaviour
                 coolDown = 2;
             }
         }
+
+        /*if (collision.collider.tag == "GridWall")
+        {
+            if (coolDown <= 0)
+            {
+                Debug.Log("boing");
+                collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
+                coolDown = 2;
+            }
+        }*/
     }
 }

@@ -8,6 +8,7 @@ public class Touchscreen : MonoBehaviour
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
     private GameObject mouseDrag;
     private Camera cam;
+    [SerializeField] private float spawnLine;
 
     void OnEnable()
     {
@@ -60,15 +61,21 @@ public class Touchscreen : MonoBehaviour
             mouseDrag.transform.position = worldPos;
         }
 
-
         if (Input.GetMouseButtonUp(0) && mouseDrag != null)
         {
             Vector3 spawnPos = mouseDrag.transform.position;
-
             Card card = mouseDrag.GetComponent<Card>();
             if (card != null)
             {
-                card.OnPlay();
+                if (spawnPos.z >= spawnLine)
+                {
+                    spawnPos.z = spawnLine;
+                    card.OnPlay(spawnPos);
+                }
+                else
+                {
+                    card.OnPlay(spawnPos);
+                }
             }
 
             Destroy(mouseDrag);
@@ -115,7 +122,15 @@ public class Touchscreen : MonoBehaviour
             Card card = draggedCard.GetComponent<Card>();
             if (card != null)
             {
-                card.OnPlay();
+                if (spawnPos.z > spawnLine)
+                {
+                    spawnPos.z = spawnLine;
+                    card.OnPlay(spawnPos);
+                }
+                else
+                {
+                    card.OnPlay(spawnPos);
+                }
             }
 
             Destroy(draggedCard);
@@ -123,6 +138,7 @@ public class Touchscreen : MonoBehaviour
             //plaats nieuwe kaart tussen de kaarten
         }
     }
+
 }
 
 
