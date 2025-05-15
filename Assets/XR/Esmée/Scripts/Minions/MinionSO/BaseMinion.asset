@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MSpeed: 0.1
   MDamage: 15
-  MHealth: 100
+  MCost: 10
   MPrefab: {fileID: 3153414235853100652, guid: 1b07900dc0a35aa4f8704dd114552195, type: 3}
