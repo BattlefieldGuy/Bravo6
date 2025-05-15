@@ -3,7 +3,10 @@ using UnityEngine;
 public class TouchPlacer : MonoBehaviour
 {
     public GridManager grid;
-    public GameObject towerPrefab;
+    public GameObject gridTowerPrefab;
+    public GameObject gridWallPrefab;
+
+    public int ItemToPlace = 1;
 
     private bool[,] gridOcupied;
 
@@ -23,26 +26,43 @@ public class TouchPlacer : MonoBehaviour
 #endif
     }
 
-    void HandleTap(Vector2 screenPos)
+    void HandleTap(Vector2 _screenPos)
     {
-        Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        Ray _ray = Camera.main.ScreenPointToRay(_screenPos);
+        if (Physics.Raycast(_ray, out RaycastHit _hit))
         {
-            Vector3 hitPos = hit.point;
-            Vector2Int coords = grid.GetGridCoordinates(hitPos);
+            Vector3 _hitPos = _hit.point;
+            Vector2Int _coords = grid.GetGridCoordinates(_hitPos);
 
-            if (grid.IsInBounds(coords.x, coords.y))
+            if (grid.IsInBounds(_coords.x, _coords.y))
             {
-                if (!gridOcupied[coords.x, coords.y])
+                if (!gridOcupied[_coords.x, _coords.y])
                 {
-                    Vector3 spawnPos = grid.GetWorldPosition(coords.x, coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
-                    GameObject _item = Instantiate(towerPrefab, spawnPos, Quaternion.identity);
+                    Vector3 _spawnPos = grid.GetWorldPosition(_coords.x, _coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
+                    GameObject _item = null;
+                    switch (ItemToPlace)
+                    {
+                        case 1:
+                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, 180, 0, 180));
+                            break;
+                        case 2:
+                            _spawnPos.y = 0.06f;
+                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
+                            break;
+                        default:
+                            break;
+                    }
 
-                    CellManager _manager = _item.GetComponent<CellManager>();
-                    _manager.GridPosition = coords;
-                    _manager.TouchPlacer = this;
+                    if (_item != null)
+                    {
+                        CellManager _manager = _item.GetComponent<CellManager>();
+                        _manager.GridPosition = _coords;
+                        _manager.TouchPlacer = this;
+                        gridOcupied[_coords.x, _coords.y] = true;
+                    }
+                    else
+                        Debug.LogError("Item to spawn is null");
 
-                    gridOcupied[coords.x, coords.y] = true;
                 }
                 else
                     Debug.Log("Tryed to place on an ocupied gridcell");

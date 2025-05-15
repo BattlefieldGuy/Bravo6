@@ -30,7 +30,6 @@ public class Tower : MonoBehaviour
         {
             CoinManager.GainTowerPrize(towerLevel, towerPrize);
             this.GetComponent<CellManager>().DestroyItem();
-            Destroy(gameObject);
         }
     }
 

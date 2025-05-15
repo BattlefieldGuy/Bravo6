@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3008494696416879692}
   - component: {fileID: 8938910271813639451}
   - component: {fileID: 967754433068712738}
-  - component: {fileID: 6651990552477563454}
   - component: {fileID: 2006600005863511159}
   - component: {fileID: 1685688310910538379}
   m_Layer: 6
@@ -147,25 +146,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8544005683951589697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c61df6a2cd3261428583573d98b5f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 15
---- !u!114 &6651990552477563454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8544005683951589697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27d7ebb1912c1a0439006767fe798577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 15
+  MDamageData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
 --- !u!114 &2006600005863511159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2409b4e004fcec4a937d8b01443648d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mHealth: 100
 --- !u!114 &1685688310910538379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +177,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {x: 2.033156, y: 0.2275548, z: 0}
+  MSpeedData: {fileID: 0}

@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 2287044985383614869}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Damageable
+  m_TagString: GridTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,15 +528,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4938735003479452662}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.70711005, z: -0, w: -0.7071036}
-  m_LocalPosition: {x: 1.762475, y: 0.3266076, z: -0.26458788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8.021196, y: 8.021196, z: 0.47843596}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6017290807427631790}
   - {fileID: 7475420333499250858}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 269.999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8514585393698150624
 MonoBehaviour:
   m_ObjectHideFlags: 0
