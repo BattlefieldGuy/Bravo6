@@ -5,8 +5,12 @@ public class TouchPlacer : MonoBehaviour
     public GridManager grid;
     public GameObject towerPrefab;
 
-    private int[] xCord;
-    private int[] yCord;
+    private bool[,] gridOcupied;
+
+    private void Start()
+    {
+        gridOcupied = new bool[grid.width, grid.height];
+    }
 
     void Update()
     {
@@ -29,15 +33,14 @@ public class TouchPlacer : MonoBehaviour
 
             if (grid.IsInBounds(coords.x, coords.y))
             {
-                //if (xCord[coords.x] == 0 || yCord[coords.y] == 0)
-                //{
-                //    xCord.SetValue(1, coords.x);
-                //    yCord.SetValue(1, coords.y);
-                Vector3 spawnPos = grid.GetWorldPosition(coords.x, coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
-                Instantiate(towerPrefab, spawnPos, Quaternion.identity);
-                //}
-                //else
-                //    Debug.Log("Tryed to place on an ocupied gridcell");
+                if (!gridOcupied[coords.x, coords.y])
+                {
+                    gridOcupied[coords.x, coords.y] = true;
+                    Vector3 spawnPos = grid.GetWorldPosition(coords.x, coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
+                    Instantiate(towerPrefab, spawnPos, Quaternion.identity);
+                }
+                else
+                    Debug.Log("Tryed to place on an ocupied gridcell");
             }
         }
     }
