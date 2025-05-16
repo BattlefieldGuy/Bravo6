@@ -6,7 +6,6 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
-    private GameObject mouseDrag;
     private Camera cam;
     [SerializeField] private float spawnLine;
 
@@ -31,59 +30,7 @@ public class Touchscreen : MonoBehaviour
         cam = Camera.main;
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) //uitleg voor dit is hetzelfde als hier onder maar dan voor de muis
-        {
-            Vector2 screenPos = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(screenPos);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                GameObject target = hit.collider.gameObject;
-
-                Card card = target.GetComponent<Card>();
-
-                if (card != null)
-                {
-                    mouseDrag = target;
-                }
-            }
-        }
-
-
-        if (Input.GetMouseButton(0) && mouseDrag != null)
-        {
-            Vector2 screenPos = Input.mousePosition;
-            float z = cam.WorldToScreenPoint(mouseDrag.transform.position).z;
-            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, z));
-
-            mouseDrag.transform.position = worldPos;
-        }
-
-        if (Input.GetMouseButtonUp(0) && mouseDrag != null)
-        {
-            Vector3 spawnPos = mouseDrag.transform.position;
-            Card card = mouseDrag.GetComponent<Card>();
-            if (card != null)
-            {
-                if (spawnPos.z >= spawnLine)
-                {
-                    spawnPos.z = spawnLine;
-                    card.OnPlay(spawnPos);
-                }
-                else
-                {
-                    card.OnPlay(spawnPos);
-                }
-            }
-
-            Destroy(mouseDrag);
-            mouseDrag = null;
-        }
-    }
-
-    void OnFingerDown(Finger finger) //wat er gebeurt wanneer je vinger het scherm raakt
+    void OnFingerDown(Finger finger)
     {
         Vector2 screenPos = finger.screenPosition;
         Ray ray = cam.ScreenPointToRay(screenPos);
@@ -103,7 +50,7 @@ public class Touchscreen : MonoBehaviour
 
     void OnFingerMove(Finger finger)
     {
-        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard)) //verplaatst hetgene wat je hebt aangeraakt mee met je vinger
+        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
             Vector2 screenPos = finger.screenPosition;
             float z = cam.WorldToScreenPoint(draggedCard.transform.position).z;
@@ -113,7 +60,7 @@ public class Touchscreen : MonoBehaviour
         }
     }
 
-    void OnFingerUp(Finger finger) //laat de card functie uitvoeren wanneer je het hebt losgelaten 
+    void OnFingerUp(Finger finger)
     {
         if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
@@ -125,20 +72,13 @@ public class Touchscreen : MonoBehaviour
                 if (spawnPos.z > spawnLine)
                 {
                     spawnPos.z = spawnLine;
-                    card.OnPlay(spawnPos);
                 }
-                else
-                {
-                    card.OnPlay(spawnPos);
-                }
+
+                card.OnPlay(spawnPos);
             }
 
             Destroy(draggedCard);
             activeDrags.Remove(finger.index);
-            //plaats nieuwe kaart tussen de kaarten
         }
     }
-
 }
-
-
