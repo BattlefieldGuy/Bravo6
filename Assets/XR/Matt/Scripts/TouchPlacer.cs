@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TouchPlacer : MonoBehaviour
 {
+    public InputActionReference Touch;
+
     public GridManager grid;
     public GameObject gridTowerPrefab;
     public GameObject gridWallPrefab;
@@ -10,25 +13,18 @@ public class TouchPlacer : MonoBehaviour
 
     private bool[,] gridOcupied;
 
+    private void OnEnable()
+    {
+        Touch.action.performed += HandleTap;
+    }
+
     private void Start()
     {
         gridOcupied = new bool[grid.width, grid.height];
     }
-
-    void Update()
+    void HandleTap(InputAction.CallbackContext _ctx)
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            HandleTap(Input.GetTouch(0).position);
-
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
-            HandleTap(Input.mousePosition);
-#endif
-    }
-
-    void HandleTap(Vector2 _screenPos)
-    {
-        Ray _ray = Camera.main.ScreenPointToRay(_screenPos);
+        Ray _ray = Camera.main.ScreenPointToRay(_ctx.ReadValue<Vector2>());
         if (Physics.Raycast(_ray, out RaycastHit _hit))
         {
             Vector3 _hitPos = _hit.point;
