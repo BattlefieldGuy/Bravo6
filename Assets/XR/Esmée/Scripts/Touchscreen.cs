@@ -37,13 +37,16 @@ public class Touchscreen : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            GameObject target = hit.collider.gameObject;
-
-            Card card = target.GetComponent<Card>();
+            GameObject originalCard = hit.collider.gameObject;
+            Card card = originalCard.GetComponent<Card>();
 
             if (card != null)
             {
-                activeDrags[finger.index] = target;
+                // Maak een kopie van de kaart om te slepen
+                GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                activeDrags[finger.index] = cardCopy;
             }
         }
     }
@@ -72,6 +75,10 @@ public class Touchscreen : MonoBehaviour
                 if (spawnPos.z > spawnLine)
                 {
                     spawnPos.z = spawnLine;
+                }
+                if (spawnPos.z < 4.3)
+                {
+                    spawnPos.z = 4.3f;
                 }
 
                 card.OnPlay(spawnPos);
