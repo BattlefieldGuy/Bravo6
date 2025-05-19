@@ -1,0 +1,45 @@
+{
+    "name": "DefendersInput",
+    "maps": [
+        {
+            "name": "Touch",
+            "id": "3a6c1911-c96e-4338-a945-fc2ab8357380",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Value",
+                    "id": "5701b21a-9a70-46cd-abe5-ccae53b4a7e0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1fd26781-f774-4350-b5f8-157aa78754cc",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "83e8df4a-08ce-40c8-8c3e-d9762150e50c",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
