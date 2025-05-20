@@ -57,7 +57,7 @@ public class CoinManager : MonoBehaviour
         PassiveIncome();
 
 #if UNITY_EDITOR
-        debug();
+        //debug();
 #endif
     }
 
