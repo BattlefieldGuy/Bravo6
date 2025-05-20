@@ -7,15 +7,18 @@ public class Heart : MonoBehaviour
     public void TakeDamage(float _damage)
     {
         healt -= _damage;
-        CheckHealt();
+        if (CheckHealt())
+            Destroy(gameObject);
     }
 
-    public void CheckHealt()
+    public bool CheckHealt()
     {
         if (healt < 0.0001)
         {
             Debug.LogError("DEAD");
-            Destroy(gameObject);
+            return true;
         }
+        else
+            return false;
     }
 }
