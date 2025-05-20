@@ -10,7 +10,7 @@ public class GridItemPlacer : MonoBehaviour
         touchPlacer = FindFirstObjectByType<TouchPlacer>();
     }
 
-    public void SpawnItem(Vector2 _coords)
+    public void SpawnItem(Vector3 _coords)
     {
         touchPlacer.SpawnItem(_coords, itemToPlace);
     }

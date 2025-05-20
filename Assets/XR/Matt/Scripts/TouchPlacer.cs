@@ -16,18 +16,14 @@ public class TouchPlacer : MonoBehaviour
     }
     public void SpawnItem(Vector3 _itemPos, int _itemToPlace)
     {
-        Debug.Log("Activate function");
         ItemToPlace = _itemToPlace;
-        Debug.DrawRay(_itemPos, Vector3.down, color: Color.blue);
         if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
         {
-            Debug.Log("Ray hit something");
             Vector3 _hitPos = _hit.point;
             Vector2Int _coords = grid.GetGridCoordinates(_hitPos);
 
             if (grid.IsInBounds(_coords.x, _coords.y))
             {
-                Debug.Log("It's in bounds");
                 if (!gridOcupied[_coords.x, _coords.y])
                 {
                     Vector3 _spawnPos = grid.GetWorldPosition(_coords.x, _coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
@@ -36,12 +32,10 @@ public class TouchPlacer : MonoBehaviour
                     {
                         case 1:
                             _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, 180, 0, 180));
-                            Debug.Log("SpawnItem ??");
                             break;
                         case 2:
                             _spawnPos.y = 0.06f;
                             _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
-                            Debug.Log("SpawnItem ??");
                             break;
                         default:
                             break;
@@ -56,10 +50,7 @@ public class TouchPlacer : MonoBehaviour
                     }
                     else
                         Debug.LogError("Item to spawn is null");
-
                 }
-                else
-                    Debug.Log("Tryed to place on an ocupied gridcell");
             }
         }
     }
