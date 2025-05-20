@@ -72,6 +72,7 @@ public class Touchscreen : MonoBehaviour
                     // Maak een kopie van de kaart om te slepen
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
+                    _itemCopy.GetComponent<Collider>().isTrigger = true;
 
                     activeDrags[finger.index] = _itemCopy;
                 }
@@ -137,12 +138,24 @@ public class Touchscreen : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                GameObject originalCard = hit.collider.gameObject;
-                Card card = originalCard.GetComponent<Card>();
-
-                if (card != null)
+                if (hit.collider.GetComponent<Card>())
                 {
-                    mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+
+                    GameObject originalCard = hit.collider.gameObject;
+                    Card card = originalCard.GetComponent<Card>();
+
+                    if (card != null)
+                    {
+                        mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
+                        mouseDragging = true;
+                    }
+                }
+                else if (hit.collider.GetComponent<GridItemPlacer>())
+                {
+                    GameObject _itemCopy = hit.collider.gameObject;
+
+                    mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
                     mouseDragObject.tag = "Untagged";
                     mouseDragging = true;
                 }
@@ -164,15 +177,26 @@ public class Touchscreen : MonoBehaviour
             if (mouseDragObject != null)
             {
                 Vector3 spawnPos = mouseDragObject.transform.position;
-                Card card = mouseDragObject.GetComponent<Card>();
-
-                if (card != null)
+                if (mouseDragObject.GetComponent<Card>())
                 {
-                    if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
-                    if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
 
-                    card.OnPlay(spawnPos);
+                    Card card = mouseDragObject.GetComponent<Card>();
+
+                    if (card != null)
+                    {
+                        if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
+                        if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
+
+                        card.OnPlay(spawnPos);
+                    }
                 }
+                else if (mouseDragObject.GetComponent<GridItemPlacer>())
+                {
+                    GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
+                    _item.SpawnItem(spawnPos);
+                }
+
+
 
                 Destroy(mouseDragObject);
                 mouseDragObject = null;
