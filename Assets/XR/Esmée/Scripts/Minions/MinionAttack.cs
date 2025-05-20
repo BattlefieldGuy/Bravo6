@@ -43,7 +43,7 @@ public class MinionAttack : MonoBehaviour
             }
         }
 
-        /*if (collision.collider.tag == "GridWall")
+        if (collision.collider.tag == "GridWall")
         {
             if (coolDown <= 0)
             {
@@ -51,6 +51,6 @@ public class MinionAttack : MonoBehaviour
                 collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
-        }*/
+        }
     }
 }
