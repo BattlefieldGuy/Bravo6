@@ -50,22 +50,32 @@ public class Touchscreen : MonoBehaviour
             GameObject originalCard = hit.collider.gameObject;
             if (originalCard.GetComponent<Card>())
             {
+
+                Card card = originalCard.GetComponent<Card>();
+
+                if (card != null)
                 {
-                    Card card = originalCard.GetComponent<Card>();
+                    // Maak een kopie van de kaart om te slepen
+                    GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                    cardCopy.tag = "Untagged"; // voorkom dubbele selectie
 
-                    if (card != null)
-                    {
-                        // Maak een kopie van de kaart om te slepen
-                        GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
-                        cardCopy.tag = "Untagged"; // voorkom dubbele selectie
-
-                        activeDrags[finger.index] = cardCopy;
-                    }
+                    activeDrags[finger.index] = cardCopy;
                 }
+
             }
             else if (originalCard.GetComponent<GridItemPlacer>())
             {
+                GridItemPlacer _item = originalCard.GetComponent<GridItemPlacer>();
 
+                if (_item != null)
+                {
+                    // Maak een kopie van de kaart om te slepen
+                    GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                    _itemCopy.tag = "Untagged";// voorkom dubbele selectie
+                    _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                    activeDrags[finger.index] = _itemCopy;
+                }
             }
         }
     }
@@ -88,16 +98,28 @@ public class Touchscreen : MonoBehaviour
         {
             Vector3 spawnPos = draggedCard.transform.position;
 
-            Card card = draggedCard.GetComponent<Card>();
-            if (card != null)
+            if (draggedCard.GetComponent<Card>())
             {
-                if (spawnPos.z > spawnLine)
+
+                Card card = draggedCard.GetComponent<Card>();
+                if (card != null)
                 {
-                    spawnPos.z = spawnLine;
+                    if (spawnPos.z > spawnLine)
+                    {
+                        spawnPos.z = spawnLine;
+                    }
+
+
+                    card.OnPlay(spawnPos);
                 }
-
-
-                card.OnPlay(spawnPos);
+            }
+            else if (draggedCard.GetComponent<GridItemPlacer>())
+            {
+                GridItemPlacer _item = draggedCard.GetComponent<GridItemPlacer>();
+                if (_item != null)
+                {
+                    _item.SpawnItem(spawnPos);
+                }
             }
 
             Destroy(draggedCard);
@@ -116,12 +138,24 @@ public class Touchscreen : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                GameObject originalCard = hit.collider.gameObject;
-                Card card = originalCard.GetComponent<Card>();
-
-                if (card != null)
+                if (hit.collider.GetComponent<Card>())
                 {
-                    mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+
+                    GameObject originalCard = hit.collider.gameObject;
+                    Card card = originalCard.GetComponent<Card>();
+
+                    if (card != null)
+                    {
+                        mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
+                        mouseDragging = true;
+                    }
+                }
+                else if (hit.collider.GetComponent<GridItemPlacer>())
+                {
+                    GameObject _itemCopy = hit.collider.gameObject;
+
+                    mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
                     mouseDragObject.tag = "Untagged";
                     mouseDragging = true;
                 }
@@ -143,15 +177,26 @@ public class Touchscreen : MonoBehaviour
             if (mouseDragObject != null)
             {
                 Vector3 spawnPos = mouseDragObject.transform.position;
-                Card card = mouseDragObject.GetComponent<Card>();
-
-                if (card != null)
+                if (mouseDragObject.GetComponent<Card>())
                 {
-                    if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
-                    if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
 
-                    card.OnPlay(spawnPos);
+                    Card card = mouseDragObject.GetComponent<Card>();
+
+                    if (card != null)
+                    {
+                        if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
+                        if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
+
+                        card.OnPlay(spawnPos);
+                    }
                 }
+                else if (mouseDragObject.GetComponent<GridItemPlacer>())
+                {
+                    GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
+                    _item.SpawnItem(spawnPos);
+                }
+
+
 
                 Destroy(mouseDragObject);
                 mouseDragObject = null;
