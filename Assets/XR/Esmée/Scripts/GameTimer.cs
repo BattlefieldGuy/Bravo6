@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class GameTimer : MonoBehaviour
 {
-    private float endTimer = 300f;
+    private float endTimer = 300f; //5 minuten, 3m=180f
+    private Heart heart;
+
     void Start()
     {
-
+        heart = FindFirstObjectByType<Heart>();
     }
 
     void Update()
@@ -16,13 +18,21 @@ public class GameTimer : MonoBehaviour
         {
             TimeIsUp();
         }
+        //je zou kunnen doen van als timer op de helft is geef reminder. maar moeten even kijken qua art
     }
 
 
     private void TimeIsUp()
     {
-        Debug.Log("times up bbg");
-        //win/lose screen
+        bool _noHealth = heart.CheckHealth();
 
+        if (_noHealth)
+        {
+            Debug.Log("attacker wint");
+        }
+        else
+        {
+            Debug.Log("defender wint");
+        }
     }
 }
