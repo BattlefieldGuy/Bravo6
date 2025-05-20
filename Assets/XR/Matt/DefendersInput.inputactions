@@ -30,7 +30,7 @@
                 {
                     "name": "",
                     "id": "83e8df4a-08ce-40c8-8c3e-d9762150e50c",
-                    "path": "<Mouse>/position",
+                    "path": "<VirtualMouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
