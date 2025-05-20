@@ -48,15 +48,24 @@ public class Touchscreen : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             GameObject originalCard = hit.collider.gameObject;
-            Card card = originalCard.GetComponent<Card>();
-
-            if (card != null)
+            if (originalCard.GetComponent<Card>())
             {
-                // Maak een kopie van de kaart om te slepen
-                GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
-                cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+                {
+                    Card card = originalCard.GetComponent<Card>();
 
-                activeDrags[finger.index] = cardCopy;
+                    if (card != null)
+                    {
+                        // Maak een kopie van de kaart om te slepen
+                        GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                        activeDrags[finger.index] = cardCopy;
+                    }
+                }
+            }
+            else if (originalCard.GetComponent<GridItemPlacer>())
+            {
+
             }
         }
     }
