@@ -1,20 +1,17 @@
 using UnityEngine;
 
-public class GridItemPlacer
-    : MonoBehaviour
+public class GridItemPlacer : MonoBehaviour
 {
-    void Start()
-    {
+    [SerializeField] private int itemToPlace;
+    private TouchPlacer touchPlacer;
 
+    private void Start()
+    {
+        touchPlacer = FindFirstObjectByType<TouchPlacer>();
     }
 
-    void Update()
+    public void SpawnItem(Vector2 _coords)
     {
-
-    }
-
-    public void SpawnItem(Vector2 _coords, GameObject _item)
-    {
-
+        touchPlacer.SpawnItem(_coords, itemToPlace);
     }
 }
