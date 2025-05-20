@@ -18,12 +18,18 @@ public class TouchPlacer : MonoBehaviour
         Touch.action.performed += HandleTap;
     }
 
+    private void OnDisable()
+    {
+        Touch.action.performed -= HandleTap;
+    }
+
     private void Start()
     {
         gridOcupied = new bool[grid.width, grid.height];
     }
     void HandleTap(InputAction.CallbackContext _ctx)
     {
+        Debug.Log("Tap, Input is registering");
         Ray _ray = Camera.main.ScreenPointToRay(_ctx.ReadValue<Vector2>());
         if (Physics.Raycast(_ray, out RaycastHit _hit))
         {
