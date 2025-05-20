@@ -1,13 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+
+#if UNITY_EDITOR
+#endif
+
 
 public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
     private Camera cam;
     [SerializeField] private float spawnLine;
+
+
+    private bool mouseDragging = false;
+    private GameObject mouseDragObject;
+
 
     void OnEnable()
     {
@@ -37,13 +47,16 @@ public class Touchscreen : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            GameObject target = hit.collider.gameObject;
-
-            Card card = target.GetComponent<Card>();
+            GameObject originalCard = hit.collider.gameObject;
+            Card card = originalCard.GetComponent<Card>();
 
             if (card != null)
             {
-                activeDrags[finger.index] = target;
+                // Maak een kopie van de kaart om te slepen
+                GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                activeDrags[finger.index] = cardCopy;
             }
         }
     }
@@ -74,6 +87,7 @@ public class Touchscreen : MonoBehaviour
                     spawnPos.z = spawnLine;
                 }
 
+
                 card.OnPlay(spawnPos);
             }
 
@@ -81,4 +95,62 @@ public class Touchscreen : MonoBehaviour
             activeDrags.Remove(finger.index);
         }
     }
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        var mouse = Mouse.current;
+        if (mouse == null) return; // Geen muis aangesloten
+
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+            Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                GameObject originalCard = hit.collider.gameObject;
+                Card card = originalCard.GetComponent<Card>();
+
+                if (card != null)
+                {
+                    mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                    mouseDragObject.tag = "Untagged";
+                    mouseDragging = true;
+                }
+            }
+        }
+
+        if (mouseDragging && mouse.leftButton.isPressed)
+        {
+            if (mouseDragObject != null)
+            {
+                float z = cam.WorldToScreenPoint(mouseDragObject.transform.position).z;
+                Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(mouse.position.ReadValue().x, mouse.position.ReadValue().y, z));
+                mouseDragObject.transform.position = worldPos;
+            }
+        }
+
+        if (mouseDragging && mouse.leftButton.wasReleasedThisFrame)
+        {
+            if (mouseDragObject != null)
+            {
+                Vector3 spawnPos = mouseDragObject.transform.position;
+                Card card = mouseDragObject.GetComponent<Card>();
+
+                if (card != null)
+                {
+                    if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
+                    if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
+
+                    card.OnPlay(spawnPos);
+                }
+
+                Destroy(mouseDragObject);
+                mouseDragObject = null;
+                mouseDragging = false;
+            }
+        }
+    }
+#endif
+
+
 }
