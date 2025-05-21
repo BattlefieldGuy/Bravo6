@@ -1,13 +1,29 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameTimer : MonoBehaviour
 {
-    private float endTimer = 300f; //5 minuten, 3m=180f
+    private float endTimer = 65f; //5 minuten, 3m=180f
+    private float midTime;
     private Heart heart;
 
+    [SerializeField] private GameObject attackersWin;
+    [SerializeField] private GameObject defendersWin;
+
+    [SerializeField] private GameObject lastMinute;
+    [SerializeField] private GameObject timer1;
+    [SerializeField] private GameObject timer2;
+
+    private TMPro.TextMeshProUGUI timerText1;
+    private TMPro.TextMeshProUGUI timerText2;
     void Start()
     {
         heart = FindFirstObjectByType<Heart>();
+
+        midTime = 60;
+
+        timerText1 = timer1.GetComponent<TMPro.TextMeshProUGUI>();
+        timerText2 = timer2.GetComponent<TMPro.TextMeshProUGUI>();
     }
 
     void Update()
@@ -18,9 +34,12 @@ public class GameTimer : MonoBehaviour
         {
             TimeIsUp();
         }
-        //je zou kunnen doen van als timer op de helft is geef reminder. maar moeten even kijken qua art
-    }
 
+        if (endTimer <= midTime)
+        {
+            LastMinute();
+        }
+    }
 
     private void TimeIsUp()
     {
@@ -28,11 +47,33 @@ public class GameTimer : MonoBehaviour
 
         if (_noHealth)
         {
-            Debug.Log("attacker wint");
+            attackersWin.SetActive(true);
         }
         else
         {
-            Debug.Log("defender wint");
+            defendersWin.SetActive(true);
         }
+    }
+
+    private void LastMinute()
+    {
+        if (lastMinute != null)
+        {
+            lastMinute.SetActive(true);
+            timer1.SetActive(true);
+            timer2.SetActive(true);
+            StartCoroutine(enumerator());
+        }
+
+        int _time = ((int)endTimer);
+
+        timerText1.text = _time.ToString();
+        timerText2.text = _time.ToString();
+    }
+
+    private IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(lastMinute);
     }
 }
