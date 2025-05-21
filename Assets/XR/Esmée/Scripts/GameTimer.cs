@@ -1,22 +1,29 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameTimer : MonoBehaviour
 {
-    private float endTimer = 300f; //5 minuten, 3m=180f
+    private float endTimer = 65f; //5 minuten, 3m=180f
     private float midTime;
     private Heart heart;
 
     [SerializeField] private GameObject attackersWin;
     [SerializeField] private GameObject defendersWin;
 
-    [SerializeField] private GameObject halfTime;
-    [SerializeField] private GameObject timer;
+    [SerializeField] private GameObject lastMinute;
+    [SerializeField] private GameObject timer1;
+    [SerializeField] private GameObject timer2;
 
+    private TMPro.TextMeshProUGUI timerText1;
+    private TMPro.TextMeshProUGUI timerText2;
     void Start()
     {
         heart = FindFirstObjectByType<Heart>();
 
-        midTime = endTimer / 2;
+        midTime = 60;
+
+        timerText1 = timer1.GetComponent<TMPro.TextMeshProUGUI>();
+        timerText2 = timer2.GetComponent<TMPro.TextMeshProUGUI>();
     }
 
     void Update()
@@ -27,11 +34,11 @@ public class GameTimer : MonoBehaviour
         {
             TimeIsUp();
         }
-        else if (endTimer <= midTime)
+
+        if (endTimer <= midTime)
         {
-            HalfTime();
+            LastMinute();
         }
-        //je zou kunnen doen van als timer op de helft is geef reminder. maar moeten even kijken qua art
     }
 
     private void TimeIsUp()
@@ -48,13 +55,25 @@ public class GameTimer : MonoBehaviour
         }
     }
 
-    private void HalfTime()
+    private void LastMinute()
     {
-        if (halfTime != null)
+        if (lastMinute != null)
         {
-            halfTime.SetActive(true);
-            timer.SetActive(true);
+            lastMinute.SetActive(true);
+            timer1.SetActive(true);
+            timer2.SetActive(true);
+            StartCoroutine(enumerator());
         }
 
+        int _time = ((int)endTimer);
+
+        timerText1.text = _time.ToString();
+        timerText2.text = _time.ToString();
+    }
+
+    private IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(lastMinute);
     }
 }
