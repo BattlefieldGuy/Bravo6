@@ -11,6 +11,12 @@ public class MinionAttack : MonoBehaviour
     RaycastHit hit;
 
     [SerializeField] GameObject projectilePrefab;
+
+    MinionMovement movement;
+    private void Start()
+    {
+        movement = FindFirstObjectByType<MinionMovement>();
+    }
     void Update()
     {
         coolDown -= Time.deltaTime;
@@ -71,11 +77,18 @@ public class MinionAttack : MonoBehaviour
 
         if (_nearestTarget != null)
         {
+            movement.IsWalking = false;
+
             if (coolDown <= 0)
             {
                 Attacking(_nearestTarget);
                 coolDown = reload;
             }
+
+        }
+        else if (_nearestTarget == null)
+        {
+            movement.IsWalking = true;
         }
     }
 
