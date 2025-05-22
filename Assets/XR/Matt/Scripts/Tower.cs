@@ -77,7 +77,6 @@ public class Tower : MonoBehaviour
 
     void Attack(Transform _target)
     {
-        Debug.Log("Attack: " + _target.name);
         targetPosition = _target;
         GameObject _proj = Instantiate(projectilePrefab, muzzelLocation.transform.position, muzzelLocation.transform.rotation);
         audiosrc.PlayOneShot(ReturnShotClip());
