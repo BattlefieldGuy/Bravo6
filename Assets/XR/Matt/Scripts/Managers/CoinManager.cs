@@ -23,6 +23,8 @@ public class CoinManager : MonoBehaviour
 
     private int AttackersCoins;
 
+    private ShopManager shopManager;
+
     //Attackers side
     [Header("AttackersSide")]
 
@@ -35,6 +37,8 @@ public class CoinManager : MonoBehaviour
     [SerializeField][Range(0, 100)] private float baseStealTime;
     [SerializeField][Range(0.01f, 3)] private float stealLevelMultiplier;
 
+    [SerializeField] private int startersCoinsA;
+
     private float incomeTimer = 2;
 
     private int stealLevel = 1;
@@ -45,17 +49,24 @@ public class CoinManager : MonoBehaviour
     [Header("DefederSide")]
     [SerializeField][Range(0.01f, 2)] private float minionPrizeMultiplier;
 
+    [SerializeField] private int startersCoinsD;
+
 
     #endregion
 
     #region --- BASE FUNCTIONS ---
 
-    private void Awake() => INSTANCE = this;
-
-    //basic buy functions
-    static void LoseATCoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
-
-    static void LoseDECoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
+    private void Awake()
+    {
+        INSTANCE = this;
+        shopManager = FindFirstObjectByType<ShopManager>();
+    }
+    private void Start()
+    {
+        DefendersCoins = startersCoinsD;
+        AttackersCoins = startersCoinsA;
+        UpdateUI();
+    }
 
     private void Update()
     {
@@ -65,6 +76,19 @@ public class CoinManager : MonoBehaviour
         //debug();
 #endif
     }
+
+    //basic buy functions
+    static void LoseATCoins(int _amount)
+    {
+        INSTANCE.AttackersCoins -= _amount;
+    }
+    static void LoseDECoins(int _amount)
+    {
+        INSTANCE.AttackersCoins -= _amount;
+    }
+
+    void UpdateUI() => shopManager.UpdateUI(DefendersCoins, AttackersCoins);
+
 
     #endregion
 
@@ -81,6 +105,7 @@ public class CoinManager : MonoBehaviour
         //Debug.Log("Amount to add: " + _amount);
 #endif
         INSTANCE.AttackersCoins += _amount;
+        INSTANCE.UpdateUI();
     }
 
     private void PassiveIncome()
@@ -90,6 +115,7 @@ public class CoinManager : MonoBehaviour
         {
             AttackersCoins += passiveIncomeAmount;
             incomeTimer = passiveIncomeTime;
+            UpdateUI();
         }
     }
 
@@ -105,6 +131,7 @@ public class CoinManager : MonoBehaviour
                 DefendersCoins -= _amount;
                 AttackersCoins += _amount;
                 stealTimer = baseStealTime;//set timer back up
+                UpdateUI();
             }
         }
     }
@@ -124,6 +151,7 @@ public class CoinManager : MonoBehaviour
         Debug.Log("Killed a minion, Amount to gain: " + _amount);
 #endif
         INSTANCE.DefendersCoins += _amount;
+        INSTANCE.UpdateUI();
     }
 
     #endregion
