@@ -562,9 +562,9 @@ MonoBehaviour:
   cooldownT: 0
   towerLevel: 1
   towerPrize: 30
-  shotClip1: {fileID: 8300000, guid: 8de78908221d8ca4ca4e94d49174f824, type: 3}
-  shotClip2: {fileID: 8300000, guid: dc6f07fc43b8141469a578f5f8a535d1, type: 3}
-  shotClip3: {fileID: 8300000, guid: 0d76f2f1f092c414499f550b2c7f72af, type: 3}
+  shotClip1: {fileID: 8300000, guid: 33223e01cd80a8547921d9612f5b3ce8, type: 3}
+  shotClip2: {fileID: 8300000, guid: 05ad8815a2965224682d8fd86dd88153, type: 3}
+  shotClip3: {fileID: 8300000, guid: 413f875eec9b1b34c84344b15de79b4b, type: 3}
 --- !u!114 &1499627505625095187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
