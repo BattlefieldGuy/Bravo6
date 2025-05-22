@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: big minion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2546564948304790435, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_TagString
+      value: Minion
+      objectReference: {fileID: 0}
     - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05

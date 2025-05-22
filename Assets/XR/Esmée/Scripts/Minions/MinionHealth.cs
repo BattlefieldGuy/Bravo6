@@ -7,9 +7,6 @@ public class MinionHealth : MonoBehaviour
     private MinionScriptableObject MLevelData;
     private MinionScriptableObject MCostData;
 
-    private void Start()
-    {
-    }
     private void Update()
     {
         MDeath();
