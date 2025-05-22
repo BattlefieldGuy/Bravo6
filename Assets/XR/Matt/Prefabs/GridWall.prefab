@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6486386483180015653}
   - component: {fileID: 297085510238697992}
   - component: {fileID: 8426891433056195393}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GridWall
   m_TagString: GridWall
   m_Icon: {fileID: 0}

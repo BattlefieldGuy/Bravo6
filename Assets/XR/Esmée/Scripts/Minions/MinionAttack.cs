@@ -3,11 +3,14 @@ using UnityEngine;
 public class MinionAttack : MonoBehaviour
 {
     private float coolDown = 2;
+    private float reload = 2;
     public MinionScriptableObject MDamageData;
 
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layerMask;
     RaycastHit hit;
+
+    [SerializeField] GameObject projectilePrefab;
     void Update()
     {
         coolDown -= Time.deltaTime;
@@ -64,17 +67,16 @@ public class MinionAttack : MonoBehaviour
     {
         Collider[] _targets = Physics.OverlapSphere(transform.position, radius, layerMask);
 
-        Debug.Log(hit.collider.gameObject);
         Transform _nearestTarget = GetTarget(_targets);
 
         if (_nearestTarget != null)
         {
             if (coolDown <= 0)
             {
-
+                Attacking(_nearestTarget);
+                coolDown = reload;
             }
         }
-        //stop met lopen en schie
     }
 
     private Transform GetTarget(Collider[] _targets)
@@ -96,7 +98,10 @@ public class MinionAttack : MonoBehaviour
 
     private void Attacking(Transform _targets)
     {
+        GameObject _projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+        Projectile _projectileScript = _projectile.GetComponent<Projectile>();
 
+        _projectileScript.SetTarget(_targets);
     }
     void OnDrawGizmosSelected()
     {

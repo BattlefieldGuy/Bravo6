@@ -3926,7 +3926,7 @@ GameObject:
   - component: {fileID: 3150405809101611395}
   - component: {fileID: 367631287}
   - component: {fileID: 367631296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: main base walls
   m_TagString: Damageable
   m_Icon: {fileID: 0}
@@ -4344,6 +4344,10 @@ PrefabInstance:
     - target: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
       propertyPath: m_Name
       value: heart crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8456054331019114780, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
       propertyPath: m_LocalPosition.x
