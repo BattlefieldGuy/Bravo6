@@ -52,6 +52,11 @@ public class CoinManager : MonoBehaviour
 
     private void Awake() => INSTANCE = this;
 
+    //basic buy functions
+    static void LoseATCoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
+
+    static void LoseDECoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
+
     private void Update()
     {
         PassiveIncome();
@@ -60,11 +65,6 @@ public class CoinManager : MonoBehaviour
         //debug();
 #endif
     }
-
-    //basic buy functions
-    static void LoseATCoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
-
-    static void LoseDECoins(int _amount) => INSTANCE.AttackersCoins -= _amount;
 
     #endregion
 
