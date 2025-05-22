@@ -16,4 +16,5 @@ MonoBehaviour:
   MDamage: 30
   MCost: 15
   MLevel: 1
+  MPrize: 15
   MPrefab: {fileID: 6934259523891436259, guid: 57d0674d669d1524eae33d29ff558bb4, type: 3}

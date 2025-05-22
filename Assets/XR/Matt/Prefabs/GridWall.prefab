@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prize: 20
   Level: 1
-  health: 100
+  health: 200
 --- !u!65 &297085510238697992
 BoxCollider:
   m_ObjectHideFlags: 0

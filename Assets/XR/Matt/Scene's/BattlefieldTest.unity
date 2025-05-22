@@ -2293,6 +2293,7 @@ MonoBehaviour:
   Dammage: 5
   Level: 0
   Prize: 0
+  towerHealt: 100
   muzzelLocation: {fileID: 1572773013}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
   range: 1
@@ -7756,7 +7757,7 @@ MonoBehaviour:
   stealLevelMultiplier: 1
   startersCoinsA: 50
   minionPrizeMultiplier: 0.65
-  startersCoinsD: 50
+  startersCoinsD: 19
 --- !u!1 &1694091598
 GameObject:
   m_ObjectHideFlags: 0
@@ -8722,6 +8723,7 @@ MonoBehaviour:
   Dammage: 5
   Level: 0
   Prize: 0
+  towerHealt: 100
   muzzelLocation: {fileID: 402350668}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
   range: 1

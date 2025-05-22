@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour
     public int Level;
     public int Prize;
 
+    [SerializeField] private float towerHealt = 100f;
+
     [SerializeField] private GameObject muzzelLocation;
 
     [SerializeField] private GameObject projectilePrefab;
@@ -25,8 +27,6 @@ public class Tower : MonoBehaviour
     [SerializeField] private AudioClip shotClip3;
 
     private Transform targetPosition;
-
-    private float towerHealt = 100f;
 
     private AudioSource audiosrc;
 

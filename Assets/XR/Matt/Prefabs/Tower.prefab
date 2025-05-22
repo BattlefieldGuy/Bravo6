@@ -554,8 +554,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Dammage: 5
-  towerLevel: 1
-  towerPrize: 30
+  Level: 1
+  Prize: 30
+  towerHealt: 100
   muzzelLocation: {fileID: 4353283804938922685}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
   range: 0.8
