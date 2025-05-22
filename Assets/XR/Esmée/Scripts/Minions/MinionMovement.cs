@@ -24,7 +24,7 @@ public class MinionMovement : MonoBehaviour
         {
             if (wHealth.WallHealth >= 0f)
             {
-                transform.position += Vector3.forward * Time.deltaTime * MSpeedData.MSpeed;
+                transform.position += MSpeedData.MSpeed * Time.deltaTime * Vector3.forward;
             }
         }
         else

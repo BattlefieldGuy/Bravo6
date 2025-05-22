@@ -22,7 +22,7 @@ public class MinionAttack : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.collider.tag == "Damageable")
+        if (collision.collider.CompareTag("Damageable"))
         {
             if (coolDown <= 0)
             {
@@ -32,7 +32,7 @@ public class MinionAttack : MonoBehaviour
             }
         }
 
-        if (collision.collider.tag == "Heart")
+        if (collision.collider.CompareTag("Heart"))
         {
             if (coolDown <= 0)
             {
@@ -42,7 +42,7 @@ public class MinionAttack : MonoBehaviour
             }
         }
 
-        if (collision.collider.tag == "GridTower")
+        if (collision.collider.CompareTag("GridTower"))
         {
             if (coolDown <= 0)
             {
@@ -52,7 +52,7 @@ public class MinionAttack : MonoBehaviour
             }
         }
 
-        if (collision.collider.tag == "GridWall")
+        if (collision.collider.CompareTag("GridWall"))
         {
             if (coolDown <= 0)
             {
