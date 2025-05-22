@@ -19,9 +19,21 @@ public class Tower : MonoBehaviour
     [SerializeField] private int towerLevel;
     [SerializeField] private int towerPrize;
 
+    [Header("audio")]
+    [SerializeField] private AudioClip shotClip1;
+    [SerializeField] private AudioClip shotClip2;
+    [SerializeField] private AudioClip shotClip3;
+
     private Transform targetPosition;
 
     private float towerHealt = 100f;
+
+    private AudioSource audiosrc;
+
+    private void Start()
+    {
+        audiosrc = GetComponent<AudioSource>();
+    }
 
     public void TakeDamage(float _damageT)
     {
@@ -65,9 +77,9 @@ public class Tower : MonoBehaviour
 
     void Attack(Transform _target)
     {
-        Debug.Log("Attack: " + _target.name);
         targetPosition = _target;
         GameObject _proj = Instantiate(projectilePrefab, muzzelLocation.transform.position, muzzelLocation.transform.rotation);
+        audiosrc.PlayOneShot(ReturnShotClip());
         Projectile _projectile = _proj.GetComponent<Projectile>();
         _projectile.SetTarget(_target);
     }
@@ -96,6 +108,27 @@ public class Tower : MonoBehaviour
             return true;
         else return false;
     }
+
+    AudioClip ReturnShotClip()
+    {
+        int _int = Random.Range(1, 3);
+        switch (_int)
+        {
+            case 1:
+                return shotClip1;
+                break;
+            case 2:
+                return shotClip2;
+                break;
+            case 3:
+                return shotClip3;
+                break;
+            default:
+                return shotClip1;
+                break;
+        }
+    }
+
 
     //Debug
     void OnDrawGizmosSelected()

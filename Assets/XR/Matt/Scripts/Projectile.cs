@@ -16,7 +16,6 @@ public class Projectile : MonoBehaviour
     {
         if (target == null)
         {
-            Debug.Log("Target = null");
             Destroy(gameObject);
             return;
         }
@@ -27,11 +26,35 @@ public class Projectile : MonoBehaviour
         float _distance = Vector3.Distance(transform.position, target.position);
         if (_distance < 0.1f)
         {
-            MinionHealth _enemy = target.GetComponent<MinionHealth>();
-            if (_enemy != null)
+            if (target.GetComponent<LayerMask>() == 6)
             {
-                _enemy.TakeDamage(Damage);
-                Destroy(gameObject);
+                MinionHealth _enemy = target.GetComponent<MinionHealth>();
+                if (_enemy != null)
+                {
+                    _enemy.TakeDamage(Damage);
+                    Destroy(gameObject);
+                }
+            }
+            else if (target.GetComponent<LayerMask>() == 7)
+            {
+                if (target.CompareTag("GridWall"))
+                {
+                    GridWall _target = target.GetComponent<GridWall>();
+                    if (_target != null)
+                    {
+                        _target.TakeDamage(Damage);
+                        Destroy(gameObject);
+                    }
+                }
+                else if (target.CompareTag("GridTower"))
+                {
+                    Tower _target = target.GetComponent<Tower>();
+                    if (_target != null)
+                    {
+                        _target.TakeDamage(Damage);
+                        Destroy(gameObject);
+                    }
+                }
             }
         }
     }
