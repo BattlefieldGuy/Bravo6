@@ -6,8 +6,8 @@ public class MinionHealth : MonoBehaviour
     private float maxHealth;
     [SerializeField] private Image bar;
 
-    private MinionScriptableObject MLevelData;
-    private MinionScriptableObject MCostData;
+    public MinionScriptableObject MLevelData;
+    public MinionScriptableObject MPrizeData;
 
     private void Start()
     {
@@ -28,7 +28,7 @@ public class MinionHealth : MonoBehaviour
     {
         if (mHealth <= 0)
         {
-            //CoinManager.GainMinionPrize(MLevelData.MLevel, MCostData.MCost);
+            CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
             Destroy(gameObject);
         }
     }

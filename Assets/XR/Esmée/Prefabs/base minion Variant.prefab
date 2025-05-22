@@ -186,6 +186,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 861369584779979678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 1409588727546530244}
+    - target: {fileID: 861369584779979678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: MLevelData
+      value: 
+      objectReference: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+    - target: {fileID: 861369584779979678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: MPrizeData
+      value: 
+      objectReference: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+    - target: {fileID: 861369584779979678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: MHealthData
       value: 
       objectReference: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
