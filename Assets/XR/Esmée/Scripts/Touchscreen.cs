@@ -104,12 +104,6 @@ public class Touchscreen : MonoBehaviour
                 Card card = draggedCard.GetComponent<Card>();
                 if (card != null)
                 {
-                    if (spawnPos.z > spawnLine)
-                    {
-                        spawnPos.z = spawnLine;
-                    }
-
-
                     card.OnPlay(spawnPos);
                 }
             }
@@ -184,9 +178,6 @@ public class Touchscreen : MonoBehaviour
 
                     if (card != null)
                     {
-                        if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
-                        if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
-
                         card.OnPlay(spawnPos);
                     }
                 }

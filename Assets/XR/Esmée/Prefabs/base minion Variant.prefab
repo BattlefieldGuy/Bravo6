@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: heart
       value: 
-      objectReference: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
+      objectReference: {fileID: 3107774997365023158, guid: a99e83e7aa55db048b213b32362de6bc, type: 3}
     - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: heart.x
       value: -4.28
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
     - target: {fileID: 8726078796428322095, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
