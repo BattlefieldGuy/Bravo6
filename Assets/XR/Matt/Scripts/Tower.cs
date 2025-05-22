@@ -112,21 +112,13 @@ public class Tower : MonoBehaviour
     AudioClip ReturnShotClip()
     {
         int _int = Random.Range(1, 3);
-        switch (_int)
+        return _int switch
         {
-            case 1:
-                return shotClip1;
-                break;
-            case 2:
-                return shotClip2;
-                break;
-            case 3:
-                return shotClip3;
-                break;
-            default:
-                return shotClip1;
-                break;
-        }
+            1 => shotClip1,
+            2 => shotClip2,
+            3 => shotClip3,
+            _ => shotClip1,
+        };
     }
 
 
