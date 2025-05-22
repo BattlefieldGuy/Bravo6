@@ -3,6 +3,13 @@ using UnityEngine;
 public class MinionHealth : MonoBehaviour
 {
     private float mHealth = 100;
+
+    private MinionScriptableObject MLevelData;
+    private MinionScriptableObject MCostData;
+
+    private void Start()
+    {
+    }
     private void Update()
     {
         MDeath();
@@ -17,6 +24,7 @@ public class MinionHealth : MonoBehaviour
     {
         if (mHealth <= 0)
         {
+            CoinManager.GainMinionPrize(MLevelData.MLevel, MCostData.MCost);
             Destroy(gameObject);
         }
     }

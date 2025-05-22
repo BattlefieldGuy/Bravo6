@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: range minion Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2546564948304790435, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_TagString
+      value: Range
+      objectReference: {fileID: 0}
     - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.589
@@ -61,6 +65,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3107774997365023158, guid: a99e83e7aa55db048b213b32362de6bc, type: 3}
     - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: heart.x
       value: -4.28
       objectReference: {fileID: 0}
@@ -76,10 +84,42 @@ PrefabInstance:
       propertyPath: MSpeedData
       value: 
       objectReference: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: maxDistance
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6174295212866699678, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191660929783499863, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7191660929783499863, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: MDamageData
       value: 
       objectReference: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+    - target: {fileID: 7191660929783499863, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191660929783499863, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 8550301240954543888, guid: 9d77751cfd2e77446aa3a6a5496df894, type: 3}
+    - target: {fileID: 8396142566655609375, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_Size.x
+      value: 4.6296043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396142566655609375, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_Size.z
+      value: 5.027768
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396142566655609375, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_Center.z
+      value: 0.039251164
+      objectReference: {fileID: 0}
     - target: {fileID: 8726078796428322095, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_Constraints
       value: 116

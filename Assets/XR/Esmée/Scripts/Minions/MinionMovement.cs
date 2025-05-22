@@ -7,6 +7,8 @@ public class MinionMovement : MonoBehaviour
 
     public MinionScriptableObject MSpeedData;
 
+
+
     private void Start()
     {
         wHealth = FindFirstObjectByType<Wall>();
@@ -30,5 +32,4 @@ public class MinionMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, heart.transform.position, Time.deltaTime * MSpeedData.MSpeed);
         }
     }
-
 }
