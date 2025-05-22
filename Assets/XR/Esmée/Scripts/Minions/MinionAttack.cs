@@ -5,10 +5,16 @@ public class MinionAttack : MonoBehaviour
     private float coolDown = 2;
     public MinionScriptableObject MDamageData;
 
-
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask layerMask;
+    RaycastHit hit;
     void Update()
     {
         coolDown -= Time.deltaTime;
+        if (CompareTag("Range"))
+        {
+            RangeMinion();
+        }
     }
 
     private void OnCollisionStay(Collision collision)
@@ -52,5 +58,49 @@ public class MinionAttack : MonoBehaviour
                 coolDown = 2;
             }
         }
+    }
+
+    private void RangeMinion()
+    {
+        Collider[] _targets = Physics.OverlapSphere(transform.position, radius, layerMask);
+
+        Debug.Log(hit.collider.gameObject);
+        Transform _nearestTarget = GetTarget(_targets);
+
+        if (_nearestTarget != null)
+        {
+            if (coolDown <= 0)
+            {
+
+            }
+        }
+        //stop met lopen en schie
+    }
+
+    private Transform GetTarget(Collider[] _targets)
+    {
+        float _minDistance = Mathf.Infinity;
+        Transform _nearest = null;
+
+        foreach (var _target in _targets)
+        {
+            float _dist = Vector3.Distance(transform.position, _target.transform.position);
+            if (_dist < _minDistance)
+            {
+                _minDistance = _dist;
+                _nearest = _target.transform;
+            }
+        }
+        return _nearest;
+    }
+
+    private void Attacking(Transform _targets)
+    {
+
+    }
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

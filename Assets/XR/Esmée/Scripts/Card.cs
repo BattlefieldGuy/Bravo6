@@ -13,10 +13,10 @@ public class Card : MonoBehaviour
         hasBeenPlayed = true;
 
         if (_spawnPosition.z > spawnLine) _spawnPosition.z = spawnLine;
-        if (_spawnPosition.z < 4.3f) _spawnPosition.z = 4.3f;
         if (_spawnPosition.x < -5.2f) _spawnPosition.x = -5.2f;
         if (_spawnPosition.x > -3.3f) _spawnPosition.x = -3.3f;
 
+        if (_spawnPosition.z < 4.3f) _spawnPosition.z = 4.3f; //niet plaatsen
         {
             if (prefabData != null && prefabData.MPrefab != null)
             {
