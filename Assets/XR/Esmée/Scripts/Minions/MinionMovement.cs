@@ -7,6 +7,8 @@ public class MinionMovement : MonoBehaviour
 
     public MinionScriptableObject MSpeedData;
 
+    public bool IsWalking = true;
+
 
 
     private void Start()
@@ -15,7 +17,8 @@ public class MinionMovement : MonoBehaviour
     }
     void Update()
     {
-        Walking();
+        if (IsWalking)
+            Walking();
     }
 
     private void Walking()
