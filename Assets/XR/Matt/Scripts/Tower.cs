@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class Tower : MonoBehaviour
     public int Level;
     public int Prize;
 
-    [SerializeField] private float towerHealt = 100f;
+    [SerializeField] private float towerHealth = 100f;
+    private float maxTowerHealth = 100f;
 
     [SerializeField] private GameObject muzzelLocation;
 
@@ -26,6 +28,8 @@ public class Tower : MonoBehaviour
     [SerializeField] private AudioClip shotClip2;
     [SerializeField] private AudioClip shotClip3;
 
+    [SerializeField] private Image bar;
+
     private Transform targetPosition;
 
     private AudioSource audiosrc;
@@ -37,7 +41,7 @@ public class Tower : MonoBehaviour
 
     public void TakeDamage(float _damageT)
     {
-        towerHealt -= _damageT;
+        towerHealth -= _damageT;
         if (CheckHealt())
         {
             CoinManager.GainTowerPrize(Level, Prize);
@@ -47,6 +51,8 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        bar.fillAmount = Mathf.Clamp(towerHealth / maxTowerHealth, 0, 1);
+
         cooldownT -= Time.deltaTime;
 
         Collider[] _enemiesInRange = Physics.OverlapSphere(transform.position, range, Mask);
@@ -104,7 +110,7 @@ public class Tower : MonoBehaviour
 
     bool CheckHealt()
     {
-        if (towerHealt <= 0)
+        if (towerHealth <= 0)
             return true;
         else return false;
     }
