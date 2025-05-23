@@ -19,6 +19,9 @@ public class Touchscreen : MonoBehaviour
     private GameObject mouseDragObject;
 
 
+    private TouchPlacer touchPlacer;
+
+
     void OnEnable()
     {
         EnhancedTouchSupport.Enable();
@@ -38,6 +41,7 @@ public class Touchscreen : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        touchPlacer = FindFirstObjectByType<TouchPlacer>();
     }
 
     void OnFingerDown(Finger finger)
@@ -73,6 +77,10 @@ public class Touchscreen : MonoBehaviour
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
                     _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                    int _itemID = _item.ItemToPlace;
+                    int _prize = touchPlacer.ReturnPrize(_itemID);
+                    CoinManager.LoseDECoins(_prize);
 
                     activeDrags[finger.index] = _itemCopy;
                 }

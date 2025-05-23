@@ -10,6 +10,7 @@ public class TouchPlacer : MonoBehaviour
 
     private bool[,] gridOcupied;
 
+    private int prizeToReturn;
     private void Start()
     {
         gridOcupied = new bool[grid.width, grid.height];
@@ -52,7 +53,29 @@ public class TouchPlacer : MonoBehaviour
                         Debug.LogError("Item to spawn is null");
                 }
             }
+            else
+            {
+                CoinManager.AddDECoins(prizeToReturn);
+            }
         }
+    }
+
+    public int ReturnPrize(int _itemToPlace)
+    {
+        switch (_itemToPlace)
+        {
+            case 1:
+                prizeToReturn = gridTowerPrefab.GetComponent<Tower>().Prize;
+                Debug.Log(prizeToReturn);
+                return prizeToReturn;
+            case 2:
+                prizeToReturn = gridWallPrefab.GetComponent<GridWall>().Prize;
+                Debug.Log(prizeToReturn);
+                return prizeToReturn;
+            default:
+                return 0;
+        }
+        ;
     }
 
     public void FreeGridCell(Vector2Int _coords)

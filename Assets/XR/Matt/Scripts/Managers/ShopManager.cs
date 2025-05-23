@@ -12,9 +12,9 @@ public class ShopManager : MonoBehaviour
     //more towers later
 
     [SerializeField] private GameObject gridTowerDisplay;
-    bool isTowerDisplayVisable = false;
+    bool isTowerDisplayVisable = true;
     [SerializeField] private GameObject gridWallDisplay;
-    bool isWallDisplayVisable = false;
+    bool isWallDisplayVisable = true;
 
     [Header("UI")]
     [SerializeField] private GameObject coinCountD;
@@ -34,10 +34,6 @@ public class ShopManager : MonoBehaviour
 
         gridTowerPrize = gridTowerScript.Prize;
         gridWallPrize = gridWallScript.Prize;
-    }
-
-    void Update()
-    {
 
     }
 
@@ -55,23 +51,35 @@ public class ShopManager : MonoBehaviour
         if (_defendersCoins >= gridTowerPrize)
         {
             if (!isTowerDisplayVisable)
+            {
                 gridTowerDisplay.SetActive(true);//able to buy
+                isTowerDisplayVisable = true;
+            }
         }
         else if (_defendersCoins < gridTowerPrize)
         {
             if (isTowerDisplayVisable)
+            {
                 gridTowerDisplay.SetActive(false);//can not buy
+                isTowerDisplayVisable = false;
+            }
         }
         //wall
         if (_defendersCoins >= gridWallPrize)
         {
             if (!isWallDisplayVisable)
+            {
                 gridWallDisplay.SetActive(true);//able to buy
+                isWallDisplayVisable = true;
+            }
         }
         else if (_defendersCoins < gridWallPrize)
         {
             if (isWallDisplayVisable)
+            {
                 gridWallDisplay.SetActive(false);//can not buy
+                isWallDisplayVisable = false;
+            }
         }
     }
 }

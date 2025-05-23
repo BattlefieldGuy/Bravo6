@@ -1909,7 +1909,6 @@ GameObject:
   - component: {fileID: 588923683}
   - component: {fileID: 588923682}
   - component: {fileID: 588923681}
-  - component: {fileID: 588923684}
   m_Layer: 0
   m_Name: GridTowerBuyable
   m_TagString: GridTower
@@ -1947,7 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7cc0ac77d5196544b0b2ed65fb8740d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToPlace: 1
+  ItemToPlace: 1
 --- !u!65 &588923682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1983,23 +1982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GridPosition: {x: 0, y: 0}
   TouchPlacer: {fileID: 0}
---- !u!111 &588923684
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 588923679}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: ef3bbe66e471dd241aae8fea2268ec56, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: ef3bbe66e471dd241aae8fea2268ec56, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1 &614146195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4235,7 +4217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &990542786
 Transform:
   m_ObjectHideFlags: 0
@@ -4264,7 +4246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7cc0ac77d5196544b0b2ed65fb8740d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemToPlace: 2
+  ItemToPlace: 2
 --- !u!114 &990542788
 MonoBehaviour:
   m_ObjectHideFlags: 0
