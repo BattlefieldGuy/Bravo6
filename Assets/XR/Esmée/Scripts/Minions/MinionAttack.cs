@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class MinionAttack : MonoBehaviour
 {
+    public MinionScriptableObject MDamageData;
     private float coolDown = 2;
     private float reload = 2;
-    public MinionScriptableObject MDamageData;
 
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layerMask;
-    RaycastHit hit;
 
     [SerializeField] GameObject projectilePrefab;
 
@@ -32,7 +31,6 @@ public class MinionAttack : MonoBehaviour
         {
             if (coolDown <= 0)
             {
-                Debug.Log("hit!");
                 collision.gameObject.GetComponent<Wall>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
@@ -42,7 +40,6 @@ public class MinionAttack : MonoBehaviour
         {
             if (coolDown <= 0)
             {
-                Debug.Log("POOF");
                 collision.gameObject.GetComponent<Heart>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
@@ -52,7 +49,6 @@ public class MinionAttack : MonoBehaviour
         {
             if (coolDown <= 0)
             {
-                Debug.Log("boing");
                 collision.gameObject.GetComponent<Tower>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
@@ -62,7 +58,6 @@ public class MinionAttack : MonoBehaviour
         {
             if (coolDown <= 0)
             {
-                Debug.Log("boing");
                 collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
                 coolDown = 2;
             }
