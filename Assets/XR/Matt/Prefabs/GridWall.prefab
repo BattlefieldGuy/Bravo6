@@ -101,7 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dff7fdee43b10a4fa7b549b5d9a775c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  Prize: 20
+  Level: 1
+  health: 200
 --- !u!65 &297085510238697992
 BoxCollider:
   m_ObjectHideFlags: 0

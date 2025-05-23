@@ -6,6 +6,11 @@ public class Tower : MonoBehaviour
 
     public float Dammage = 5;
 
+    public int Level;
+    public int Prize;
+
+    [SerializeField] private float towerHealt = 100f;
+
     [SerializeField] private GameObject muzzelLocation;
 
     [SerializeField] private GameObject projectilePrefab;
@@ -16,17 +21,12 @@ public class Tower : MonoBehaviour
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
-    [SerializeField] private int towerLevel;
-    [SerializeField] private int towerPrize;
-
     [Header("audio")]
     [SerializeField] private AudioClip shotClip1;
     [SerializeField] private AudioClip shotClip2;
     [SerializeField] private AudioClip shotClip3;
 
     private Transform targetPosition;
-
-    private float towerHealt = 100f;
 
     private AudioSource audiosrc;
 
@@ -40,7 +40,7 @@ public class Tower : MonoBehaviour
         towerHealt -= _damageT;
         if (CheckHealt())
         {
-            CoinManager.GainTowerPrize(towerLevel, towerPrize);
+            CoinManager.GainTowerPrize(Level, Prize);
             this.GetComponent<CellManager>().DestroyItem();
         }
     }
