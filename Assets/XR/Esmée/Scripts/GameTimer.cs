@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
-    private float endTimer = 65f; //5 minuten, 3m=180f
+    private float endTimer = 300f; //5 minuten, 3m=180f
     private float midTime;
     private Heart heart;
 
@@ -53,6 +54,7 @@ public class GameTimer : MonoBehaviour
         {
             defendersWin.SetActive(true);
         }
+        LoadStartScene();
     }
 
     private void LastMinute()
@@ -75,5 +77,16 @@ public class GameTimer : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         Destroy(lastMinute);
+    }
+
+    private void LoadStartScene()
+    {
+        Destroy(timerText1);
+        Destroy(timerText2);
+
+        if (endTimer <= -5)
+        {
+            SceneManager.LoadScene("StartScene");
+        }
     }
 }
