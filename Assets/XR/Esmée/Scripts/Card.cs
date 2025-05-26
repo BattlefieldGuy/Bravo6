@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    [Range(1f, 20f)]
+    public int CardCost;
+
     [SerializeField] private MinionScriptableObject prefabData;
     [SerializeField] private float spawnLine;
 

@@ -19,9 +19,9 @@ public class CoinManager : MonoBehaviour
     //Base Vars
     public static CoinManager INSTANCE;
 
-    private int DefendersCoins;
+    public static int DefendersCoins;
 
-    private int AttackersCoins;
+    public static int AttackersCoins;
 
     private ShopManager shopManager;
 
@@ -80,18 +80,18 @@ public class CoinManager : MonoBehaviour
     //basic buy functions
     public static void LoseATCoins(int _amount)
     {
-        INSTANCE.AttackersCoins -= _amount;
+        AttackersCoins -= _amount;
         INSTANCE.UpdateUI();
     }
     public static void LoseDECoins(int _amount)
     {
-        INSTANCE.DefendersCoins -= _amount;
+        DefendersCoins -= _amount;
         INSTANCE.UpdateUI();
     }
 
     public static void AddDECoins(int _amount)
     {
-        INSTANCE.DefendersCoins += _amount;
+        DefendersCoins += _amount;
         INSTANCE.UpdateUI();
     }
 
@@ -112,7 +112,7 @@ public class CoinManager : MonoBehaviour
 #if UNITY_EDITOR //Debug
         //Debug.Log("Amount to add: " + _amount);
 #endif
-        INSTANCE.AttackersCoins += _amount;
+        AttackersCoins += _amount;
         INSTANCE.UpdateUI();
     }
 
@@ -158,7 +158,7 @@ public class CoinManager : MonoBehaviour
 #if UNITY_EDITOR
         Debug.Log("Killed a minion, Amount to gain: " + _amount);
 #endif
-        INSTANCE.DefendersCoins += _amount;
+        DefendersCoins += _amount;
         INSTANCE.UpdateUI();
     }
 

@@ -57,11 +57,13 @@ public class Touchscreen : MonoBehaviour
 
                 Card card = originalCard.GetComponent<Card>();
 
-                if (card != null)
+                if (card != null && CoinManager.AttackersCoins >= card.CardCost)
                 {
                     // Maak een kopie van de kaart om te slepen
                     GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                    CoinManager.LoseATCoins(card.CardCost);
 
                     activeDrags[finger.index] = cardCopy;
                 }
