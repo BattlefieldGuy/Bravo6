@@ -9,8 +9,9 @@ public class GridWall : MonoBehaviour
     [SerializeField] private float health;
     private float maxHealth;
 
-
     [SerializeField] private Image bar;
+
+    [SerializeField] private GameObject particleSystem;
 
     private void Start()
     {
@@ -29,6 +30,11 @@ public class GridWall : MonoBehaviour
         {
             this.GetComponent<CellManager>().DestroyItem();
         }
+    }
+
+    public void ActivatePS()
+    {
+        particleSystem.GetComponent<ParticleSystem>().Play();
     }
 
     private void Update()
