@@ -51,7 +51,8 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        bar.fillAmount = Mathf.Clamp(towerHealth / maxTowerHealth, 0, 1);
+        if (bar != null)
+            bar.fillAmount = Mathf.Clamp(towerHealth / maxTowerHealth, 0, 1);
 
         cooldownT -= Time.deltaTime;
 
