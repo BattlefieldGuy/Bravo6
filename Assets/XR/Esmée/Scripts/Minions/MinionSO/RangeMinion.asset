@@ -15,4 +15,6 @@ MonoBehaviour:
   MSpeed: 0.1
   MDamage: 20
   MCost: 10
+  MLevel: 1
+  MPrize: 10
   MPrefab: {fileID: 4062796152135761004, guid: 638b05b9536aee84c8a5e9e4a54a34b0, type: 3}

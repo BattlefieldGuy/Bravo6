@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Main/Scene's/StartScene.unity
+    guid: 44640031bde8c0f4fae2f192aa403347
+  - enabled: 1
+    path: Assets/Main/Scene's/MainScene.unity
+    guid: b5d68ca10b688994b90c0b4cbee823ae
   - enabled: 0
     path: Assets/XR/Matt/Scene's/MattsTestScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
@@ -12,9 +18,6 @@ EditorBuildSettings:
     path: "Assets/XR/Esm\xE9e/Scenes/E-main.unity"
     guid: a40173aa176fb6f40ac2aee25da151a2
   - enabled: 0
-    path: Assets/Main/Scene's/MainScene.unity
-    guid: b5d68ca10b688994b90c0b4cbee823ae
-  - enabled: 1
     path: Assets/XR/Matt/Scene's/DragSystemTest.unity
     guid: 07de9218d088b8b4cbb2c5a4c1868f21
   m_configObjects:

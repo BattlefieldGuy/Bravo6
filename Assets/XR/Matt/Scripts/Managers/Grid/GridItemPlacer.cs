@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GridItemPlacer : MonoBehaviour
 {
-    [SerializeField] private int itemToPlace;
+    public int ItemToPlace;
     private TouchPlacer touchPlacer;
 
     private void Start()
@@ -12,6 +12,6 @@ public class GridItemPlacer : MonoBehaviour
 
     public void SpawnItem(Vector3 _coords)
     {
-        touchPlacer.SpawnItem(_coords, itemToPlace);
+        touchPlacer.SpawnItem(_coords, ItemToPlace);
     }
 }

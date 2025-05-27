@@ -1,8 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridWall : MonoBehaviour
 {
-    [SerializeField] private float health = 100;
+    public int Prize;
+    public int Level;
+
+    [SerializeField] private float health;
+    private float maxHealth;
+
+
+    [SerializeField] private Image bar;
+
+    private void Start()
+    {
+        maxHealth = health;
+    }
 
     public void TakeDamage(float _damage)
     {
@@ -16,5 +29,10 @@ public class GridWall : MonoBehaviour
         {
             this.GetComponent<CellManager>().DestroyItem();
         }
+    }
+
+    private void Update()
+    {
+        bar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
     }
 }

@@ -19,6 +19,9 @@ public class Touchscreen : MonoBehaviour
     private GameObject mouseDragObject;
 
 
+    private TouchPlacer touchPlacer;
+
+
     void OnEnable()
     {
         EnhancedTouchSupport.Enable();
@@ -38,6 +41,7 @@ public class Touchscreen : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        touchPlacer = FindFirstObjectByType<TouchPlacer>();
     }
 
     void OnFingerDown(Finger finger)
@@ -53,11 +57,13 @@ public class Touchscreen : MonoBehaviour
 
                 Card card = originalCard.GetComponent<Card>();
 
-                if (card != null)
+                if (card != null && CoinManager.AttackersCoins >= card.CardCost)
                 {
                     // Maak een kopie van de kaart om te slepen
                     GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                    CoinManager.LoseATCoins(card.CardCost);
 
                     activeDrags[finger.index] = cardCopy;
                 }
@@ -73,6 +79,10 @@ public class Touchscreen : MonoBehaviour
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
                     _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                    int _itemID = _item.ItemToPlace;
+                    int _prize = touchPlacer.ReturnPrize(_itemID);
+                    CoinManager.LoseDECoins(_prize);
 
                     activeDrags[finger.index] = _itemCopy;
                 }
@@ -104,12 +114,6 @@ public class Touchscreen : MonoBehaviour
                 Card card = draggedCard.GetComponent<Card>();
                 if (card != null)
                 {
-                    if (spawnPos.z > spawnLine)
-                    {
-                        spawnPos.z = spawnLine;
-                    }
-
-
                     card.OnPlay(spawnPos);
                 }
             }
@@ -144,10 +148,14 @@ public class Touchscreen : MonoBehaviour
                     GameObject originalCard = hit.collider.gameObject;
                     Card card = originalCard.GetComponent<Card>();
 
-                    if (card != null)
+                    if (card != null && CoinManager.AttackersCoins >= card.CardCost)
                     {
+                        Debug.Log("card cost = " + card.CardCost);
                         mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                         mouseDragObject.tag = "Untagged";
+
+                        CoinManager.LoseATCoins(card.CardCost);
+
                         mouseDragging = true;
                     }
                 }
@@ -184,9 +192,6 @@ public class Touchscreen : MonoBehaviour
 
                     if (card != null)
                     {
-                        if (spawnPos.z > spawnLine) spawnPos.z = spawnLine;
-                        if (spawnPos.z < 4.3f) spawnPos.z = 4.3f;
-
                         card.OnPlay(spawnPos);
                     }
                 }

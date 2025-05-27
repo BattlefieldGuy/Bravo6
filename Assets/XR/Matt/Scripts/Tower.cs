@@ -1,10 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
     public LayerMask Mask;
 
     public float Dammage = 5;
+
+    public int Level;
+    public int Prize;
+
+    [SerializeField] private float towerHealth = 100f;
+    private float maxTowerHealth = 100f;
 
     [SerializeField] private GameObject muzzelLocation;
 
@@ -16,25 +23,36 @@ public class Tower : MonoBehaviour
     [SerializeField] float attackCooldown = 1f;
     [SerializeField] float cooldownT = 0f;
 
-    [SerializeField] private int towerLevel;
-    [SerializeField] private int towerPrize;
+    [Header("audio")]
+    [SerializeField] private AudioClip shotClip1;
+    [SerializeField] private AudioClip shotClip2;
+    [SerializeField] private AudioClip shotClip3;
+
+    [SerializeField] private Image bar;
 
     private Transform targetPosition;
 
-    private float towerHealt = 100f;
+    private AudioSource audiosrc;
+
+    private void Start()
+    {
+        audiosrc = GetComponent<AudioSource>();
+    }
 
     public void TakeDamage(float _damageT)
     {
-        towerHealt -= _damageT;
+        towerHealth -= _damageT;
         if (CheckHealt())
         {
-            CoinManager.GainTowerPrize(towerLevel, towerPrize);
+            CoinManager.GainTowerPrize(Level, Prize);
             this.GetComponent<CellManager>().DestroyItem();
         }
     }
 
     void Update()
     {
+        bar.fillAmount = Mathf.Clamp(towerHealth / maxTowerHealth, 0, 1);
+
         cooldownT -= Time.deltaTime;
 
         Collider[] _enemiesInRange = Physics.OverlapSphere(transform.position, range, Mask);
@@ -65,9 +83,9 @@ public class Tower : MonoBehaviour
 
     void Attack(Transform _target)
     {
-        Debug.Log("Attack: " + _target.name);
         targetPosition = _target;
         GameObject _proj = Instantiate(projectilePrefab, muzzelLocation.transform.position, muzzelLocation.transform.rotation);
+        audiosrc.PlayOneShot(ReturnShotClip());
         Projectile _projectile = _proj.GetComponent<Projectile>();
         _projectile.SetTarget(_target);
     }
@@ -92,10 +110,23 @@ public class Tower : MonoBehaviour
 
     bool CheckHealt()
     {
-        if (towerHealt <= 0)
+        if (towerHealth <= 0)
             return true;
         else return false;
     }
+
+    AudioClip ReturnShotClip()
+    {
+        int _int = Random.Range(1, 3);
+        return _int switch
+        {
+            1 => shotClip1,
+            2 => shotClip2,
+            3 => shotClip3,
+            _ => shotClip1,
+        };
+    }
+
 
     //Debug
     void OnDrawGizmosSelected()
