@@ -52,11 +52,13 @@ public class TouchPlacer : MonoBehaviour
                     else
                         Debug.LogError("Item to spawn is null");
                 }
+                else
+                    CoinManager.AddDECoins(prizeToReturn);
+
             }
             else
-            {
                 CoinManager.AddDECoins(prizeToReturn);
-            }
+
         }
     }
 
