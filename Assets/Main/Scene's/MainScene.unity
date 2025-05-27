@@ -708,7 +708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '30
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -2426,15 +2426,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ec33258c2d50e498e8f8380d2d334b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  passiveIncomeAmount: 1
-  passiveIncomeTime: 2
+  passiveIncomeAmount: 2
+  passiveIncomeTime: 1
   towerPrizeMultiplier: 0.5
   baseStealAmount: 20
   baseStealTime: 35
   stealLevelMultiplier: 1
   startersCoinsA: 0
   minionPrizeMultiplier: 0.65
-  startersCoinsD: 30
+  startersCoinsD: 20
 --- !u!1 &447223561
 GameObject:
   m_ObjectHideFlags: 0
@@ -7340,7 +7340,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '30
+  m_text: '0
+
 
 '
   m_isRightToLeft: 0

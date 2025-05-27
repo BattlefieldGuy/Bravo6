@@ -6,12 +6,16 @@ public class GridWall : MonoBehaviour
     public int Prize;
     public int Level;
 
-    [SerializeField] private float health = 100;
-    private float maxHealth = 100;
+    [SerializeField] private float health;
+    private float maxHealth;
 
 
     [SerializeField] private Image bar;
 
+    private void Start()
+    {
+        maxHealth = health;
+    }
 
     public void TakeDamage(float _damage)
     {

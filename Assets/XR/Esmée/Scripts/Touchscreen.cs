@@ -148,10 +148,14 @@ public class Touchscreen : MonoBehaviour
                     GameObject originalCard = hit.collider.gameObject;
                     Card card = originalCard.GetComponent<Card>();
 
-                    if (card != null)
+                    if (card != null && CoinManager.AttackersCoins >= card.CardCost)
                     {
+                        Debug.Log("card cost = " + card.CardCost);
                         mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                         mouseDragObject.tag = "Untagged";
+
+                        CoinManager.LoseATCoins(card.CardCost);
+
                         mouseDragging = true;
                     }
                 }
