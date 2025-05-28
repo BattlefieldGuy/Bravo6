@@ -5,8 +5,9 @@ public class ActivatePS : MonoBehaviour
 
     [SerializeField] private ParticleSystem particleSystem;
 
-    public void ActivateParticleSystem()
+    public void ActivatePSEffect()
     {
-        particleSystem.Play();
+        if (particleSystem != null)
+            particleSystem.Play();
     }
 }
