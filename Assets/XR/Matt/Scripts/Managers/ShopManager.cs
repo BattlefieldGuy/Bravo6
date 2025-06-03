@@ -39,8 +39,10 @@ public class ShopManager : MonoBehaviour
 
     public void UpdateUI(int _defendersCoins, int _attackersCoins)
     {
-        coinCountDText.text = _defendersCoins.ToString();
-        coinCountAText.text = _attackersCoins.ToString();
+        if (coinCountDText != null)
+            coinCountDText.text = _defendersCoins.ToString();
+        if (coinCountAText != null)
+            coinCountAText.text = _attackersCoins.ToString();
 
         CheckDisplays(_defendersCoins);
     }
