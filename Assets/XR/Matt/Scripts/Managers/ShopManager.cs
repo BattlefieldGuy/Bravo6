@@ -77,10 +77,10 @@ public class ShopManager : MonoBehaviour
         {
             if (!isWallDisplayVisable)
             {
-                Animation _anim = gridWallDisplay.GetComponent<Animation>();
-                _anim.clip = wallPopUp;
-                _anim.Play();
-                //gridWallDisplay.SetActive(true);//able to buy
+                //Animation _anim = gridWallDisplay.GetComponent<Animation>();
+                //_anim.clip = wallPopUp;
+                //_anim.Play();
+                gridWallDisplay.SetActive(true);//able to buy
                 isWallDisplayVisable = true;
             }
         }
@@ -88,10 +88,10 @@ public class ShopManager : MonoBehaviour
         {
             if (isWallDisplayVisable)
             {
-                Animation _anim = gridWallDisplay.GetComponent<Animation>();
-                _anim.clip = wallPopDown;
-                _anim.Play();
-                //gridWallDisplay.SetActive(false);//can not buy
+                //Animation _anim = gridWallDisplay.GetComponent<Animation>();
+                //_anim.clip = wallPopDown;
+                //_anim.Play();
+                gridWallDisplay.SetActive(false);//can not buy
                 isWallDisplayVisable = false;
             }
         }

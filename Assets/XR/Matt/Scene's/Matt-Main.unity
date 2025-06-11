@@ -5709,7 +5709,7 @@ MonoBehaviour:
   wallPopUp: {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
   wallPopDown: {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
   gridTowerDisplay: {fileID: 1140881732}
-  gridWallDisplay: {fileID: 611050634}
+  gridWallDisplay: {fileID: 420008712}
   coinCountD: {fileID: 87904401}
   coinCountA: {fileID: 1386086865}
 --- !u!4 &1357828383
