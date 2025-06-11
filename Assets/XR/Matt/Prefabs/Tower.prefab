@@ -5412,6 +5412,7 @@ GameObject:
   - component: {fileID: 7475420333499250858}
   - component: {fileID: 4653815078152327920}
   - component: {fileID: 8165475054417749929}
+  - component: {fileID: 3137177167005350596}
   m_Layer: 7
   m_Name: Ballista
   m_TagString: GridTower
@@ -5466,6 +5467,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 5791010962380035219}
+--- !u!114 &3137177167005350596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4880659181049752106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d47f0d249c3ba469af93eb92339b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: -8401224911680528879}
+  audioClip: {fileID: 8300000, guid: 78c008088e5d75843ae04e65c3b974ff, type: 3}
 --- !u!1 &4938735003479452662
 GameObject:
   m_ObjectHideFlags: 0
@@ -5553,6 +5568,7 @@ MonoBehaviour:
   shotClip1: {fileID: 8300000, guid: 33223e01cd80a8547921d9612f5b3ce8, type: 3}
   shotClip2: {fileID: 8300000, guid: 05ad8815a2965224682d8fd86dd88153, type: 3}
   shotClip3: {fileID: 8300000, guid: 413f875eec9b1b34c84344b15de79b4b, type: 3}
+  spawnClip: {fileID: 8300000, guid: 78c008088e5d75843ae04e65c3b974ff, type: 3}
   bar: {fileID: 8980948161233311689}
 --- !u!114 &1499627505625095187
 MonoBehaviour:

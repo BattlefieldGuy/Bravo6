@@ -3,10 +3,14 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     [Header("Items")]
+    [Header("Tower")]
     [SerializeField] private GameObject gridTowerPrefab;
     private Tower gridTowerScript;
     private int gridTowerPrize;
+    [Header("Wall")]
     [SerializeField] private GameObject gridWallPrefab;
+    [SerializeField] private AnimationClip wallPopUp;
+    [SerializeField] private AnimationClip wallPopDown;
     GridWall gridWallScript;
     private int gridWallPrize;
     //more towers later
@@ -54,7 +58,10 @@ public class ShopManager : MonoBehaviour
         {
             if (!isTowerDisplayVisable)
             {
-                gridTowerDisplay.SetActive(true);//able to buy
+                Animation _anim = gridTowerDisplay.GetComponent<Animation>();
+                _anim.clip = wallPopUp;
+                _anim.Play();
+                //gridTowerDisplay.SetActive(true);//able to buy
                 isTowerDisplayVisable = true;
             }
         }
@@ -62,7 +69,10 @@ public class ShopManager : MonoBehaviour
         {
             if (isTowerDisplayVisable)
             {
-                gridTowerDisplay.SetActive(false);//can not buy
+                Animation _anim = gridTowerDisplay.GetComponent<Animation>();
+                _anim.clip = wallPopDown;
+                _anim.Play();
+                //gridTowerDisplay.SetActive(false);//can not buy
                 isTowerDisplayVisable = false;
             }
         }
