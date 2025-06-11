@@ -656,7 +656,7 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 64
-  Dammage: 5
+  Dammage: 20
   Level: 1
   Prize: 10
   towerHealth: 100
