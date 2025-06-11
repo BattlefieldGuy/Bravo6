@@ -73,18 +73,19 @@ public class Touchscreen : MonoBehaviour
             {
                 GridItemPlacer _item = originalCard.GetComponent<GridItemPlacer>();
 
-                if (_item != null)
+                int _itemID = _item.ItemToPlace;
+                int _prize = touchPlacer.ReturnPrize(_itemID);
+                if (_item != null && CoinManager.DefendersCoins >= _prize)
                 {
                     // Maak een kopie van de kaart om te slepen
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
                     _itemCopy.GetComponent<Collider>().isTrigger = true;
 
-                    int _itemID = _item.ItemToPlace;
-                    int _prize = touchPlacer.ReturnPrize(_itemID);
                     CoinManager.LoseDECoins(_prize);
 
                     activeDrags[finger.index] = _itemCopy;
+
                 }
             }
         }

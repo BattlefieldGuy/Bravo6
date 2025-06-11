@@ -7,6 +7,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject gridTowerPrefab;
     private Tower gridTowerScript;
     private int gridTowerPrize;
+
     [Header("Wall")]
     [SerializeField] private GameObject gridWallPrefab;
     [SerializeField] private AnimationClip wallPopUp;
@@ -15,6 +16,7 @@ public class ShopManager : MonoBehaviour
     private int gridWallPrize;
     //more towers later
 
+    [Header("Displays")]
     [SerializeField] private GameObject gridTowerDisplay;
     bool isTowerDisplayVisable = true;
     [SerializeField] private GameObject gridWallDisplay;
@@ -58,10 +60,7 @@ public class ShopManager : MonoBehaviour
         {
             if (!isTowerDisplayVisable)
             {
-                Animation _anim = gridTowerDisplay.GetComponent<Animation>();
-                _anim.clip = wallPopUp;
-                _anim.Play();
-                //gridTowerDisplay.SetActive(true);//able to buy
+                gridTowerDisplay.SetActive(true);//able to buy
                 isTowerDisplayVisable = true;
             }
         }
@@ -69,10 +68,7 @@ public class ShopManager : MonoBehaviour
         {
             if (isTowerDisplayVisable)
             {
-                Animation _anim = gridTowerDisplay.GetComponent<Animation>();
-                _anim.clip = wallPopDown;
-                _anim.Play();
-                //gridTowerDisplay.SetActive(false);//can not buy
+                gridTowerDisplay.SetActive(false);//can not buy
                 isTowerDisplayVisable = false;
             }
         }
@@ -81,7 +77,10 @@ public class ShopManager : MonoBehaviour
         {
             if (!isWallDisplayVisable)
             {
-                gridWallDisplay.SetActive(true);//able to buy
+                Animation _anim = gridWallDisplay.GetComponent<Animation>();
+                _anim.clip = wallPopUp;
+                _anim.Play();
+                //gridWallDisplay.SetActive(true);//able to buy
                 isWallDisplayVisable = true;
             }
         }
@@ -89,7 +88,10 @@ public class ShopManager : MonoBehaviour
         {
             if (isWallDisplayVisable)
             {
-                gridWallDisplay.SetActive(false);//can not buy
+                Animation _anim = gridWallDisplay.GetComponent<Animation>();
+                _anim.clip = wallPopDown;
+                _anim.Play();
+                //gridWallDisplay.SetActive(false);//can not buy
                 isWallDisplayVisable = false;
             }
         }
