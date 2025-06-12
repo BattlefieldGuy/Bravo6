@@ -6,13 +6,15 @@ public class ShopManager : MonoBehaviour
     [Header("Tower")]
     [SerializeField] private GameObject gridTowerPrefab;
     private Tower gridTowerScript;
+    private bool isHoldingTower = false;
     private int gridTowerPrize;
 
     [Header("Wall")]
     [SerializeField] private GameObject gridWallPrefab;
     [SerializeField] private AnimationClip wallPopUp;
     [SerializeField] private AnimationClip wallPopDown;
-    GridWall gridWallScript;
+    private GridWall gridWallScript;
+    private bool isHoldingWall = false;
     private int gridWallPrize;
     //more towers later
 
@@ -28,6 +30,8 @@ public class ShopManager : MonoBehaviour
 
     private TMPro.TextMeshProUGUI coinCountDText;
     private TMPro.TextMeshProUGUI coinCountAText;
+
+    private int defendersCoins;
 
 
     void Start()
@@ -50,50 +54,88 @@ public class ShopManager : MonoBehaviour
         if (coinCountAText != null)
             coinCountAText.text = _attackersCoins.ToString();
 
-        CheckDisplays(_defendersCoins);
+        defendersCoins = _defendersCoins;
+
+        CheckDisplays();
     }
 
-    private void CheckDisplays(int _defendersCoins)
+    private void CheckDisplays()
     {
         //tower
-        if (_defendersCoins >= gridTowerPrize)
-        {
-            if (!isTowerDisplayVisable)
-            {
-                gridTowerDisplay.SetActive(true);//able to buy
-                isTowerDisplayVisable = true;
-            }
-        }
-        else if (_defendersCoins < gridTowerPrize)
+        if (isHoldingTower)
         {
             if (isTowerDisplayVisable)
             {
-                gridTowerDisplay.SetActive(false);//can not buy
+                gridTowerDisplay.SetActive(false);
                 isTowerDisplayVisable = false;
             }
         }
-        //wall
-        if (_defendersCoins >= gridWallPrize)
+        else // while not holding item
         {
-            if (!isWallDisplayVisable)
+            if (defendersCoins >= gridTowerPrize)
             {
-                //Animation _anim = gridWallDisplay.GetComponent<Animation>();
-                //_anim.clip = wallPopUp;
-                //_anim.Play();
-                gridWallDisplay.SetActive(true);//able to buy
-                isWallDisplayVisable = true;
+                if (!isTowerDisplayVisable)
+                {
+                    gridTowerDisplay.SetActive(true);
+                    isTowerDisplayVisable = true;
+                }
+            }
+            else // not the right buget
+            {
+                if (isTowerDisplayVisable)
+                {
+                    gridTowerDisplay.SetActive(false);
+                    isTowerDisplayVisable = false;
+                }
             }
         }
-        else if (_defendersCoins < gridWallPrize)
+
+        //wall
+        if (isHoldingWall)
         {
             if (isWallDisplayVisable)
             {
-                //Animation _anim = gridWallDisplay.GetComponent<Animation>();
-                //_anim.clip = wallPopDown;
-                //_anim.Play();
-                gridWallDisplay.SetActive(false);//can not buy
+                gridWallDisplay.SetActive(false);
                 isWallDisplayVisable = false;
             }
+        }
+        else // while not holding item
+        {
+            if (defendersCoins >= gridWallPrize)
+            {
+                if (!isWallDisplayVisable)
+                {
+                    gridWallDisplay.SetActive(true);
+                    isWallDisplayVisable = true;
+                }
+            }
+            else // not the right buget
+            {
+                if (isWallDisplayVisable)
+                {
+                    gridWallDisplay.SetActive(false);
+                    isWallDisplayVisable = false;
+                }
+            }
+        }
+    }
+
+    public void IsHoldingItem(int _itemToFree, bool _value)
+    {
+        switch (_itemToFree)
+        {
+            case 1:
+                isHoldingTower = _value;
+                CheckDisplays();
+                Debug.Log(isHoldingTower);
+                break;
+            case 2:
+                isHoldingWall = _value;
+                CheckDisplays();
+                Debug.Log(isHoldingWall);
+                break;
+            case 0:
+                break;
         }
     }
 }

@@ -54,7 +54,6 @@ public class TouchPlacer : MonoBehaviour
                 }
                 else
                     CoinManager.AddDECoins(prizeToReturn);
-
             }
             else
                 CoinManager.AddDECoins(prizeToReturn);
