@@ -83,6 +83,13 @@ public class CoinManager : MonoBehaviour
         CoinManager.AttackersCoins -= _amount;
         INSTANCE.UpdateUI();
     }
+
+    public static void AddATCoins(int _amount)
+    {
+        CoinManager.AttackersCoins += _amount;
+        INSTANCE.UpdateUI();
+    }
+
     public static void LoseDECoins(int _amount)
     {
         CoinManager.DefendersCoins -= _amount;

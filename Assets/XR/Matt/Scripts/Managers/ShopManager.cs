@@ -127,12 +127,10 @@ public class ShopManager : MonoBehaviour
             case 1:
                 isHoldingTower = _value;
                 CheckDisplays();
-                Debug.Log(isHoldingTower);
                 break;
             case 2:
                 isHoldingWall = _value;
                 CheckDisplays();
-                Debug.Log(isHoldingWall);
                 break;
             case 0:
                 break;
