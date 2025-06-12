@@ -86,8 +86,8 @@ public class MinionAttack : MonoBehaviour
 
             if (coolDown <= 0)
             {
-                Attacking(_nearestTarget);
                 PlayAudio();
+                Attacking(_nearestTarget);
                 coolDown = reload;
             }
 
