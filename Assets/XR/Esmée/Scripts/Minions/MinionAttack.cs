@@ -3,8 +3,12 @@ using UnityEngine;
 public class MinionAttack : MonoBehaviour
 {
     public MinionScriptableObject MDamageData;
+    public MinionScriptableObject MAttackAudio;
+
     private float coolDown = 2;
     private float reload = 2;
+
+    private AudioSource audioSource;
 
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layerMask;
@@ -12,9 +16,11 @@ public class MinionAttack : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
 
     MinionMovement movement;
+
     private void Start()
     {
         movement = FindFirstObjectByType<MinionMovement>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -32,6 +38,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 collision.gameObject.GetComponent<Wall>().TakeDamage(MDamageData.MDamage);
+                PlayAudio();
                 coolDown = 2;
             }
         }
@@ -41,6 +48,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 collision.gameObject.GetComponent<Heart>().TakeDamage(MDamageData.MDamage);
+                PlayAudio();
                 coolDown = 2;
             }
         }
@@ -50,6 +58,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 collision.gameObject.GetComponent<Tower>().TakeDamage(MDamageData.MDamage);
+                PlayAudio();
                 coolDown = 2;
             }
         }
@@ -59,6 +68,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
+                PlayAudio();
                 coolDown = 2;
             }
         }
@@ -77,6 +87,7 @@ public class MinionAttack : MonoBehaviour
             if (coolDown <= 0)
             {
                 Attacking(_nearestTarget);
+                PlayAudio();
                 coolDown = reload;
             }
 
@@ -116,4 +127,15 @@ public class MinionAttack : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+
+
+    public void PlayAudio()
+    {
+        if (MAttackAudio != null && MAttackAudio.MAttackAudio != null)
+        {
+            audioSource.clip = MAttackAudio.MAttackAudio;
+            audioSource.Play();
+        }
+    }
 }
+

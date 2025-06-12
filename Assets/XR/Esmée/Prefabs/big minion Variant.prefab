@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: MDamageData
       value: 
       objectReference: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
+    - target: {fileID: 7191660929783499863, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: MAttackAudio
+      value: 
+      objectReference: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
     - target: {fileID: 8726078796428322095, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_Constraints
       value: 116

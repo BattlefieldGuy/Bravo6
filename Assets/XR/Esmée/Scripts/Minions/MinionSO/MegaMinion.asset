@@ -18,3 +18,4 @@ MonoBehaviour:
   MLevel: 1
   MPrize: 15
   MPrefab: {fileID: 6934259523891436259, guid: 57d0674d669d1524eae33d29ff558bb4, type: 3}
+  MAttackAudio: {fileID: 8300000, guid: 659f39a11f4cf6047b8ddaf34d7edb4c, type: 3}
