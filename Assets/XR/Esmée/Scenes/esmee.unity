@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 20
   prefabData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
+  costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 6.2
 --- !u!65 &431640374
 BoxCollider:
@@ -6091,6 +6092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 15
   prefabData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+  costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 6.2
 --- !u!65 &1055544542
 BoxCollider:
@@ -7754,6 +7756,14 @@ PrefabInstance:
       propertyPath: defendersWin
       value: 
       objectReference: {fileID: 971983943}
+    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: coinCountA
+      value: 
+      objectReference: {fileID: 452218462}
+    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: coinCountD
+      value: 
+      objectReference: {fileID: 733922127}
     - target: {fileID: 8210828645696377074, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: m_Name
       value: --- Managers ---
@@ -9427,6 +9437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 5
   prefabData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  costData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
   spawnLine: 6.2
 --- !u!65 &1739079077
 BoxCollider:

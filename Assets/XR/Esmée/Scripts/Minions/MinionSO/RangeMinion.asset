@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MSpeed: 0.1
   MDamage: 20
-  MCost: 10
+  MCost: 15
   MLevel: 1
   MPrize: 10
   MPrefab: {fileID: 4062796152135761004, guid: 638b05b9536aee84c8a5e9e4a54a34b0, type: 3}
+  MAttackAudio: {fileID: 8300000, guid: 88e80558b012bcb459489288da7d8318, type: 3}

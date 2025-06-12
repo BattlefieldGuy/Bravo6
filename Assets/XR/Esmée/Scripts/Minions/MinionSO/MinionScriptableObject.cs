@@ -5,7 +5,7 @@ public class MinionScriptableObject : ScriptableObject
 {
     public float MSpeed;
     public float MDamage;
-    public float MCost;
+    public int MCost;
     public int MLevel;
     public int MPrize;
     public GameObject MPrefab;
