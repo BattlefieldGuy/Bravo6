@@ -223,6 +223,59 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &954032322054254984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8810657283930468541}
+  - component: {fileID: 7292477625316417113}
+  m_Layer: 0
+  m_Name: GridTowerAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8810657283930468541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954032322054254984}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalPosition: {x: -0.047399998, y: -0.024800003, z: 0.31900024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5632867345747342215}
+  m_Father: {fileID: 3173374177278864823}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!111 &7292477625316417113
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954032322054254984}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 0}
+  - {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
+  - {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
+  - {fileID: 7400000, guid: b2912b532d7772a449851cc6031d7813, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1 &975624983236482139
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,7 +913,7 @@ Transform:
   m_GameObject: {fileID: 5752153747209540350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -0.794, y: 0, z: 0.769}
+  m_LocalPosition: {x: -0.885, y: 0, z: 0.769}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1316,7 +1369,7 @@ Transform:
   - {fileID: 5290176539009113073}
   - {fileID: 8383559790007394258}
   - {fileID: 1063784367096539624}
-  - {fileID: 5632867345747342215}
+  - {fileID: 8810657283930468541}
   m_Father: {fileID: 801392460967921194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4515414826076396158
@@ -1332,9 +1385,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridTowerPrefab: {fileID: 4938735003479452662, guid: 188d933ac63a397458f545a88e81cbbd, type: 3}
+  towerAnim: {fileID: 7292477625316417113}
+  towerPopUp: {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
+  towerPopDown: {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
+  towerVanish: {fileID: 7400000, guid: b2912b532d7772a449851cc6031d7813, type: 2}
   gridWallPrefab: {fileID: 7474551484817438883, guid: 740b65d64d40597468c45a5b48e89eab, type: 3}
+  wallAnim: {fileID: 8124772677684948318}
   wallPopUp: {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
   wallPopDown: {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
+  wallVanish: {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
   gridTowerDisplay: {fileID: 7887168952732675132}
   gridWallDisplay: {fileID: 2432926202647165848}
   coinCountD: {fileID: 0}
@@ -1366,14 +1425,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7887168952732675132}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
-  m_LocalPosition: {x: -0.047399998, y: -0.024800003, z: 0.31900024}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.833917, y: 10.964975, z: 0.7654976}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6994019642106340643}
   - {fileID: 1764061921442582259}
-  m_Father: {fileID: 3173374177278864823}
+  m_Father: {fileID: 8810657283930468541}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!114 &8162599224581561767
 MonoBehaviour:
