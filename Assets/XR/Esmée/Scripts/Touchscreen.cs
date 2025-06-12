@@ -7,7 +7,6 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 #if UNITY_EDITOR
 #endif
 
-
 public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
@@ -81,6 +80,8 @@ public class Touchscreen : MonoBehaviour
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
                     _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                    _item.GrabItem();
 
                     CoinManager.LoseDECoins(_prize);
 
@@ -166,6 +167,9 @@ public class Touchscreen : MonoBehaviour
 
                     mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
                     mouseDragObject.tag = "Untagged";
+
+                    hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+
                     mouseDragging = true;
                 }
             }
