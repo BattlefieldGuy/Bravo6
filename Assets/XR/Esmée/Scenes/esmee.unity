@@ -5186,6 +5186,10 @@ PrefabInstance:
       value: heart wall low (2)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5379,6 +5383,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_Name
       value: heart wall low (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_IsActive
@@ -6523,6 +6531,10 @@ PrefabInstance:
     - target: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
       propertyPath: m_Name
       value: heart crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495561977803189665, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8456054331019114780, guid: 10b2a00600151c14faa69d7c84f7ca13, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8569,6 +8581,10 @@ PrefabInstance:
       value: heart wall low (4)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -9112,6 +9128,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_Name
       value: heart wall low (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 32233fa3506e1844eaabdb5820348856, type: 3}
       propertyPath: m_IsActive
