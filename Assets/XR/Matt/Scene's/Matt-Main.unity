@@ -5158,11 +5158,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430211299}
   m_Mesh: {fileID: 5977804573002530363, guid: 3e97b892f0499d141be01f74203a4e2d, type: 3}
---- !u!111 &1435948597 stripped
-Animation:
-  m_CorrespondingSourceObject: {fileID: 8124772677684948318, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
-  m_PrefabInstance: {fileID: 7416836876117903132}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1456808263
 GameObject:
   m_ObjectHideFlags: 0
@@ -9781,10 +9776,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1079066122}
     - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
-      propertyPath: wallAnim
-      value: 
-      objectReference: {fileID: 1435948597}
-    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: coinCountA
       value: 
       objectReference: {fileID: 1386086865}
@@ -9792,10 +9783,14 @@ PrefabInstance:
       propertyPath: coinCountD
       value: 
       objectReference: {fileID: 87904401}
-    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
-      propertyPath: wallVanish
-      value: 
-      objectReference: {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
+    - target: {fileID: 5065770140113745247, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: m_Size.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229376788811550245, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: m_Size.x
+      value: 0.018
+      objectReference: {fileID: 0}
     - target: {fileID: 8124772677684948318, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: m_Animations.Array.size
       value: 3
