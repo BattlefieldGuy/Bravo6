@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2464143849455678503}
   - component: {fileID: 866075429729547964}
   m_Layer: 6
-  m_Name: base minion
+  m_Name: mega minion
   m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 3107774997365023158, guid: a99e83e7aa55db048b213b32362de6bc, type: 3}
-  MSpeedData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MSpeedData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   IsWalking: 1
 --- !u!114 &3515701022381953797
 MonoBehaviour:
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61df6a2cd3261428583573d98b5f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MDamageData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  MAttackAudio: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MDamageData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
+  MAttackAudio: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   radius: 0
   layerMask:
     serializedVersion: 2
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 7695626782983483762}
-  MLevelData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  MPrizeData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MLevelData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
+  MPrizeData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
 --- !u!65 &8033758048678401904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.9171453, y: 6.441412, z: 3.6825354}
-  m_Center: {x: -0.18699089, y: -1.980594, z: -0.33494815}
+  m_Size: {x: 7.024817, y: 12.6746435, z: 7.479345}
+  m_Center: {x: 0.03129919, y: -4.138225, z: -0.88764876}
 --- !u!54 &6422738666005627654
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,8 +147,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4a1c0821041b63c4ab5aad4fb563c1e9, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4a1c0821041b63c4ab5aad4fb563c1e9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b648277d32745474f968d8b1d985bf78, type: 3}
+  m_Resource: {fileID: 8300000, guid: b648277d32745474f968d8b1d985bf78, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &607474881337085015
 Transform:
   m_ObjectHideFlags: 0
@@ -283,8 +283,8 @@ Transform:
   m_GameObject: {fileID: 6428430345701289695}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41, y: 0.41, z: 0.52889997}
+  m_LocalPosition: {x: 0, y: 3.58, z: 0}
+  m_LocalScale: {x: 1.38, y: 1.38, z: 1.7802}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 562298824141255413}
@@ -543,7 +543,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.79
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5159,6 +5159,18 @@ PrefabInstance:
     - target: {fileID: 2546564948304790435, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_Name
       value: minion normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2890440115880679705, guid: 824ea46737163de41b41d771d966f60d, type: 3}
       propertyPath: m_LocalPosition.x

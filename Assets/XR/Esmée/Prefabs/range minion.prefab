@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 2464143849455678503}
   - component: {fileID: 866075429729547964}
   m_Layer: 6
-  m_Name: base minion
-  m_TagString: Minion
+  m_Name: range minion
+  m_TagString: Range
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 3107774997365023158, guid: a99e83e7aa55db048b213b32362de6bc, type: 3}
-  MSpeedData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MSpeedData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   IsWalking: 1
 --- !u!114 &3515701022381953797
 MonoBehaviour:
@@ -67,13 +67,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c61df6a2cd3261428583573d98b5f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MDamageData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  MAttackAudio: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  radius: 0
+  MDamageData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+  MAttackAudio: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+  radius: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  projectilePrefab: {fileID: 0}
+    m_Bits: 128
+  projectilePrefab: {fileID: 8550301240954543888, guid: 9d77751cfd2e77446aa3a6a5496df894, type: 3}
 --- !u!114 &5656275271094799200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 7695626782983483762}
-  MLevelData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  MPrizeData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MLevelData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+  MPrizeData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
 --- !u!65 &8033758048678401904
 BoxCollider:
   m_ObjectHideFlags: 0
