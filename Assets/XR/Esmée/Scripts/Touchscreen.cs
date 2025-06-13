@@ -164,13 +164,19 @@ public class Touchscreen : MonoBehaviour
                 else if (hit.collider.GetComponent<GridItemPlacer>())
                 {
                     GameObject _itemCopy = hit.collider.gameObject;
+                    int _prize = touchPlacer.ReturnPrize(_itemCopy.GetComponent<GridItemPlacer>().ItemToPlace);
+                    if (CoinManager.DefendersCoins >= _prize)
+                    {
 
-                    mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
-                    mouseDragObject.tag = "Untagged";
+                        mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
 
-                    hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+                        hit.collider.GetComponent<GridItemPlacer>().GrabItem();
 
-                    mouseDragging = true;
+                        CoinManager.LoseDECoins(_prize);
+
+                        mouseDragging = true;
+                    }
                 }
             }
         }

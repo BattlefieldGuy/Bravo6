@@ -9783,6 +9783,22 @@ PrefabInstance:
       propertyPath: coinCountD
       value: 
       objectReference: {fileID: 87904401}
+    - target: {fileID: 5065770140113745247, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: m_Size.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229376788811550245, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: m_Size.x
+      value: 0.018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124772677684948318, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124772677684948318, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: 'm_Animations.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
     - target: {fileID: 8210828645696377074, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: m_Name
       value: --- Magers ---

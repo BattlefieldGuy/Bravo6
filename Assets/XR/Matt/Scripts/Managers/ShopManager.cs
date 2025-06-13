@@ -5,14 +5,20 @@ public class ShopManager : MonoBehaviour
     [Header("Items")]
     [Header("Tower")]
     [SerializeField] private GameObject gridTowerPrefab;
+    [SerializeField] private Animation towerAnim;
+    [SerializeField] private AnimationClip towerPopUp;
+    [SerializeField] private AnimationClip towerPopDown;
+    [SerializeField] private AnimationClip towerVanish;
     private Tower gridTowerScript;
     private bool isHoldingTower = false;
     private int gridTowerPrize;
 
     [Header("Wall")]
     [SerializeField] private GameObject gridWallPrefab;
+    [SerializeField] private Animation wallAnim;
     [SerializeField] private AnimationClip wallPopUp;
     [SerializeField] private AnimationClip wallPopDown;
+    [SerializeField] private AnimationClip wallVanish;
     private GridWall gridWallScript;
     private bool isHoldingWall = false;
     private int gridWallPrize;
@@ -66,7 +72,9 @@ public class ShopManager : MonoBehaviour
         {
             if (isTowerDisplayVisable)
             {
-                gridTowerDisplay.SetActive(false);
+                towerAnim.clip = towerVanish;
+                towerAnim.Play();
+                //gridTowerDisplay.SetActive(false);
                 isTowerDisplayVisable = false;
             }
         }
@@ -76,7 +84,9 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isTowerDisplayVisable)
                 {
-                    gridTowerDisplay.SetActive(true);
+                    towerAnim.clip = towerPopUp;
+                    towerAnim.Play();
+                    //gridTowerDisplay.SetActive(true);
                     isTowerDisplayVisable = true;
                 }
             }
@@ -84,7 +94,9 @@ public class ShopManager : MonoBehaviour
             {
                 if (isTowerDisplayVisable)
                 {
-                    gridTowerDisplay.SetActive(false);
+                    towerAnim.clip = towerPopDown;
+                    towerAnim.Play();
+                    //gridTowerDisplay.SetActive(false);
                     isTowerDisplayVisable = false;
                 }
             }
@@ -95,7 +107,9 @@ public class ShopManager : MonoBehaviour
         {
             if (isWallDisplayVisable)
             {
-                gridWallDisplay.SetActive(false);
+                wallAnim.clip = wallVanish;
+                wallAnim.Play();
+                //gridWallDisplay.SetActive(false);
                 isWallDisplayVisable = false;
             }
         }
@@ -105,7 +119,9 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isWallDisplayVisable)
                 {
-                    gridWallDisplay.SetActive(true);
+                    wallAnim.clip = wallPopUp;
+                    wallAnim.Play();
+                    //gridWallDisplay.SetActive(true);
                     isWallDisplayVisable = true;
                 }
             }
@@ -113,7 +129,9 @@ public class ShopManager : MonoBehaviour
             {
                 if (isWallDisplayVisable)
                 {
-                    gridWallDisplay.SetActive(false);
+                    wallAnim.clip = wallPopDown;
+                    wallAnim.Play();
+                    //gridWallDisplay.SetActive(false);
                     isWallDisplayVisable = false;
                 }
             }
