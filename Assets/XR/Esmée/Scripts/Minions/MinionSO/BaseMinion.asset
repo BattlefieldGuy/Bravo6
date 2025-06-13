@@ -17,5 +17,5 @@ MonoBehaviour:
   MCost: 5
   MLevel: 1
   MPrize: 10
-  MPrefab: {fileID: 3153414235853100652, guid: 1b07900dc0a35aa4f8704dd114552195, type: 3}
+  MPrefab: {fileID: 331779619558410078, guid: ab92fa4aad4184f46b255d194a42743f, type: 3}
   MAttackAudio: {fileID: 8300000, guid: bc6e0df29948d414c9ae64b7e23a5fc0, type: 3}
