@@ -5500,6 +5500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 20
   prefabData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
+  costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 6.2
 --- !u!65 &906334048
 BoxCollider:
@@ -5833,6 +5834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 5
   prefabData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  costData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
   spawnLine: 6.2
 --- !u!65 &1140489984
 BoxCollider:
@@ -10162,6 +10164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardCost: 15
   prefabData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
+  costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 6.2
 --- !u!65 &1978091017
 BoxCollider:

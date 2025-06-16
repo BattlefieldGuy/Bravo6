@@ -18,7 +18,8 @@ public class Card : MonoBehaviour
         if (_spawnPosition.z < 4.3f)
         {
             CoinManager.AddATCoins(costData.MCost);
-            hasBeenPlayed = false;
+            hasBeenPlayed = false; //kijk hier naar
+            Destroy(gameObject);
             return;
         }
 
