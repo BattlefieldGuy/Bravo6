@@ -212,8 +212,6 @@ public class Touchscreen : MonoBehaviour
                     _item.SpawnItem(spawnPos);
                 }
 
-
-
                 Destroy(mouseDragObject);
                 mouseDragObject = null;
                 mouseDragging = false;
