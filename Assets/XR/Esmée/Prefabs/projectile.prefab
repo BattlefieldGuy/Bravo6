@@ -4937,7 +4937,7 @@ MonoBehaviour:
   Damage: 10
   minionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
