@@ -3,11 +3,18 @@ using UnityEngine;
 public class ActivatePS : MonoBehaviour
 {
 
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem particleSystemSpawn;
+    [SerializeField] private ParticleSystem particleSystemDestroy;
 
-    public void ActivatePSEffect()
+    public void ActivateSpawnPSEffect()
     {
-        if (particleSystem != null)
-            particleSystem.Play();
+        if (particleSystemSpawn != null)
+            particleSystemSpawn.Play();
+    }
+
+    public void ActivateDestroyPSEffect()
+    {
+        if (particleSystemDestroy != null)
+            particleSystemDestroy.Play();
     }
 }

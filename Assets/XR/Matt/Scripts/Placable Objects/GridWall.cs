@@ -11,9 +11,14 @@ public class GridWall : MonoBehaviour
 
     [SerializeField] private Image bar;
 
+    [SerializeField] private AnimationClip destroyClip;
+
+    private Animation anim;
+
     private void Start()
     {
         maxHealth = health;
+        anim = GetComponentInChildren<Animation>();
     }
 
     public void TakeDamage(float _damage)
@@ -26,7 +31,9 @@ public class GridWall : MonoBehaviour
     {
         if (health <= 0)
         {
-            this.GetComponent<CellManager>().DestroyItem();
+            anim.clip = destroyClip;
+            anim.Play();
+            this.GetComponent<CellManager>().RemoveItem();
         }
     }
 

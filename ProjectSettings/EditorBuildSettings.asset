@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/XR/Matt/Scene's/Extra's/DragSystemTest.unity
     guid: 07de9218d088b8b4cbb2c5a4c1868f21
   - enabled: 0
-    path: Assets/XR/Matt/Scene's/Matt-Main.unity
+    path: Assets/XR/Matt/Scene's/Extra's/Matt-Main.unity
     guid: 2f8844a8a774fef45a63fbf250089461
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
