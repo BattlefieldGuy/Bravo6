@@ -5466,7 +5466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff848dc3ed554245a2d3b5799ae221f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 5791010962380035219}
+  particleSystemSpawn: {fileID: 5791010962380035219}
+  particleSystemDestroy: {fileID: 0}
 --- !u!114 &3137177167005350596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5494,9 +5495,9 @@ GameObject:
   - component: {fileID: 8514585393698150624}
   - component: {fileID: 1499627505625095187}
   - component: {fileID: -8401224911680528879}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: GridTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5568,7 +5569,6 @@ MonoBehaviour:
   shotClip1: {fileID: 8300000, guid: 33223e01cd80a8547921d9612f5b3ce8, type: 3}
   shotClip2: {fileID: 8300000, guid: 05ad8815a2965224682d8fd86dd88153, type: 3}
   shotClip3: {fileID: 8300000, guid: 413f875eec9b1b34c84344b15de79b4b, type: 3}
-  spawnClip: {fileID: 8300000, guid: 78c008088e5d75843ae04e65c3b974ff, type: 3}
   bar: {fileID: 8980948161233311689}
 --- !u!114 &1499627505625095187
 MonoBehaviour:
@@ -5594,8 +5594,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 78c008088e5d75843ae04e65c3b974ff, type: 3}
+  m_Resource: {fileID: 8300000, guid: 78c008088e5d75843ae04e65c3b974ff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
