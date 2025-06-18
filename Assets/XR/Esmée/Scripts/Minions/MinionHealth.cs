@@ -32,7 +32,6 @@ public class MinionHealth : MonoBehaviour
     {
         if (mHealth <= 0)
         {
-            CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
             particleSyst.Play();
             Destroy(minion);
             StartCoroutine(WaitForSec());
@@ -42,6 +41,7 @@ public class MinionHealth : MonoBehaviour
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(0.5f);
+        CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
         Destroy(gameObject);
     }
 }
