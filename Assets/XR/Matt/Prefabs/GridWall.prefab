@@ -5257,7 +5257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prize: 5
   Level: 1
-  health: 5
+  health: 200
   bar: {fileID: 4211161925258127588}
   destroyClip: {fileID: 0}
 --- !u!65 &297085510238697992

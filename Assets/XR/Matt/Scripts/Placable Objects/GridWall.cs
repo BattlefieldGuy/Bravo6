@@ -31,9 +31,9 @@ public class GridWall : MonoBehaviour
     {
         if (health <= 0)
         {
-            anim.clip = destroyClip;
-            anim.Play();
-            this.GetComponent<CellManager>().RemoveItem();
+            //anim.clip = destroyClip;
+            //anim.Play();
+            this.GetComponent<CellManager>().DestroyItem();
         }
     }
 
