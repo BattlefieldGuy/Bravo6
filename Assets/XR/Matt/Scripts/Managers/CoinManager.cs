@@ -80,22 +80,29 @@ public class CoinManager : MonoBehaviour
     //basic buy functions
     public static void LoseATCoins(int _amount)
     {
-        AttackersCoins -= _amount;
+        CoinManager.AttackersCoins -= _amount;
         INSTANCE.UpdateUI();
     }
+
+    public static void AddATCoins(int _amount)
+    {
+        CoinManager.AttackersCoins += _amount;
+        INSTANCE.UpdateUI();
+    }
+
     public static void LoseDECoins(int _amount)
     {
-        DefendersCoins -= _amount;
+        CoinManager.DefendersCoins -= _amount;
         INSTANCE.UpdateUI();
     }
 
     public static void AddDECoins(int _amount)
     {
-        DefendersCoins += _amount;
+        CoinManager.DefendersCoins += _amount;
         INSTANCE.UpdateUI();
     }
 
-    void UpdateUI() => shopManager.UpdateUI(DefendersCoins, AttackersCoins);
+    void UpdateUI() => shopManager.UpdateUI(CoinManager.DefendersCoins, CoinManager.AttackersCoins);
 
 
     #endregion

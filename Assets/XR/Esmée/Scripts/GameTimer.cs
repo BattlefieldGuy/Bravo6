@@ -1,30 +1,29 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
     private float endTimer = 300f; //5 minuten, 3m=180f
     private float midTime;
     private Heart heart;
+    private float maxTime;
 
     [SerializeField] private GameObject attackersWin;
     [SerializeField] private GameObject defendersWin;
 
     [SerializeField] private GameObject lastMinute;
-    [SerializeField] private GameObject timer1;
-    [SerializeField] private GameObject timer2;
 
-    private TMPro.TextMeshProUGUI timerText1;
-    private TMPro.TextMeshProUGUI timerText2;
+    [SerializeField] private Image bar;
+    [SerializeField] private Image bar2;
+
     void Start()
     {
         heart = FindFirstObjectByType<Heart>();
 
-        midTime = 60;
-
-        timerText1 = timer1.GetComponent<TMPro.TextMeshProUGUI>();
-        timerText2 = timer2.GetComponent<TMPro.TextMeshProUGUI>();
+        maxTime = endTimer;
+        midTime = maxTime / 2;
     }
 
     void Update()
@@ -40,6 +39,10 @@ public class GameTimer : MonoBehaviour
         {
             LastMinute();
         }
+
+        bar.fillAmount = Mathf.Clamp(endTimer / maxTime, 0, 1);
+        bar2.fillAmount = Mathf.Clamp(endTimer / maxTime, 0, 1);
+
     }
 
     private void TimeIsUp()
@@ -62,16 +65,10 @@ public class GameTimer : MonoBehaviour
         if (lastMinute != null)
         {
             lastMinute.SetActive(true);
-            timer1.SetActive(true);
-            timer2.SetActive(true);
             StartCoroutine(enumerator());
         }
-
-        int _time = ((int)endTimer);
-
-        timerText1.text = _time.ToString();
-        timerText2.text = _time.ToString();
     }
+
 
     private IEnumerator enumerator()
     {
@@ -81,9 +78,6 @@ public class GameTimer : MonoBehaviour
 
     private void LoadStartScene()
     {
-        Destroy(timerText1);
-        Destroy(timerText2);
-
         if (endTimer <= -5)
         {
             SceneManager.LoadScene("StartScene");

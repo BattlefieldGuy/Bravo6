@@ -32,7 +32,7 @@ public class TouchPlacer : MonoBehaviour
                     switch (ItemToPlace)
                     {
                         case 1:
-                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, 180, 0, 180));
+                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
                             break;
                         case 2:
                             _spawnPos.y = 0.06f;
@@ -54,7 +54,6 @@ public class TouchPlacer : MonoBehaviour
                 }
                 else
                     CoinManager.AddDECoins(prizeToReturn);
-
             }
             else
                 CoinManager.AddDECoins(prizeToReturn);

@@ -7,7 +7,6 @@ using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 #if UNITY_EDITOR
 #endif
 
-
 public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
@@ -73,18 +72,21 @@ public class Touchscreen : MonoBehaviour
             {
                 GridItemPlacer _item = originalCard.GetComponent<GridItemPlacer>();
 
-                if (_item != null)
+                int _itemID = _item.ItemToPlace;
+                int _prize = touchPlacer.ReturnPrize(_itemID);
+                if (_item != null && CoinManager.DefendersCoins >= _prize)
                 {
                     // Maak een kopie van de kaart om te slepen
                     GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
                     _itemCopy.tag = "Untagged";// voorkom dubbele selectie
                     _itemCopy.GetComponent<Collider>().isTrigger = true;
 
-                    int _itemID = _item.ItemToPlace;
-                    int _prize = touchPlacer.ReturnPrize(_itemID);
+                    _item.GrabItem();
+
                     CoinManager.LoseDECoins(_prize);
 
                     activeDrags[finger.index] = _itemCopy;
+
                 }
             }
         }
@@ -162,10 +164,19 @@ public class Touchscreen : MonoBehaviour
                 else if (hit.collider.GetComponent<GridItemPlacer>())
                 {
                     GameObject _itemCopy = hit.collider.gameObject;
+                    int _prize = touchPlacer.ReturnPrize(_itemCopy.GetComponent<GridItemPlacer>().ItemToPlace);
+                    if (CoinManager.DefendersCoins >= _prize)
+                    {
 
-                    mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
-                    mouseDragObject.tag = "Untagged";
-                    mouseDragging = true;
+                        mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
+
+                        hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+
+                        CoinManager.LoseDECoins(_prize);
+
+                        mouseDragging = true;
+                    }
                 }
             }
         }
@@ -200,8 +211,6 @@ public class Touchscreen : MonoBehaviour
                     GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
                     _item.SpawnItem(spawnPos);
                 }
-
-
 
                 Destroy(mouseDragObject);
                 mouseDragObject = null;

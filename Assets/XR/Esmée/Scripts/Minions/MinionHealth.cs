@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class MinionHealth : MonoBehaviour
@@ -5,6 +6,9 @@ public class MinionHealth : MonoBehaviour
     private float mHealth = 100;
     private float maxHealth;
     [SerializeField] private Image bar;
+
+    [SerializeField] private ParticleSystem particleSyst;
+    [SerializeField] private GameObject minion;
 
     public MinionScriptableObject MLevelData;
     public MinionScriptableObject MPrizeData;
@@ -28,8 +32,16 @@ public class MinionHealth : MonoBehaviour
     {
         if (mHealth <= 0)
         {
-            CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
-            Destroy(gameObject);
+            particleSyst.Play();
+            Destroy(minion);
+            StartCoroutine(WaitForSec());
         }
+    }
+
+    IEnumerator WaitForSec()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
+        Destroy(gameObject);
     }
 }
