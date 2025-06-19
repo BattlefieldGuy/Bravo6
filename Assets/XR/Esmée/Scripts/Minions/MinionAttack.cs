@@ -121,6 +121,7 @@ public class MinionAttack : MonoBehaviour
         Projectile _projectileScript = _projectile.GetComponent<Projectile>();
 
         _projectileScript.SetTarget(_targets);
+        _projectileScript.Damage = MDamageData.MDamage;
     }
     void OnDrawGizmosSelected()
     {

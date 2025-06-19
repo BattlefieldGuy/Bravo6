@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MinionHealth : MonoBehaviour
 {
-    private float mHealth = 100;
+    private float mHealth;
     private float maxHealth;
     [SerializeField] private Image bar;
 
@@ -12,9 +12,12 @@ public class MinionHealth : MonoBehaviour
 
     public MinionScriptableObject MLevelData;
     public MinionScriptableObject MPrizeData;
+    public MinionScriptableObject MHealthData;
+
 
     private void Start()
     {
+        mHealth = MHealthData.MHealth;
         maxHealth = mHealth;
     }
     private void Update()
