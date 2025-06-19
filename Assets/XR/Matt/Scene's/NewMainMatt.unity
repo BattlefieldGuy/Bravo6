@@ -355,6 +355,67 @@ RectTransform:
   m_AnchoredPosition: {x: -4, y: 10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &38215815
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.301
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.031
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.117
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.65328175
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.27059764
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6532817
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.27059758
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_Name
+      value: attackers gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3023a1b0da310e4f8c952c0c05f46fc, type: 3}
 --- !u!1 &46305754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,14 +1842,18 @@ MonoBehaviour:
   Prize: 10
   towerHealth: 100
   muzzelLocation: {fileID: 1293359872}
+  ballistaModal: {fileID: 0}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
   range: 0.8
+  minimumRange: 0.5
   targetOffset: 0
   attackCooldown: 2
   cooldownT: 0
   shotClip1: {fileID: 8300000, guid: 33223e01cd80a8547921d9612f5b3ce8, type: 3}
   shotClip2: {fileID: 8300000, guid: 05ad8815a2965224682d8fd86dd88153, type: 3}
   shotClip3: {fileID: 8300000, guid: 413f875eec9b1b34c84344b15de79b4b, type: 3}
+  destroyClip: {fileID: 0}
+  animClip: {fileID: 0}
   bar: {fileID: 0}
 --- !u!65 &237643765
 BoxCollider:
@@ -2714,14 +2779,18 @@ MonoBehaviour:
   Prize: 10
   towerHealth: 100
   muzzelLocation: {fileID: 47457245}
+  ballistaModal: {fileID: 0}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
   range: 0.8
+  minimumRange: 0.5
   targetOffset: 0
   attackCooldown: 2
   cooldownT: 0
   shotClip1: {fileID: 8300000, guid: 33223e01cd80a8547921d9612f5b3ce8, type: 3}
   shotClip2: {fileID: 8300000, guid: 05ad8815a2965224682d8fd86dd88153, type: 3}
   shotClip3: {fileID: 8300000, guid: 413f875eec9b1b34c84344b15de79b4b, type: 3}
+  destroyClip: {fileID: 0}
+  animClip: {fileID: 0}
   bar: {fileID: 0}
 --- !u!65 &401323895
 BoxCollider:
@@ -9392,7 +9461,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 1.25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10628,3 +10697,4 @@ SceneRoots:
   - {fileID: 1173014510}
   - {fileID: 1834423925}
   - {fileID: 2011164301}
+  - {fileID: 38215815}
