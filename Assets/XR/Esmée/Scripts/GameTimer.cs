@@ -43,8 +43,20 @@ public class GameTimer : MonoBehaviour
         bar.fillAmount = Mathf.Clamp(endTimer / maxTime, 0, 1);
         bar2.fillAmount = Mathf.Clamp(endTimer / maxTime, 0, 1);
 
+        AttackersWin();
     }
 
+    private void AttackersWin()
+    {
+        bool _noHealth = heart.CheckHealth();
+
+        if (_noHealth)
+        {
+            attackersWin.SetActive(true);
+            StartCoroutine(LoadStartScene());
+        }
+
+    }
     private void TimeIsUp()
     {
         bool _noHealth = heart.CheckHealth();
@@ -57,7 +69,7 @@ public class GameTimer : MonoBehaviour
         {
             defendersWin.SetActive(true);
         }
-        LoadStartScene();
+        StartCoroutine(LoadStartScene());
     }
 
     private void LastMinute()
@@ -76,11 +88,9 @@ public class GameTimer : MonoBehaviour
         Destroy(lastMinute);
     }
 
-    private void LoadStartScene()
+    private IEnumerator LoadStartScene()
     {
-        if (endTimer <= -5)
-        {
-            SceneManager.LoadScene("StartScene");
-        }
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("StartScene");
     }
 }

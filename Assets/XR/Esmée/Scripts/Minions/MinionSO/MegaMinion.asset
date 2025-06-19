@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MegaMinion
   m_EditorClassIdentifier: 
   MHealth: 200
-  MSpeed: 0.05
+  MSpeed: 0.09
   MDamage: 30
   MCost: 20
   MLevel: 1
