@@ -5556,13 +5556,15 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 64
-  Dammage: 20
+  Damage: 35
   Level: 1
   Prize: 10
-  towerHealth: 100
+  towerHealth: 120
   muzzelLocation: {fileID: 4353283804938922685}
+  ballista: {fileID: 4880659181049752106}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
-  range: 0.8
+  range: 0.7
+  minimumRange: 0.15
   targetOffset: 0
   attackCooldown: 2
   cooldownT: 0

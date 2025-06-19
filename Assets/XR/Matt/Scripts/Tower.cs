@@ -5,7 +5,7 @@ public class Tower : MonoBehaviour
 {
     public LayerMask Mask;
 
-    public float Damage = 5;
+    public float Damage;
 
     public int Level;
     public int Prize;
@@ -14,10 +14,12 @@ public class Tower : MonoBehaviour
     private float maxTowerHealth = 100f;
 
     [SerializeField] private GameObject muzzelLocation;
+    [SerializeField] private GameObject ballista;
 
     [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] float range = 5;
+    [SerializeField] float range;
+    [SerializeField] float minimumRange;
     [SerializeField] float targetOffset;
 
     [SerializeField] float attackCooldown = 1f;
@@ -100,7 +102,7 @@ public class Tower : MonoBehaviour
         foreach (var _enemy in _enemies)
         {
             float _dist = Vector3.Distance(transform.position, _enemy.transform.position);
-            if (_dist < _minDistance)
+            if (_dist < _minDistance && _dist > minimumRange)
             {
                 _minDistance = _dist;
                 _nearest = _enemy.transform;
@@ -135,6 +137,7 @@ public class Tower : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, minimumRange);
         //Gizmos.DrawSphere(targetPosition.position, 0.1f);
     }
 }
