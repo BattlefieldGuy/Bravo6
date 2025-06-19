@@ -92,6 +92,7 @@ MonoBehaviour:
   minion: {fileID: 7130193627534435522}
   MLevelData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
   MPrizeData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
+  MHealthData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
 --- !u!65 &8033758048678401904
 BoxCollider:
   m_ObjectHideFlags: 0

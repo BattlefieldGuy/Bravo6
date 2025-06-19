@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MinionScriptableObject", menuName = "Scriptable Objects/MinionScriptableObject")]
 public class MinionScriptableObject : ScriptableObject
 {
+    public float MHealth;
     public float MSpeed;
     public float MDamage;
     public int MCost;

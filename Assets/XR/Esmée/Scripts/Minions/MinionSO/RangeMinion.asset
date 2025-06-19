@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1c5ab480f6b5d43848338f6b977214, type: 3}
   m_Name: RangeMinion
   m_EditorClassIdentifier: 
+  MHealth: 150
   MSpeed: 0.1
   MDamage: 20
   MCost: 15

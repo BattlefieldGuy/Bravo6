@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1c5ab480f6b5d43848338f6b977214, type: 3}
   m_Name: MegaMinion
   m_EditorClassIdentifier: 
+  MHealth: 200
   MSpeed: 0.05
   MDamage: 30
   MCost: 20
