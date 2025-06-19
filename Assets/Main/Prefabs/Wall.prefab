@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 7268164022191951388}
-  WallHealth: 500
+  WallHealth: 600
 --- !u!1 &1440939714476806557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 64
-  Dammage: 20
+  Damage: 5
   Level: 1
   Prize: 10
   towerHealth: 100
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 64
-  Dammage: 20
+  Damage: 5
   Level: 1
   Prize: 10
   towerHealth: 100
