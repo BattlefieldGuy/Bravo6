@@ -11,8 +11,8 @@ public class Tower : MonoBehaviour
     public int Level;
     public int Prize;
 
-    [SerializeField] private float towerHealth = 100f;
-    private float maxTowerHealth = 100f;
+    [SerializeField] private float towerHealth;
+    private float maxTowerHealth;
 
     [SerializeField] private GameObject muzzelLocation;
     [SerializeField] private BalistaModel ballistaModel;
@@ -51,6 +51,7 @@ public class Tower : MonoBehaviour
     {
         audiosrc = GetComponent<AudioSource>();
         anim = GetComponentInChildren<Animation>();
+        maxTowerHealth = towerHealth;
     }
 
     public void TakeDamage(float _damageT)
