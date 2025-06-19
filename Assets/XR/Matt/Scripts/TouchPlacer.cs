@@ -10,26 +10,15 @@ public class TouchPlacer : MonoBehaviour
 
     private bool[,] gridOcupied;
 
+    private int prizeToReturn;
     private void Start()
     {
         gridOcupied = new bool[grid.width, grid.height];
     }
-
-    void Update()
+    public void SpawnItem(Vector3 _itemPos, int _itemToPlace)
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-            HandleTap(Input.GetTouch(0).position);
-
-#if UNITY_EDITOR
-        if (Input.GetMouseButtonDown(0))
-            HandleTap(Input.mousePosition);
-#endif
-    }
-
-    void HandleTap(Vector2 _screenPos)
-    {
-        Ray _ray = Camera.main.ScreenPointToRay(_screenPos);
-        if (Physics.Raycast(_ray, out RaycastHit _hit))
+        ItemToPlace = _itemToPlace;
+        if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
         {
             Vector3 _hitPos = _hit.point;
             Vector2Int _coords = grid.GetGridCoordinates(_hitPos);
@@ -43,7 +32,7 @@ public class TouchPlacer : MonoBehaviour
                     switch (ItemToPlace)
                     {
                         case 1:
-                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, 180, 0, 180));
+                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
                             break;
                         case 2:
                             _spawnPos.y = 0.06f;
@@ -62,12 +51,32 @@ public class TouchPlacer : MonoBehaviour
                     }
                     else
                         Debug.LogError("Item to spawn is null");
-
                 }
                 else
-                    Debug.Log("Tryed to place on an ocupied gridcell");
+                    CoinManager.AddDECoins(prizeToReturn);
             }
+            else
+                CoinManager.AddDECoins(prizeToReturn);
+
         }
+    }
+
+    public int ReturnPrize(int _itemToPlace)
+    {
+        switch (_itemToPlace)
+        {
+            case 1:
+                prizeToReturn = gridTowerPrefab.GetComponent<Tower>().Prize;
+                Debug.Log(prizeToReturn);
+                return prizeToReturn;
+            case 2:
+                prizeToReturn = gridWallPrefab.GetComponent<GridWall>().Prize;
+                Debug.Log(prizeToReturn);
+                return prizeToReturn;
+            default:
+                return 0;
+        }
+        ;
     }
 
     public void FreeGridCell(Vector2Int _coords)

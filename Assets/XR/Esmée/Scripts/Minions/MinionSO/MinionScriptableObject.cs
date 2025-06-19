@@ -5,10 +5,12 @@ public class MinionScriptableObject : ScriptableObject
 {
     public float MSpeed;
     public float MDamage;
-    //[Range(1, 100)]
-    public float MCost;
+    public int MCost;
+    public int MLevel;
+    public int MPrize;
     public GameObject MPrefab;
-    //audioclip zou je hier ook kunnen doen hier. als je ander geluid per minion wil. voor bv lopen en slaan
+    public AudioClip MAttackAudio;
+
     //wapen info kan ook hier
     //range kan ook??
 }

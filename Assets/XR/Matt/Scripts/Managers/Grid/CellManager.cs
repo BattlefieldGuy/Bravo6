@@ -16,4 +16,9 @@ public class CellManager : MonoBehaviour
         TouchPlacer.FreeGridCell(GridPosition);
         Destroy(gameObject);
     }
+
+    public void RemoveItem()
+    {
+        TouchPlacer.FreeGridCell(GridPosition);
+    }
 }

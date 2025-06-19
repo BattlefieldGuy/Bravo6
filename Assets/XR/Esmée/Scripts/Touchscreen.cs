@@ -1,14 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+
+#if UNITY_EDITOR
+#endif
 
 public class Touchscreen : MonoBehaviour
 {
     private Dictionary<int, GameObject> activeDrags = new Dictionary<int, GameObject>();
-    private GameObject mouseDrag;
     private Camera cam;
     [SerializeField] private float spawnLine;
+
+
+    private bool mouseDragging = false;
+    private GameObject mouseDragObject;
+
+
+    private TouchPlacer touchPlacer;
+
 
     void OnEnable()
     {
@@ -29,81 +40,61 @@ public class Touchscreen : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        touchPlacer = FindFirstObjectByType<TouchPlacer>();
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) //uitleg voor dit is hetzelfde als hier onder maar dan voor de muis
-        {
-            Vector2 screenPos = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(screenPos);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                GameObject target = hit.collider.gameObject;
-
-                Card card = target.GetComponent<Card>();
-
-                if (card != null)
-                {
-                    mouseDrag = target;
-                }
-            }
-        }
-
-
-        if (Input.GetMouseButton(0) && mouseDrag != null)
-        {
-            Vector2 screenPos = Input.mousePosition;
-            float z = cam.WorldToScreenPoint(mouseDrag.transform.position).z;
-            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, z));
-
-            mouseDrag.transform.position = worldPos;
-        }
-
-        if (Input.GetMouseButtonUp(0) && mouseDrag != null)
-        {
-            Vector3 spawnPos = mouseDrag.transform.position;
-            Card card = mouseDrag.GetComponent<Card>();
-            if (card != null)
-            {
-                if (spawnPos.z >= spawnLine)
-                {
-                    spawnPos.z = spawnLine;
-                    card.OnPlay(spawnPos);
-                }
-                else
-                {
-                    card.OnPlay(spawnPos);
-                }
-            }
-
-            Destroy(mouseDrag);
-            mouseDrag = null;
-        }
-    }
-
-    void OnFingerDown(Finger finger) //wat er gebeurt wanneer je vinger het scherm raakt
+    void OnFingerDown(Finger finger)
     {
         Vector2 screenPos = finger.screenPosition;
         Ray ray = cam.ScreenPointToRay(screenPos);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            GameObject target = hit.collider.gameObject;
-
-            Card card = target.GetComponent<Card>();
-
-            if (card != null)
+            GameObject originalCard = hit.collider.gameObject;
+            if (originalCard.GetComponent<Card>())
             {
-                activeDrags[finger.index] = target;
+
+                Card card = originalCard.GetComponent<Card>();
+
+                if (card != null && CoinManager.AttackersCoins >= card.CardCost)
+                {
+                    // Maak een kopie van de kaart om te slepen
+                    GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                    cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                    CoinManager.LoseATCoins(card.CardCost);
+
+                    activeDrags[finger.index] = cardCopy;
+                }
+
+            }
+            else if (originalCard.GetComponent<GridItemPlacer>())
+            {
+                GridItemPlacer _item = originalCard.GetComponent<GridItemPlacer>();
+
+                int _itemID = _item.ItemToPlace;
+                int _prize = touchPlacer.ReturnPrize(_itemID);
+                if (_item != null && CoinManager.DefendersCoins >= _prize)
+                {
+                    // Maak een kopie van de kaart om te slepen
+                    GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                    _itemCopy.tag = "Untagged";// voorkom dubbele selectie
+                    _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                    _item.GrabItem();
+
+                    CoinManager.LoseDECoins(_prize);
+
+                    activeDrags[finger.index] = _itemCopy;
+
+                }
             }
         }
     }
 
     void OnFingerMove(Finger finger)
     {
-        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard)) //verplaatst hetgene wat je hebt aangeraakt mee met je vinger
+        if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
             Vector2 screenPos = finger.screenPosition;
             float z = cam.WorldToScreenPoint(draggedCard.transform.position).z;
@@ -113,32 +104,121 @@ public class Touchscreen : MonoBehaviour
         }
     }
 
-    void OnFingerUp(Finger finger) //laat de card functie uitvoeren wanneer je het hebt losgelaten 
+    void OnFingerUp(Finger finger)
     {
         if (activeDrags.TryGetValue(finger.index, out GameObject draggedCard))
         {
             Vector3 spawnPos = draggedCard.transform.position;
 
-            Card card = draggedCard.GetComponent<Card>();
-            if (card != null)
+            if (draggedCard.GetComponent<Card>())
             {
-                if (spawnPos.z > spawnLine)
+
+                Card card = draggedCard.GetComponent<Card>();
+                if (card != null)
                 {
-                    spawnPos.z = spawnLine;
                     card.OnPlay(spawnPos);
                 }
-                else
+            }
+            else if (draggedCard.GetComponent<GridItemPlacer>())
+            {
+                GridItemPlacer _item = draggedCard.GetComponent<GridItemPlacer>();
+                if (_item != null)
                 {
-                    card.OnPlay(spawnPos);
+                    _item.SpawnItem(spawnPos);
                 }
             }
 
             Destroy(draggedCard);
             activeDrags.Remove(finger.index);
-            //plaats nieuwe kaart tussen de kaarten
         }
     }
 
+#if UNITY_EDITOR
+    void Update()
+    {
+        var mouse = Mouse.current;
+        if (mouse == null) return; // Geen muis aangesloten
+
+        if (mouse.leftButton.wasPressedThisFrame)
+        {
+            Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (hit.collider.GetComponent<Card>())
+                {
+
+                    GameObject originalCard = hit.collider.gameObject;
+                    Card card = originalCard.GetComponent<Card>();
+
+                    if (card != null && CoinManager.AttackersCoins >= card.CardCost)
+                    {
+                        Debug.Log("card cost = " + card.CardCost);
+                        mouseDragObject = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
+
+                        CoinManager.LoseATCoins(card.CardCost);
+
+                        mouseDragging = true;
+                    }
+                }
+                else if (hit.collider.GetComponent<GridItemPlacer>())
+                {
+                    GameObject _itemCopy = hit.collider.gameObject;
+                    int _prize = touchPlacer.ReturnPrize(_itemCopy.GetComponent<GridItemPlacer>().ItemToPlace);
+                    if (CoinManager.DefendersCoins >= _prize)
+                    {
+
+                        mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
+                        mouseDragObject.tag = "Untagged";
+
+                        hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+
+                        CoinManager.LoseDECoins(_prize);
+
+                        mouseDragging = true;
+                    }
+                }
+            }
+        }
+
+        if (mouseDragging && mouse.leftButton.isPressed)
+        {
+            if (mouseDragObject != null)
+            {
+                float z = cam.WorldToScreenPoint(mouseDragObject.transform.position).z;
+                Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(mouse.position.ReadValue().x, mouse.position.ReadValue().y, z));
+                mouseDragObject.transform.position = worldPos;
+            }
+        }
+
+        if (mouseDragging && mouse.leftButton.wasReleasedThisFrame)
+        {
+            if (mouseDragObject != null)
+            {
+                Vector3 spawnPos = mouseDragObject.transform.position;
+                if (mouseDragObject.GetComponent<Card>())
+                {
+
+                    Card card = mouseDragObject.GetComponent<Card>();
+
+                    if (card != null)
+                    {
+                        card.OnPlay(spawnPos);
+                    }
+                }
+                else if (mouseDragObject.GetComponent<GridItemPlacer>())
+                {
+                    GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
+                    _item.SpawnItem(spawnPos);
+                }
+
+                Destroy(mouseDragObject);
+                mouseDragObject = null;
+                mouseDragging = false;
+            }
+        }
+    }
+#endif
+
+
 }
-
-

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4034738532724670762}
   - component: {fileID: 3946663122051892783}
   - component: {fileID: 4258294677531000298}
+  - component: {fileID: 2165703412552631349}
   m_Layer: 0
   m_Name: heart crystal
   m_TagString: Heart
@@ -99,3 +100,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc305b4caeb97d94c97457fc5a138425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2165703412552631349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495561977803189665}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0011058585, y: 0.00097257475, z: 0.0041827904}
+  m_Center: {x: 0.0000000023865143, y: 0, z: 1.164153e-10}

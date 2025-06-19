@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    private float healt = 100;
+    private float health = 100;
 
     public void TakeDamage(float _damage)
     {
-        healt -= _damage;
-        CheckHealt();
+        health -= _damage;
+        if (CheckHealth())
+            Destroy(gameObject);
     }
 
-    public void CheckHealt()
+    public bool CheckHealth()
     {
-        if (healt < 0.0001)
+        if (health < 0.0001)
         {
             Debug.LogError("DEAD");
-            Destroy(gameObject);
+            return true;
         }
+        else
+            return false;
     }
 }
