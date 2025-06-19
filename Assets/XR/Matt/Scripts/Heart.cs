@@ -1,9 +1,22 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Heart : MonoBehaviour
 {
+    [SerializeField] private Image bar;
     private float health = 100;
+    private float maxHealth;
 
+
+    private void Start()
+    {
+        maxHealth = health;
+    }
+
+    private void Update()
+    {
+        bar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+    }
     public void TakeDamage(float _damage)
     {
         health -= _damage;

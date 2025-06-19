@@ -1513,7 +1513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff848dc3ed554245a2d3b5799ae221f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  particleSystemSpawn: {fileID: 0}
+  particleSystemDestroy: {fileID: 0}
 --- !u!1 &258553048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,7 +2490,7 @@ MonoBehaviour:
   CardCost: 20
   prefabData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
-  spawnLine: 6.2
+  spawnLine: 5.2
 --- !u!65 &431640374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2665,7 +2666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff848dc3ed554245a2d3b5799ae221f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  particleSystemSpawn: {fileID: 0}
+  particleSystemDestroy: {fileID: 0}
 --- !u!1 &452218462
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6103,7 @@ MonoBehaviour:
   CardCost: 15
   prefabData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
-  spawnLine: 6.2
+  spawnLine: 5.2
 --- !u!65 &1055544542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9468,7 +9470,7 @@ MonoBehaviour:
   CardCost: 5
   prefabData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
   costData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  spawnLine: 6.2
+  spawnLine: 5.2
 --- !u!65 &1739079077
 BoxCollider:
   m_ObjectHideFlags: 0
