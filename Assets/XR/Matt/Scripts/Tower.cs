@@ -5,7 +5,7 @@ public class Tower : MonoBehaviour
 {
     public LayerMask Mask;
 
-    public float Dammage = 5;
+    public float Damage = 5;
 
     public int Level;
     public int Prize;
@@ -89,6 +89,7 @@ public class Tower : MonoBehaviour
         audiosrc.PlayOneShot(ReturnShotClip());
         Projectile _projectile = _proj.GetComponent<Projectile>();
         _projectile.SetTarget(_target);
+        _projectile.Damage = Damage;
     }
 
     Transform GetEnemy(Collider[] _enemies)
