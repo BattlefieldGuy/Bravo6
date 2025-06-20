@@ -1,11 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Wall : MonoBehaviour
 {
+    [SerializeField] private GameObject wallMesh;
+    [SerializeField] private AudioSource deathAuio;
     [SerializeField] private Image bar;
     [SerializeField] public float WallHealth = 500;
     private float maxHealth;
+
 
     private void Start()
     {
@@ -19,7 +23,10 @@ public class Wall : MonoBehaviour
     {
         if (WallHealth <= 0)
         {
-            Destroy(gameObject);
+            deathAuio.Play();
+            GetComponent<BoxCollider>().enabled = false;
+            Destroy(wallMesh); //hier moet dan eigenlijk een animatie van breken of een opvulling met particles
+            StartCoroutine(WaitASec());
         }
     }
 
@@ -28,5 +35,11 @@ public class Wall : MonoBehaviour
         WallHealth -= _damageW;
         Debug.Log("waaaa dmage");
         BreakWall();
+    }
+
+    IEnumerator WaitASec()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }
