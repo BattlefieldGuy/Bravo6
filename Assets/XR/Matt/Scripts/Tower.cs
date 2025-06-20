@@ -59,6 +59,9 @@ public class Tower : MonoBehaviour
         towerHealth -= _damageT;
         if (CheckHealt())
         {
+
+            cooldownT = 100f;
+
             anim.clip = animClip;
             anim.Play();
 
