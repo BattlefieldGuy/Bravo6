@@ -5553,7 +5553,7 @@ MonoBehaviour:
   Level: 1
   health: 150
   bar: {fileID: 4211161925258127588}
-  wallDestroy: {fileID: 8300000, guid: 8c4ecb2d4a8639a449aafab99369eae2, type: 3}
+  wallDestroy: {fileID: 8300000, guid: a429c4a576390c64b8523f8981beb520, type: 3}
   destroyClip: {fileID: 7400000, guid: e438cdf12c03a3941bf8cd7e8939016c, type: 2}
 --- !u!65 &297085510238697992
 BoxCollider:

@@ -5001,6 +5001,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209808426}
   m_CullTransparentMesh: 1
+--- !u!1 &1221830733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3967322802107500964, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
+  m_PrefabInstance: {fileID: 1605672157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1226017116
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,6 +6202,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3514400088166872683, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
+      propertyPath: wallMesh
+      value: 
+      objectReference: {fileID: 1221830733}
+    - target: {fileID: 3514400088166872683, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
+      propertyPath: deathAuio
+      value: 
+      objectReference: {fileID: 1605672162}
     - target: {fileID: 4152587958168092676, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -6223,14 +6236,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 958505776907123818, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1605672161}
+      addedObject: {fileID: 1605672162}
   m_SourcePrefab: {fileID: 100100000, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
 --- !u!4 &1605672158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 456321146088956176, guid: 1cb56b48f0db1124490f5b386bb5e2ae, type: 3}
   m_PrefabInstance: {fileID: 1605672157}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1605672161
+--- !u!82 &1605672162
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6240,9 +6253,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a429c4a576390c64b8523f8981beb520, type: 3}
-  m_Resource: {fileID: 8300000, guid: a429c4a576390c64b8523f8981beb520, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 8c4ecb2d4a8639a449aafab99369eae2, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8c4ecb2d4a8639a449aafab99369eae2, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
