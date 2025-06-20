@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class GridWall : MonoBehaviour
     private float maxHealth;
 
     [SerializeField] private Image bar;
+
+    [SerializeField] private AudioClip wallDestroy;
 
     [SerializeField] private AnimationClip destroyClip;
 
@@ -31,14 +34,24 @@ public class GridWall : MonoBehaviour
     {
         if (health <= 0)
         {
-            //anim.clip = destroyClip;
-            //anim.Play();
-            this.GetComponent<CellManager>().DestroyItem();
+            anim.clip = destroyClip;
+            anim.Play();
+            CoinManager.GainTowerPrize(Level, Prize);
+            this.GetComponent<CellManager>().RemoveItem();
+            this.GetComponent<Collider>().enabled = false;
+            this.GetComponent<AudioSource>().PlayOneShot(wallDestroy);
+            StartCoroutine(enumerator());
         }
     }
 
     private void Update()
     {
         bar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+    }
+
+    private IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }

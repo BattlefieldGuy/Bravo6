@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
-    private float endTimer = 300f; //5 minuten, 3m=180f
+    private float endTimer = 180f;
     private float midTime;
     private Heart heart;
     private float maxTime;

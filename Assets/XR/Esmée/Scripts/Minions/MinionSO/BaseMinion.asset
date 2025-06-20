@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1c5ab480f6b5d43848338f6b977214, type: 3}
   m_Name: BaseMinion
   m_EditorClassIdentifier: 
+  MHealth: 70
   MSpeed: 0.1
   MDamage: 15
   MCost: 5
   MLevel: 1
-  MPrize: 10
+  MPrize: 5
   MPrefab: {fileID: 331779619558410078, guid: ab92fa4aad4184f46b255d194a42743f, type: 3}
   MAttackAudio: {fileID: 8300000, guid: bc6e0df29948d414c9ae64b7e23a5fc0, type: 3}
