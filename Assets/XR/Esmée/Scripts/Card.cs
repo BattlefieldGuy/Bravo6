@@ -5,10 +5,10 @@ public class Card : MonoBehaviour
     [Range(1f, 20f)]
     public int CardCost;
 
-    [SerializeField] private MinionScriptableObject prefabData;
+    [SerializeField] private GameObject minionPrefab;
     [SerializeField] private MinionScriptableObject costData;
 
-    [SerializeField] private float spawnLine;
+    [SerializeField] private float spawnLineL;
 
     private bool hasBeenPlayed = false;
 
@@ -26,15 +26,15 @@ public class Card : MonoBehaviour
         if (hasBeenPlayed) return;
         hasBeenPlayed = true;
 
-        if (_spawnPosition.z > spawnLine) _spawnPosition.z = spawnLine;
+        if (_spawnPosition.z > spawnLineL) _spawnPosition.z = spawnLineL;
         if (_spawnPosition.x < -5.2f) _spawnPosition.x = -5.2f;
         if (_spawnPosition.x > -3.3f) _spawnPosition.x = -3.3f;
 
         {
-            if (prefabData != null && prefabData.MPrefab != null && hasBeenPlayed)
+            if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
             {
                 _spawnPosition.y = 0.1f; //dit werkt goed zodra we echte minion  model met pivit beneden hebben
-                Instantiate(prefabData.MPrefab, _spawnPosition, Quaternion.identity);
+                Instantiate(minionPrefab, _spawnPosition, Quaternion.identity);
             }
         }
     }

@@ -10,9 +10,13 @@ public class MinionHealth : MonoBehaviour
     [SerializeField] private ParticleSystem particleSyst;
     [SerializeField] private GameObject minion;
 
+    [SerializeField] private AudioClip deathAudio;
+
     public MinionScriptableObject MLevelData;
     public MinionScriptableObject MPrizeData;
     public MinionScriptableObject MHealthData;
+
+    private bool hasPlayed = false;
 
 
     private void Start()
@@ -35,15 +39,21 @@ public class MinionHealth : MonoBehaviour
     {
         if (mHealth <= 0)
         {
-            particleSyst.Play();
-            Destroy(minion);
-            StartCoroutine(WaitForSec());
+            if (!hasPlayed)
+            {
+                this.GetComponent<AudioSource>().PlayOneShot(deathAudio);
+                GetComponent<BoxCollider>().enabled = false;
+                particleSyst.Play();
+                Destroy(minion);
+                StartCoroutine(WaitForSec());
+                hasPlayed = true;
+            }
         }
     }
 
     IEnumerator WaitForSec()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
         Destroy(gameObject);
     }

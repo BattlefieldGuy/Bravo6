@@ -90,6 +90,7 @@ MonoBehaviour:
   bar: {fileID: 7695626782983483762}
   particleSyst: {fileID: 366645889428874031}
   minion: {fileID: 7130193627534435522}
+  deathAudio: {fileID: 8300000, guid: e32a1782f5a848c46a9ddd0a9aee96fd, type: 3}
   MLevelData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   MPrizeData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   MHealthData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
