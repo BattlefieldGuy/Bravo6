@@ -3,6 +3,7 @@ using UnityEngine;
 public class GridItemPlacer : MonoBehaviour
 {
     public int ItemToPlace;
+    public bool IsRightSide;
 
     private TouchPlacer touchPlacer;
     private ShopManager shopManager;
@@ -17,7 +18,10 @@ public class GridItemPlacer : MonoBehaviour
 
     public void SpawnItem(Vector3 _coords)
     {
-        touchPlacer.SpawnItem(_coords, ItemToPlace);
+        if (IsRightSide)
+            touchPlacer.SpawnItemR(_coords, ItemToPlace);
+        else if (!IsRightSide)
+            touchPlacer.SpawnItemL(_coords, ItemToPlace);
         LetGoOfItem();
     }
 

@@ -13,12 +13,17 @@ public class CellManager : MonoBehaviour
 
     public void DestroyItem()
     {
-        TouchPlacer.FreeGridCell(GridPosition);
+        TouchPlacer.FreeGridCellR(GridPosition);
         Destroy(gameObject);
     }
 
-    public void RemoveItem()
+    public void RemoveItemR()
     {
-        TouchPlacer.FreeGridCell(GridPosition);
+        TouchPlacer.FreeGridCellR(GridPosition);
+    }
+
+    public void RemoveItemL()
+    {
+        TouchPlacer.FreeGridCellR(GridPosition);
     }
 }
