@@ -77,12 +77,18 @@ public class MinionAttack : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("enemyR"))
             {
+                movement.IsWalking = false;
+
                 if (coolDown <= 0)
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
                     coolDown = 2;
                 }
+            }
+            else
+            {
+                movement.IsWalking = true;
             }
         }
 
@@ -91,12 +97,18 @@ public class MinionAttack : MonoBehaviour
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("enemyL"))
             {
+                movement.IsWalking = false;
+
                 if (coolDown <= 0)
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
                     coolDown = 2;
                 }
+            }
+            else
+            {
+                movement.IsWalking = true;
             }
         }
     }

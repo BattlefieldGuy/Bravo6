@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000f12f967452e4897d162c03ffa2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heart: {fileID: 3107774997365023158, guid: a99e83e7aa55db048b213b32362de6bc, type: 3}
+  heart: {fileID: 8292126302121010644, guid: 1148b1010a75aa14383ad6deafebd890, type: 3}
   MSpeedData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   IsWalking: 1
 --- !u!114 &3515701022381953797
@@ -90,7 +90,7 @@ MonoBehaviour:
   bar: {fileID: 7695626782983483762}
   particleSyst: {fileID: 518846312893430325}
   minion: {fileID: 7130193627534435522}
-  deathAudio: {fileID: 0}
+  deathAudio: {fileID: 8300000, guid: e32a1782f5a848c46a9ddd0a9aee96fd, type: 3}
   MLevelData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   MPrizeData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   MHealthData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
