@@ -8,14 +8,15 @@ public class Card : MonoBehaviour
     [SerializeField] private GameObject minionPrefab;
     [SerializeField] private MinionScriptableObject costData;
 
-    [SerializeField] private float spawnLineL;
+    [SerializeField] private float spawnLine;
+
 
     private bool hasBeenPlayed = false;
 
     public void OnPlay(Vector3 _spawnPosition)
     {
 
-        if (_spawnPosition.z < 4.3f)
+        if (_spawnPosition.z < 4.3f || _spawnPosition.z > 6.2f)
         {
             CoinManager.AddATCoins(costData.MCost);
             hasBeenPlayed = false; //kijk hier naar
@@ -26,7 +27,7 @@ public class Card : MonoBehaviour
         if (hasBeenPlayed) return;
         hasBeenPlayed = true;
 
-        if (_spawnPosition.z > spawnLineL) _spawnPosition.z = spawnLineL;
+        if (_spawnPosition.z > spawnLine || _spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
         if (_spawnPosition.x < -5.2f) _spawnPosition.x = -5.2f;
         if (_spawnPosition.x > -3.3f) _spawnPosition.x = -3.3f;
 
@@ -34,7 +35,15 @@ public class Card : MonoBehaviour
             if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
             {
                 _spawnPosition.y = 0.1f; //dit werkt goed zodra we echte minion  model met pivit beneden hebben
-                Instantiate(minionPrefab, _spawnPosition, Quaternion.identity);
+                if (gameObject.layer == LayerMask.NameToLayer("rotate"))
+                {
+                    Instantiate(minionPrefab, _spawnPosition, Quaternion.Euler(0, 180, 0));
+                }
+                else
+                {
+                    Instantiate(minionPrefab, _spawnPosition, Quaternion.identity);
+                }
+
             }
         }
     }

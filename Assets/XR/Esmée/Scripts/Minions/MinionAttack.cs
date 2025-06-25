@@ -72,6 +72,45 @@ public class MinionAttack : MonoBehaviour
                 coolDown = 2;
             }
         }
+
+        if (gameObject.layer == LayerMask.NameToLayer("enemyL"))
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("enemyR"))
+            {
+                movement.IsWalking = false;
+
+                if (coolDown <= 0)
+                {
+                    collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
+                    PlayAudio();
+                    coolDown = 2;
+                }
+            }
+            else
+            {
+                movement.IsWalking = true;
+            }
+        }
+
+
+        if (gameObject.layer == LayerMask.NameToLayer("enemyR"))
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("enemyL"))
+            {
+                movement.IsWalking = false;
+
+                if (coolDown <= 0)
+                {
+                    collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
+                    PlayAudio();
+                    coolDown = 2;
+                }
+            }
+            else
+            {
+                movement.IsWalking = true;
+            }
+        }
     }
 
     private void RangeMinion()
