@@ -6124,6 +6124,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 209178123234131801, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridParentL
+      value: 
+      objectReference: {fileID: 952853746}
+    - target: {fileID: 209178123234131801, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: gridParentR
       value: 
       objectReference: {fileID: 1310272632}
@@ -6132,9 +6136,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridL
+      value: 
+      objectReference: {fileID: 1678621864}
+    - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: gridR
       value: 
       objectReference: {fileID: 1678621864}
+    - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridWallPrefabL
+      value: 
+      objectReference: {fileID: 7474551484817438883, guid: da0c867f70e5c9c4c85e0767474b8035, type: 3}
+    - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridWallPrefabR
+      value: 
+      objectReference: {fileID: 7474551484817438883, guid: 740b65d64d40597468c45a5b48e89eab, type: 3}
+    - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridTowerPrefabL
+      value: 
+      objectReference: {fileID: 4938735003479452662, guid: b2d8e2cb129b77f48b04eb72da906777, type: 3}
+    - target: {fileID: 746733857821157095, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridTowerPrefabR
+      value: 
+      objectReference: {fileID: 4938735003479452662, guid: 188d933ac63a397458f545a88e81cbbd, type: 3}
     - target: {fileID: 801392460967921194, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
