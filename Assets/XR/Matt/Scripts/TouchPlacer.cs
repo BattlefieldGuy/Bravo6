@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class TouchPlacer : MonoBehaviour
 {
-    public GameObject gridTowerPrefab;
-    public GameObject gridWallPrefab;
 
     [Header("GridR")]
+    public GameObject gridTowerPrefabR;
+    public GameObject gridWallPrefabR;
+
     public GridManager gridR;
 
     public int ItemToPlaceR = 1;
@@ -13,6 +14,9 @@ public class TouchPlacer : MonoBehaviour
     private bool[,] gridOcupiedR;
 
     [Header("GridL")]
+    public GameObject gridTowerPrefabL;
+    public GameObject gridWallPrefabL;
+
     public GridManager gridL;
 
     public int ItemToPlaceL = 1;
@@ -34,11 +38,11 @@ public class TouchPlacer : MonoBehaviour
         switch (_itemToPlace)
         {
             case 1:
-                prizeToReturn = gridTowerPrefab.GetComponent<Tower>().Prize;
+                prizeToReturn = gridTowerPrefabR.GetComponent<Tower>().Prize;
                 Debug.Log(prizeToReturn);
                 return prizeToReturn;
             case 2:
-                prizeToReturn = gridWallPrefab.GetComponent<GridWall>().Prize;
+                prizeToReturn = gridWallPrefabR.GetComponent<GridWall>().Prize;
                 Debug.Log(prizeToReturn);
                 return prizeToReturn;
             default:
@@ -68,11 +72,11 @@ public class TouchPlacer : MonoBehaviour
                     switch (ItemToPlaceR)
                     {
                         case 1:
-                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
+                            _item = Instantiate(gridTowerPrefabR, _spawnPos, new Quaternion(0, -1, 0, 0));
                             break;
                         case 2:
                             _spawnPos.y = 0.06f;
-                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
+                            _item = Instantiate(gridWallPrefabR, _spawnPos, new Quaternion(0, 90, 0, 90));
                             break;
                         default:
                             break;
@@ -124,11 +128,11 @@ public class TouchPlacer : MonoBehaviour
                     switch (ItemToPlaceL)
                     {
                         case 1:
-                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
+                            _item = Instantiate(gridTowerPrefabL, _spawnPos, new Quaternion(0, -1, 0, 0));
                             break;
                         case 2:
                             _spawnPos.y = 0.06f;
-                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
+                            _item = Instantiate(gridWallPrefabL, _spawnPos, new Quaternion(0, 90, 0, 90));
                             break;
                         default:
                             break;
