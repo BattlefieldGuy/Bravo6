@@ -37,7 +37,7 @@ public class GridWall : MonoBehaviour
             anim.clip = destroyClip;
             anim.Play();
             CoinManager.GainTowerPrize(Level, Prize);
-            this.GetComponent<CellManager>().RemoveItem();
+            this.GetComponent<CellManager>().RemoveItemR();
             this.GetComponent<Collider>().enabled = false;
             this.GetComponent<AudioSource>().PlayOneShot(wallDestroy);
             StartCoroutine(enumerator());

@@ -2,63 +2,31 @@ using UnityEngine;
 
 public class TouchPlacer : MonoBehaviour
 {
-    public GridManager grid;
     public GameObject gridTowerPrefab;
     public GameObject gridWallPrefab;
 
-    public int ItemToPlace = 1;
+    [Header("GridR")]
+    public GridManager gridR;
 
-    private bool[,] gridOcupied;
+    public int ItemToPlaceR = 1;
+
+    private bool[,] gridOcupiedR;
+
+    [Header("GridL")]
+    public GridManager gridL;
+
+    public int ItemToPlaceL = 1;
+
+    private bool[,] gridOcupiedL;
+
 
     private int prizeToReturn;
+
+    #region --- GENERAL ---
+
     private void Start()
     {
-        gridOcupied = new bool[grid.width, grid.height];
-    }
-    public void SpawnItem(Vector3 _itemPos, int _itemToPlace)
-    {
-        ItemToPlace = _itemToPlace;
-        if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
-        {
-            Vector3 _hitPos = _hit.point;
-            Vector2Int _coords = grid.GetGridCoordinates(_hitPos);
-
-            if (grid.IsInBounds(_coords.x, _coords.y))
-            {
-                if (!gridOcupied[_coords.x, _coords.y])
-                {
-                    Vector3 _spawnPos = grid.GetWorldPosition(_coords.x, _coords.y) + new Vector3(grid.cellSize, 0, grid.cellSize) * 0.5f;
-                    GameObject _item = null;
-                    switch (ItemToPlace)
-                    {
-                        case 1:
-                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
-                            break;
-                        case 2:
-                            _spawnPos.y = 0.06f;
-                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
-                            break;
-                        default:
-                            break;
-                    }
-
-                    if (_item != null)
-                    {
-                        CellManager _manager = _item.GetComponent<CellManager>();
-                        _manager.GridPosition = _coords;
-                        _manager.TouchPlacer = this;
-                        gridOcupied[_coords.x, _coords.y] = true;
-                    }
-                    else
-                        Debug.LogError("Item to spawn is null");
-                }
-                else
-                    CoinManager.AddDECoins(prizeToReturn);
-            }
-            else
-                CoinManager.AddDECoins(prizeToReturn);
-
-        }
+        gridOcupiedR = new bool[gridR.width, gridR.height];
     }
 
     public int ReturnPrize(int _itemToPlace)
@@ -77,10 +45,118 @@ public class TouchPlacer : MonoBehaviour
                 return 0;
         }
         ;
+
     }
 
-    public void FreeGridCell(Vector2Int _coords)
+    #endregion
+
+    #region --- RIGHT SIDE ---
+    public void SpawnItemR(Vector3 _itemPos, int _itemToPlace)
     {
-        gridOcupied[_coords.x, _coords.y] = false;
+        ItemToPlaceR = _itemToPlace;
+        if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
+        {
+            Vector3 _hitPos = _hit.point;
+            Vector2Int _coords = gridR.GetGridCoordinates(_hitPos);
+
+            if (gridR.IsInBounds(_coords.x, _coords.y))
+            {
+                if (!gridOcupiedR[_coords.x, _coords.y])
+                {
+                    Vector3 _spawnPos = gridR.GetWorldPosition(_coords.x, _coords.y) + new Vector3(gridR.cellSize, 0, gridR.cellSize) * 0.5f;
+                    GameObject _item = null;
+                    switch (ItemToPlaceR)
+                    {
+                        case 1:
+                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
+                            break;
+                        case 2:
+                            _spawnPos.y = 0.06f;
+                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (_item != null)
+                    {
+                        CellManager _manager = _item.GetComponent<CellManager>();
+                        _manager.GridPosition = _coords;
+                        _manager.TouchPlacer = this;
+                        gridOcupiedR[_coords.x, _coords.y] = true;
+                    }
+                    else
+                        Debug.LogError("Item to spawn is null");
+                }
+                else
+                    CoinManager.AddDECoins(prizeToReturn);
+            }
+            else
+                CoinManager.AddDECoins(prizeToReturn);
+
+        }
     }
+
+
+    public void FreeGridCellR(Vector2Int _coords)
+    {
+        gridOcupiedR[_coords.x, _coords.y] = false;
+    }
+
+    #endregion
+
+    #region --- LEFT SIDE ---
+
+    public void SpawnItemL(Vector3 _itemPos, int _itemToPlace)
+    {
+        ItemToPlaceL = _itemToPlace;
+        if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
+        {
+            Vector3 _hitPos = _hit.point;
+            Vector2Int _coords = gridL.GetGridCoordinates(_hitPos);
+
+            if (gridL.IsInBounds(_coords.x, _coords.y))
+            {
+                if (!gridOcupiedL[_coords.x, _coords.y])
+                {
+                    Vector3 _spawnPos = gridL.GetWorldPosition(_coords.x, _coords.y) + new Vector3(gridL.cellSize, 0, gridL.cellSize) * 0.5f;
+                    GameObject _item = null;
+                    switch (ItemToPlaceL)
+                    {
+                        case 1:
+                            _item = Instantiate(gridTowerPrefab, _spawnPos, new Quaternion(0, -1, 0, 0));
+                            break;
+                        case 2:
+                            _spawnPos.y = 0.06f;
+                            _item = Instantiate(gridWallPrefab, _spawnPos, new Quaternion(0, 90, 0, 90));
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (_item != null)
+                    {
+                        CellManager _manager = _item.GetComponent<CellManager>();
+                        _manager.GridPosition = _coords;
+                        _manager.TouchPlacer = this;
+                        gridOcupiedL[_coords.x, _coords.y] = true;
+                    }
+                    else
+                        Debug.LogError("Item to spawn is null");
+                }
+                else
+                    CoinManager.AddATCoins(prizeToReturn);
+            }
+            else
+                CoinManager.AddATCoins(prizeToReturn);
+
+        }
+    }
+
+    public void FreeGridCellL(Vector2Int _coords)
+    {
+        gridOcupiedL[_coords.x, _coords.y] = false;
+    }
+
+    #endregion
 }

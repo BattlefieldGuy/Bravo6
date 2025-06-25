@@ -67,7 +67,7 @@ public class Tower : MonoBehaviour
 
             CoinManager.GainTowerPrize(Level, Prize);
 
-            this.GetComponent<CellManager>().RemoveItem();
+            this.GetComponent<CellManager>().RemoveItemR();
             this.GetComponent<Collider>().enabled = false;
             this.GetComponent<AudioSource>().PlayOneShot(destroyClip);
             StartCoroutine(enumerator());
