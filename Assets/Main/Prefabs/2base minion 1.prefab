@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4949684246349969464}
   - component: {fileID: 8941612504753507021}
   - component: {fileID: 831143354577039755}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4433867433900670700}
   - component: {fileID: 7506711008380833003}
   - component: {fileID: 3561652517523273159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4978,7 +4978,7 @@ GameObject:
   - component: {fileID: 6965028594753037655}
   - component: {fileID: 309486107206703827}
   - component: {fileID: 3239204164016518162}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5079,7 +5079,7 @@ GameObject:
   - component: {fileID: 5270904724194628269}
   - component: {fileID: 2799440760485566508}
   - component: {fileID: 6574620847394412259}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9970,11 +9970,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1655253798291783562, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
       propertyPath: m_Name
-      value: base minion
+      value: 2base minion 1
       objectReference: {fileID: 0}
     - target: {fileID: 1655253798291783562, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1655253798291783562, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
       propertyPath: m_TagString
@@ -10034,7 +10034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7743217657095079763, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

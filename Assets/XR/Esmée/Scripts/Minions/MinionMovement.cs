@@ -27,7 +27,14 @@ public class MinionMovement : MonoBehaviour
         {
             if (wHealth.WallHealth >= 0f)
             {
-                transform.position += MSpeedData.MSpeed * Time.deltaTime * Vector3.forward;
+                if (gameObject.layer == LayerMask.NameToLayer("enemyL"))
+                {
+                    transform.position += MSpeedData.MSpeed * Time.deltaTime * Vector3.forward; // l to r
+                }
+                if (gameObject.layer == LayerMask.NameToLayer("enemyR"))
+                {
+                    transform.position += MSpeedData.MSpeed * Time.deltaTime * Vector3.back; // r to l
+                }
             }
         }
         else
