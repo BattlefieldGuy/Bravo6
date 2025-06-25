@@ -35,7 +35,15 @@ public class Card : MonoBehaviour
             if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
             {
                 _spawnPosition.y = 0.1f; //dit werkt goed zodra we echte minion  model met pivit beneden hebben
-                Instantiate(minionPrefab, _spawnPosition, Quaternion.identity);
+                if (gameObject.layer == LayerMask.NameToLayer("rotate"))
+                {
+                    Instantiate(minionPrefab, _spawnPosition, Quaternion.Euler(0, 180, 0));
+                }
+                else
+                {
+                    Instantiate(minionPrefab, _spawnPosition, Quaternion.identity);
+                }
+
             }
         }
     }

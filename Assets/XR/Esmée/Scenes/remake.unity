@@ -372,7 +372,7 @@ Transform:
   m_GameObject: {fileID: 68612453}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 2.158, y: 0.21, z: -1.239}
+  m_LocalPosition: {x: 1.395, y: 0.175, z: -1.28}
   m_LocalScale: {x: 27.151505, y: 16.549263, z: 0.50179684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardCost: 20
-  minionPrefab: {fileID: 331779619558410078, guid: fcaf324dab47fd84abef7bed4523a969, type: 3}
+  minionPrefab: {fileID: 4504151050496825997, guid: 73db0eb52f5000148b5aa85bc3dac930, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 5.8
 --- !u!65 &68612456
@@ -407,7 +407,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -3786,7 +3786,7 @@ Transform:
   m_GameObject: {fileID: 541519777}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 1.315, y: 0.21, z: -1.248}
+  m_LocalPosition: {x: 1.829, y: 0.175, z: -1.28}
   m_LocalScale: {x: 27.151505, y: 16.549263, z: 0.50179684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3821,7 +3821,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -8361,7 +8361,7 @@ Transform:
   m_GameObject: {fileID: 1226017116}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4994763, y: 0.50052345, z: 0.50034875, w: 0.4996507}
-  m_LocalPosition: {x: -2.06, y: 0.175, z: 1.316}
+  m_LocalPosition: {x: -2.125, y: 0.175, z: 1.243}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8396,7 +8396,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -10388,7 +10388,7 @@ Transform:
   m_GameObject: {fileID: 1661707990}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4994763, y: 0.50052345, z: 0.50034875, w: 0.4996507}
-  m_LocalPosition: {x: -1.262, y: 0.175, z: 1.314}
+  m_LocalPosition: {x: -1.327, y: 0.175, z: 1.243}
   m_LocalScale: {x: 27.151505, y: 16.549263, z: 0.50179684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10407,7 +10407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardCost: 20
-  minionPrefab: {fileID: 331779619558410078, guid: bd32e5130e653ea439bebc618c820ef2, type: 3}
+  minionPrefab: {fileID: 4504151050496825997, guid: 5df92428743d30945bf8ab76194167f7, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 4.6
 --- !u!65 &1661707993
@@ -10423,7 +10423,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -10835,7 +10835,7 @@ Transform:
   m_GameObject: {fileID: 1729708576}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4994763, y: 0.50052345, z: 0.50034875, w: 0.4996507}
-  m_LocalPosition: {x: -1.656, y: 0.175, z: 1.309}
+  m_LocalPosition: {x: -1.721, y: 0.175, z: 1.243}
   m_LocalScale: {x: 27.151505, y: 16.549263, z: 0.50179684}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10870,7 +10870,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -11937,7 +11937,7 @@ Transform:
   m_GameObject: {fileID: 1894975767}
   serializedVersion: 2
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: 1.735, y: 0.21, z: -1.236}
+  m_LocalPosition: {x: 2.269, y: 0.175, z: -1.28}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11972,7 +11972,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
