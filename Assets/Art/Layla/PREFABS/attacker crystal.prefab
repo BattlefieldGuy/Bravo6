@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1868125932405328335
+--- !u!1001 &1491061838646860040
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.450676
+      value: 16.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.568143
+      value: -2.74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,22 +60,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7023974396876390944, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
     - target: {fileID: -4683669308469848369, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
     - target: {fileID: -2202892853515455343, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
+    - target: {fileID: 882129737928793925, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
     - target: {fileID: 919132149155446097, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_Name
-      value: crystal
+      value: attacker crystal
       objectReference: {fileID: 0}
     - target: {fileID: 2786534777698132407, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
+    - target: {fileID: 7339356831882890532, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9cc38d8a627958c49827458c9cb06a84, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
