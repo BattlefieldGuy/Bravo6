@@ -307,7 +307,7 @@ MonoBehaviour:
   CardCost: 20
   minionPrefab: {fileID: 331779619558410078, guid: fcaf324dab47fd84abef7bed4523a969, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &68612456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2763,7 +2763,7 @@ MonoBehaviour:
   CardCost: 15
   minionPrefab: {fileID: 331779619558410078, guid: b49f4ff87dae4b04b8c5e786ba313451, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &541519780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4614,6 +4614,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951187102}
   m_CullTransparentMesh: 1
+--- !u!1 &952853745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952853746}
+  m_Layer: 0
+  m_Name: GridParentL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &952853746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952853745}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: -0.885, y: 0, z: -1.251}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1310272631}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &971983943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,7 +5646,7 @@ MonoBehaviour:
   CardCost: 5
   minionPrefab: {fileID: 3963904936600469452, guid: 625b1c74afe28524c99b9e5d9ba9d9c6, type: 3}
   costData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &1226017119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6092,6 +6123,10 @@ PrefabInstance:
       propertyPath: height
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 209178123234131801, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: gridParentR
+      value: 
+      objectReference: {fileID: 1310272632}
     - target: {fileID: 387357523797532657, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: IsRightSide
       value: 1
@@ -6198,9 +6233,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7353724990759812620, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 952853746}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+--- !u!4 &1310272631 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7353724990759812620, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+  m_PrefabInstance: {fileID: 1310272630}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1310272632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3934308754022971421, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+  m_PrefabInstance: {fileID: 1310272630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1333892530
 GameObject:
   m_ObjectHideFlags: 0
@@ -7041,7 +7089,7 @@ MonoBehaviour:
   CardCost: 20
   minionPrefab: {fileID: 331779619558410078, guid: bd32e5130e653ea439bebc618c820ef2, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &1661707993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7499,7 +7547,7 @@ MonoBehaviour:
   CardCost: 15
   minionPrefab: {fileID: 331779619558410078, guid: 1e34b8a5d6140c84bbfb7c8d39b8c283, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &1729708579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8375,7 +8423,7 @@ MonoBehaviour:
   CardCost: 5
   minionPrefab: {fileID: 3963904936600469452, guid: 62b4dc15c5caa02439fdf9203b04beeb, type: 3}
   costData: {fileID: 11400000, guid: 77304d3712e9a0b47a91f454374e4810, type: 2}
-  spawnLineL: 0
+  spawnLine: 0
 --- !u!65 &1894975770
 BoxCollider:
   m_ObjectHideFlags: 0

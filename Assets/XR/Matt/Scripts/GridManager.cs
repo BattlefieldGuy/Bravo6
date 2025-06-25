@@ -6,16 +6,22 @@ public class GridManager : MonoBehaviour
     public int width = 10;
     public int height = 10;
     public float cellSize = 0.2f;
-    public Vector3 origin = Vector3.zero;
+
+    [Header("Right side")]
+    public Vector3 originR = Vector3.zero;
+    public Transform gridParentR;
+
+    [Header("Left side")]
+    public Vector3 originL = Vector3.zero;
+    public Transform gridParentL;
 
     [Header("Visuals")]
     public GameObject gridTilePrefab;
-    public Transform gridParent;
 
     private void Start()
     {
         GenerateVisualGrid();
-        origin = gridParent.transform.position;
+        originR = gridParentR.transform.position;
     }
 
     public void GenerateVisualGrid()
@@ -26,9 +32,9 @@ public class GridManager : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                origin = gridParent.transform.position;
-                Vector3 pos = origin + new Vector3(x * cellSize, 0, z * cellSize) + new Vector3(cellSize, 0, cellSize) * 0.5f;
-                Instantiate(gridTilePrefab, pos, Quaternion.identity, gridParent);
+                originR = gridParentR.transform.position;
+                Vector3 pos = originR + new Vector3(x * cellSize, 0, z * cellSize) + new Vector3(cellSize, 0, cellSize) * 0.5f;
+                Instantiate(gridTilePrefab, pos, Quaternion.identity, gridParentR);
             }
         }
     }
@@ -36,12 +42,12 @@ public class GridManager : MonoBehaviour
 
     public Vector3 GetWorldPosition(int x, int z)
     {
-        return origin + new Vector3(x * cellSize, 0, z * cellSize);
+        return originR + new Vector3(x * cellSize, 0, z * cellSize);
     }
 
     public Vector2Int GetGridCoordinates(Vector3 worldPos)
     {
-        Vector3 local = worldPos - origin;
+        Vector3 local = worldPos - originR;
         int x = Mathf.FloorToInt(local.x / cellSize);
         int z = Mathf.FloorToInt(local.z / cellSize);
         return new Vector2Int(x, z);
