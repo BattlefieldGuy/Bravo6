@@ -7,21 +7,27 @@ public class GameTimer : MonoBehaviour
 {
     private float endTimer = 180f;
     private float midTime;
-    private Heart heart;
+    [SerializeField] private Heart dHeart;
+    [SerializeField] private Heart aHeart;
+    [SerializeField] private Wall dWall;
+    [SerializeField] private Wall aWall;
+
     private float maxTime;
 
     [SerializeField] private GameObject attackersWin;
     [SerializeField] private GameObject defendersWin;
+    [SerializeField] private GameObject itsADraw;
+
 
     [SerializeField] private GameObject lastMinute;
 
     [SerializeField] private Image bar;
     [SerializeField] private Image bar2;
 
+    private bool alreadyChecked = false;
+
     void Start()
     {
-        heart = FindFirstObjectByType<Heart>();
-
         maxTime = endTimer;
         midTime = maxTime / 2;
     }
@@ -32,6 +38,7 @@ public class GameTimer : MonoBehaviour
 
         if (endTimer <= 0f)
         {
+            GameDraw();
             TimeIsUp();
         }
 
@@ -48,28 +55,42 @@ public class GameTimer : MonoBehaviour
 
     private void AttackersWin()
     {
-        bool _noHealth = heart.CheckHealth();
+        bool _noHealthA = aHeart.CheckHealth();
+        bool _noHealthD = dHeart.CheckHealth();
 
-        if (_noHealth)
+        if (_noHealthD)
         {
             attackersWin.SetActive(true);
             StartCoroutine(LoadStartScene());
         }
-
+        else if (_noHealthA)
+        {
+            defendersWin.SetActive(true);
+            StartCoroutine(LoadStartScene());
+        }
     }
     private void TimeIsUp()
     {
-        bool _noHealth = heart.CheckHealth();
+        if (alreadyChecked == false)
+        {
+            bool _noHealthA = dWall.CheckHealth();
+            bool _noHealthD = aWall.CheckHealth();
 
-        if (_noHealth)
-        {
-            attackersWin.SetActive(true);
+            if (!_noHealthD && !_noHealthA)
+            {
+                endTimer = 60f;
+            }
+            alreadyChecked = true;
         }
-        else
+    }
+
+    private void GameDraw()
+    {
+        if (alreadyChecked == true)
         {
-            defendersWin.SetActive(true);
+            itsADraw.SetActive(true);
+            StartCoroutine(LoadStartScene());
         }
-        StartCoroutine(LoadStartScene());
     }
 
     private void LastMinute()
@@ -80,7 +101,6 @@ public class GameTimer : MonoBehaviour
             StartCoroutine(enumerator());
         }
     }
-
 
     private IEnumerator enumerator()
     {
