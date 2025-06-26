@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7788263018796611554}
   - component: {fileID: 4255728908694527194}
   - component: {fileID: 4644435131905259310}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2897060963800344279}
   - component: {fileID: 6770750224241949552}
   - component: {fileID: 3532397841533079350}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 7525306085185484295}
   - component: {fileID: 2720519742362400664}
   - component: {fileID: 4404387666237943381}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: HealthBar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,6 +261,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8961359253771211100, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.06
@@ -317,6 +321,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -7023974396876390944, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -325,6 +333,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
+    - target: {fileID: -2287223201522926096, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -2202892853515455343, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -335,11 +347,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
     - target: {fileID: 919132149155446097, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_Name
-      value: crystal
+      value: D crystal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: m_TagString
@@ -349,6 +361,18 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ae0b518201c74c14da77b895e4dce05c, type: 2}
+    - target: {fileID: 4767400413853537203, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5148817236446094103, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507901977716847365, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7339356831882890532, guid: b42238f16bfeb0d43bb0ce9f5ae0cbb4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

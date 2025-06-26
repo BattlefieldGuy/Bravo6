@@ -27,9 +27,9 @@ public class Card : MonoBehaviour
         if (hasBeenPlayed) return;
         hasBeenPlayed = true;
 
-        if (_spawnPosition.z > spawnLine || _spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
-        if (_spawnPosition.x < -5.2f) _spawnPosition.x = -5.2f;
-        if (_spawnPosition.x > -3.3f) _spawnPosition.x = -3.3f;
+        // if (_spawnPosition.z > spawnLine || _spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
+        if (_spawnPosition.x > -3.175f) _spawnPosition.x = -3.175f;
+        if (_spawnPosition.x < -5.366f) _spawnPosition.x = -5.366f;
 
         {
             if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
