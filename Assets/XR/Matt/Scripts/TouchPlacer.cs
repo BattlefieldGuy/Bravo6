@@ -39,11 +39,11 @@ public class TouchPlacer : MonoBehaviour
         {
             case 1:
                 prizeToReturn = gridTowerPrefabR.GetComponent<Tower>().Prize;
-                Debug.Log(prizeToReturn);
+                //Debug.Log(prizeToReturn);
                 return prizeToReturn;
             case 2:
                 prizeToReturn = gridWallPrefabR.GetComponent<GridWall>().Prize;
-                Debug.Log(prizeToReturn);
+                //Debug.Log(prizeToReturn);
                 return prizeToReturn;
             default:
                 return 0;
@@ -57,13 +57,14 @@ public class TouchPlacer : MonoBehaviour
     #region --- RIGHT SIDE ---
     public void SpawnItemR(Vector3 _itemPos, int _itemToPlace)
     {
+        Debug.Log("Spawn right");
         ItemToPlaceR = _itemToPlace;
         if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
         {
             Vector3 _hitPos = _hit.point;
-            Vector2Int _coords = gridR.GetGridCoordinates(_hitPos);
+            Vector2Int _coords = gridR.GetGridCoordinatesR(_hitPos);
 
-            if (gridR.IsInBounds(_coords.x, _coords.y))
+            if (gridR.IsInBoundsR(_coords.x, _coords.y))
             {
                 if (!gridOcupiedR[_coords.x, _coords.y])
                 {
@@ -113,13 +114,14 @@ public class TouchPlacer : MonoBehaviour
 
     public void SpawnItemL(Vector3 _itemPos, int _itemToPlace)
     {
+        Debug.Log("Spawn Left");
         ItemToPlaceL = _itemToPlace;
         if (Physics.Raycast(_itemPos, Vector3.down, out RaycastHit _hit))
         {
             Vector3 _hitPos = _hit.point;
-            Vector2Int _coords = gridL.GetGridCoordinates(_hitPos);
+            Vector2Int _coords = gridL.GetGridCoordinatesL(_hitPos);
 
-            if (gridL.IsInBounds(_coords.x, _coords.y))
+            if (gridL.IsInBoundsL(_coords.x, _coords.y))
             {
                 if (!gridOcupiedL[_coords.x, _coords.y])
                 {
