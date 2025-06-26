@@ -17,7 +17,10 @@ public class Wall : MonoBehaviour
     }
     private void Update()
     {
-        bar.fillAmount = Mathf.Clamp(WallHealth / maxHealth, 0, 1);
+        if (bar != null)
+        {
+            bar.fillAmount = Mathf.Clamp(WallHealth / maxHealth, 0, 1);
+        }
     }
     private void BreakWall()
     {
@@ -34,12 +37,23 @@ public class Wall : MonoBehaviour
     {
         WallHealth -= _damageW;
         Debug.Log("waaaa dmage");
-        BreakWall();
+        if (CheckHealth()) BreakWall();
     }
 
     IEnumerator WaitASec()
     {
         yield return new WaitForSeconds(2);
         Destroy(gameObject);
+    }
+
+    public bool CheckHealth()
+    {
+        if (WallHealth <= 0)
+        {
+            Debug.LogError("DEAD");
+            return true;
+        }
+        else
+            return false;
     }
 }
