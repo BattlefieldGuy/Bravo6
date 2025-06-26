@@ -23,6 +23,7 @@ public class GridManager : MonoBehaviour
         GenerateVisualGridR();
         GenerateVisualGridL();
         originR = gridParentR.transform.position;
+        originL = gridParentL.transform.position;
     }
 
     public void GenerateVisualGridR()
@@ -55,10 +56,14 @@ public class GridManager : MonoBehaviour
         }
     }
 
-
-    public Vector3 GetWorldPosition(int x, int z)
+    public Vector3 GetWorldPositionR(int x, int z)
     {
         return originR + new Vector3(x * cellSize, 0, z * cellSize);
+    }
+
+    public Vector3 GetWorldPositionL(int x, int z)
+    {
+        return originL + new Vector3(x * cellSize, 0, z * cellSize);
     }
 
     public Vector2Int GetGridCoordinatesR(Vector3 worldPos)
