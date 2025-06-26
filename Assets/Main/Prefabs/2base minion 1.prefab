@@ -10097,6 +10097,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   projectilePrefab: {fileID: 0}
+  lWall: {fileID: 1735311652677560857, guid: 953bce26fdd00de4a87097ecc3cae993, type: 3}
+  rWall: {fileID: 4494942350747924582, guid: 8cc500e46d6a5344383a1c6d78bd1012, type: 3}
 --- !u!114 &3770466408809605905
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,12 @@ public class MinionAttack : MonoBehaviour
 
     [SerializeField] GameObject projectilePrefab;
 
+    [SerializeField] GameObject lWall;
+    [SerializeField] GameObject rWall;
+
+
     MinionMovement movement;
+
 
     private void Start()
     {
@@ -115,27 +120,57 @@ public class MinionAttack : MonoBehaviour
 
     private void RangeMinion()
     {
-        Collider[] _targets = Physics.OverlapSphere(transform.position, radius, layerMask);
-
-        Transform _nearestTarget = GetTarget(_targets);
-
-        if (_nearestTarget != null)
+        if (gameObject.layer == LayerMask.NameToLayer("enemyL"))
         {
-            movement.IsWalking = false;
+            Collider[] _targets = Physics.OverlapSphere(transform.position, radius, layerMask);
 
-            if (coolDown <= 0)
+            Transform _nearestTarget = GetTarget(_targets);
+
+            if (_nearestTarget != null && rWall.layer == LayerMask.NameToLayer("TargetsR"))
             {
-                PlayAudio();
-                Attacking(_nearestTarget);
-                coolDown = reload;
-            }
+                movement.IsWalking = false;
 
+                if (coolDown <= 0)
+                {
+                    PlayAudio();
+                    Attacking(_nearestTarget);
+                    coolDown = reload;
+                }
+
+            }
+            else if (_nearestTarget == null)
+            {
+                movement.IsWalking = true;
+            }
         }
-        else if (_nearestTarget == null)
+
+
+        else if (gameObject.layer == LayerMask.NameToLayer("enemyR")) //uhhhh
         {
-            movement.IsWalking = true;
+            Collider[] _targets = Physics.OverlapSphere(transform.position, radius, layerMask);
+
+            Transform _nearestTarget = GetTarget(_targets);
+
+            if (_nearestTarget != null && lWall.layer == LayerMask.NameToLayer("TargetsL"))
+            {
+                movement.IsWalking = false;
+
+                if (coolDown <= 0)
+                {
+                    PlayAudio();
+                    Attacking(_nearestTarget);
+                    coolDown = reload;
+                }
+
+            }
+            else if (_nearestTarget == null)
+            {
+                movement.IsWalking = true;
+            }
         }
     }
+
+
 
     private Transform GetTarget(Collider[] _targets)
     {
