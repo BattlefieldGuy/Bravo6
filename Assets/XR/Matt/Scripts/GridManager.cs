@@ -20,11 +20,12 @@ public class GridManager : MonoBehaviour
 
     private void Start()
     {
-        GenerateVisualGrid();
+        GenerateVisualGridR();
+        GenerateVisualGridL();
         originR = gridParentR.transform.position;
     }
 
-    public void GenerateVisualGrid()
+    public void GenerateVisualGridR()
     {
         if (!gridTilePrefab) return;
 
@@ -35,6 +36,21 @@ public class GridManager : MonoBehaviour
                 originR = gridParentR.transform.position;
                 Vector3 pos = originR + new Vector3(x * cellSize, 0, z * cellSize) + new Vector3(cellSize, 0, cellSize) * 0.5f;
                 Instantiate(gridTilePrefab, pos, Quaternion.identity, gridParentR);
+            }
+        }
+    }
+
+    public void GenerateVisualGridL()
+    {
+        if (!gridTilePrefab) return;
+
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                originL = gridParentL.transform.position;
+                Vector3 pos = originL + new Vector3(x * cellSize, 0, z * cellSize) + new Vector3(cellSize, 0, cellSize) * 0.5f;
+                Instantiate(gridTilePrefab, pos, Quaternion.identity, gridParentL);
             }
         }
     }
