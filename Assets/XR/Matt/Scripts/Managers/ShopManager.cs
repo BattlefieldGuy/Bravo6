@@ -7,9 +7,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject gridTowerPrefab;
     [SerializeField] private Animation towerAnimR;
     [SerializeField] private Animation towerAnimL;
-    [SerializeField] private AnimationClip towerPopUp;
-    [SerializeField] private AnimationClip towerPopDown;
-    [SerializeField] private AnimationClip towerVanish;
+    [SerializeField] private AnimationClip towerPopUpR;
+    [SerializeField] private AnimationClip towerPopDownR;
+    [SerializeField] private AnimationClip towerVanishR;
+    [SerializeField] private AnimationClip towerPopUpL;
+    [SerializeField] private AnimationClip towerPopDownL;
+    [SerializeField] private AnimationClip towerVanishL;
     private Tower gridTowerScript;
     private bool isHoldingTowerR = false;
     private bool isHoldingTowerL = false;
@@ -19,9 +22,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject gridWallPrefab;
     [SerializeField] private Animation wallAnimR;
     [SerializeField] private Animation wallAnimL;
-    [SerializeField] private AnimationClip wallPopUp;
-    [SerializeField] private AnimationClip wallPopDown;
-    [SerializeField] private AnimationClip wallVanish;
+    [SerializeField] private AnimationClip wallPopUpR;
+    [SerializeField] private AnimationClip wallPopDownR;
+    [SerializeField] private AnimationClip wallVanishR;
+    [SerializeField] private AnimationClip wallPopUpL;
+    [SerializeField] private AnimationClip wallPopDownL;
+    [SerializeField] private AnimationClip wallVanishL;
     private GridWall gridWallScript;
     private bool isHoldingWallR = false;
     private bool isHoldingWallL = false;
@@ -85,7 +91,7 @@ public class ShopManager : MonoBehaviour
         {
             if (isTowerDisplayVisableR)
             {
-                towerAnimR.clip = towerVanish;
+                towerAnimR.clip = towerVanishR;
                 towerAnimR.Play();
                 //gridTowerDisplay.SetActive(false);
                 isTowerDisplayVisableR = false;
@@ -97,7 +103,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isTowerDisplayVisableR)
                 {
-                    towerAnimR.clip = towerPopUp;
+                    towerAnimR.clip = towerPopUpR;
                     towerAnimR.Play();
                     //gridTowerDisplay.SetActive(true);
                     isTowerDisplayVisableR = true;
@@ -107,7 +113,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (isTowerDisplayVisableR)
                 {
-                    towerAnimR.clip = towerPopDown;
+                    towerAnimR.clip = towerPopDownR;
                     towerAnimR.Play();
                     //gridTowerDisplay.SetActive(false);
                     isTowerDisplayVisableR = false;
@@ -120,7 +126,7 @@ public class ShopManager : MonoBehaviour
         {
             if (isWallDisplayVisableR)
             {
-                wallAnimR.clip = wallVanish;
+                wallAnimR.clip = wallVanishR;
                 wallAnimR.Play();
                 //gridWallDisplay.SetActive(false);
                 isWallDisplayVisableR = false;
@@ -132,7 +138,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isWallDisplayVisableR)
                 {
-                    wallAnimR.clip = wallPopUp;
+                    wallAnimR.clip = wallPopUpR;
                     wallAnimR.Play();
                     //gridWallDisplay.SetActive(true);
                     isWallDisplayVisableR = true;
@@ -142,7 +148,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (isWallDisplayVisableR)
                 {
-                    wallAnimR.clip = wallPopDown;
+                    wallAnimR.clip = wallPopDownR;
                     wallAnimR.Play();
                     //gridWallDisplay.SetActive(false);
                     isWallDisplayVisableR = false;
@@ -156,7 +162,7 @@ public class ShopManager : MonoBehaviour
         {
             if (isTowerDisplayVisableL)
             {
-                towerAnimL.clip = towerVanish;
+                towerAnimL.clip = towerVanishL;
                 towerAnimL.Play();
                 //gridTowerDisplay.SetActive(false);
                 isTowerDisplayVisableL = false;
@@ -168,7 +174,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isTowerDisplayVisableL)
                 {
-                    towerAnimL.clip = towerPopUp;
+                    towerAnimL.clip = towerPopUpL;
                     towerAnimL.Play();
                     //gridTowerDisplay.SetActive(true);
                     isTowerDisplayVisableR = true;
@@ -176,9 +182,9 @@ public class ShopManager : MonoBehaviour
             }
             else // not the right buget
             {
-                if (isTowerDisplayVisableR)
+                if (isTowerDisplayVisableL)
                 {
-                    towerAnimL.clip = towerPopDown;
+                    towerAnimL.clip = towerPopDownL;
                     towerAnimL.Play();
                     //gridTowerDisplay.SetActive(false);
                     isTowerDisplayVisableL = false;
@@ -191,7 +197,7 @@ public class ShopManager : MonoBehaviour
         {
             if (isWallDisplayVisableL)
             {
-                wallAnimL.clip = wallVanish;
+                wallAnimL.clip = wallVanishL;
                 wallAnimL.Play();
                 //gridWallDisplay.SetActive(false);
                 isWallDisplayVisableL = false;
@@ -203,7 +209,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (!isWallDisplayVisableL)
                 {
-                    wallAnimL.clip = wallPopUp;
+                    wallAnimL.clip = wallPopUpL;
                     wallAnimL.Play();
                     //gridWallDisplay.SetActive(true);
                     isWallDisplayVisableL = true;
@@ -213,7 +219,7 @@ public class ShopManager : MonoBehaviour
             {
                 if (isWallDisplayVisableL)
                 {
-                    wallAnimL.clip = wallPopDown;
+                    wallAnimL.clip = wallPopDownL;
                     wallAnimL.Play();
                     //gridWallDisplay.SetActive(false);
                     isWallDisplayVisableL = false;

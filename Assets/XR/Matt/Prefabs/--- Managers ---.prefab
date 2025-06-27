@@ -548,7 +548,7 @@ Transform:
   m_Children:
   - {fileID: 8194947336037964355}
   m_Father: {fileID: 3173374177278864823}
-  m_LocalEulerAnglesHint: {x: 0, y: 359.999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!111 &3517756971502273582
 Animation:
   m_ObjectHideFlags: 0
@@ -560,9 +560,9 @@ Animation:
   serializedVersion: 4
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
-  - {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
-  - {fileID: 7400000, guid: b2912b532d7772a449851cc6031d7813, type: 2}
+  - {fileID: 7400000, guid: cac2107cd82ee5f449e68217b0242826, type: 2}
+  - {fileID: 7400000, guid: 969b85e55b4864d40ba94cda138b435e, type: 2}
+  - {fileID: 7400000, guid: 4cf3393d7ec778e4dae37c2463840b28, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -4420,9 +4420,9 @@ Animation:
   serializedVersion: 4
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
-  - {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
-  - {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
+  - {fileID: 7400000, guid: bb3a8bc638e16324fafc9288db4c7416, type: 2}
+  - {fileID: 7400000, guid: 50a3662397cf90f4383828d57681cea5, type: 2}
+  - {fileID: 7400000, guid: 044c42e03af4ef340bfb6f80e784e1c1, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -6079,7 +6079,7 @@ MonoBehaviour:
   stealLevelMultiplier: 1
   startersCoinsA: 2200
   minionPrizeMultiplier: 1.1
-  startersCoinsD: 20
+  startersCoinsD: 99999999
 --- !u!1 &7381610208688580479
 GameObject:
   m_ObjectHideFlags: 0

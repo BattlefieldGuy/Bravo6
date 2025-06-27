@@ -31,6 +31,7 @@ public class TouchPlacer : MonoBehaviour
     private void Start()
     {
         gridOcupiedR = new bool[gridR.width, gridR.height];
+        gridOcupiedL = new bool[gridL.width, gridL.height];
     }
 
     public int ReturnPrize(int _itemToPlace)
@@ -68,7 +69,7 @@ public class TouchPlacer : MonoBehaviour
             {
                 if (!gridOcupiedR[_coords.x, _coords.y])
                 {
-                    Vector3 _spawnPos = gridR.GetWorldPosition(_coords.x, _coords.y) + new Vector3(gridR.cellSize, 0, gridR.cellSize) * 0.5f;
+                    Vector3 _spawnPos = gridR.GetWorldPositionR(_coords.x, _coords.y) + new Vector3(gridR.cellSize, 0, gridR.cellSize) * 0.5f;
                     GameObject _item = null;
                     switch (ItemToPlaceR)
                     {
@@ -120,12 +121,13 @@ public class TouchPlacer : MonoBehaviour
         {
             Vector3 _hitPos = _hit.point;
             Vector2Int _coords = gridL.GetGridCoordinatesL(_hitPos);
-
+            Debug.Log(_coords);
+            Debug.Log(_hitPos);
             if (gridL.IsInBoundsL(_coords.x, _coords.y))
             {
                 if (!gridOcupiedL[_coords.x, _coords.y])
                 {
-                    Vector3 _spawnPos = gridL.GetWorldPosition(_coords.x, _coords.y) + new Vector3(gridL.cellSize, 0, gridL.cellSize) * 0.5f;
+                    Vector3 _spawnPos = gridL.GetWorldPositionL(_coords.x, _coords.y) + new Vector3(gridL.cellSize, 0, gridL.cellSize) * 0.5f;
                     GameObject _item = null;
                     switch (ItemToPlaceL)
                     {
@@ -133,6 +135,7 @@ public class TouchPlacer : MonoBehaviour
                             _item = Instantiate(gridTowerPrefabL, _spawnPos, new Quaternion(0, -1, 0, 0));
                             break;
                         case 2:
+                            Debug.Log(_spawnPos);
                             _spawnPos.y = 0.06f;
                             _item = Instantiate(gridWallPrefabL, _spawnPos, new Quaternion(0, 90, 0, 90));
                             break;

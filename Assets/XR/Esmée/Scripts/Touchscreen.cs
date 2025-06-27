@@ -209,7 +209,12 @@ public class Touchscreen : MonoBehaviour
                 else if (mouseDragObject.GetComponent<GridItemPlacer>())
                 {
                     GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
-                    _item.SpawnItem(spawnPos);
+                    if (_item != null)
+                    {
+
+                        Debug.Log(spawnPos);
+                        _item.SpawnItem(spawnPos);
+                    }
                 }
 
                 Destroy(mouseDragObject);
