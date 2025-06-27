@@ -54,7 +54,14 @@ public class MinionHealth : MonoBehaviour
     IEnumerator WaitForSec()
     {
         yield return new WaitForSeconds(1f);
-        CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
+        if (gameObject.layer == LayerMask.NameToLayer("enemyR"))
+        {
+            CoinManager.GainMinionPrize(MLevelData.MLevel, MPrizeData.MPrize);
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("enemyL"))
+        {
+            CoinManager.GainTowerPrize(MLevelData.MLevel, MPrizeData.MPrize);
+        }
         Destroy(gameObject);
     }
 }
