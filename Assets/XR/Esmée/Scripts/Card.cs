@@ -18,7 +18,16 @@ public class Card : MonoBehaviour
 
         if (_spawnPosition.z < 4.3f || _spawnPosition.z > 6.2f)
         {
-            CoinManager.AddATCoins(costData.MCost);
+
+            if (gameObject.layer == LayerMask.NameToLayer("rotate"))
+            {
+                CoinManager.AddDECoins(costData.MCost);
+            }
+            if (gameObject.layer == LayerMask.NameToLayer("Default"))
+            {
+                CoinManager.AddATCoins(costData.MCost);
+            }
+
             hasBeenPlayed = false; //kijk hier naar
             Destroy(gameObject);
             return;
