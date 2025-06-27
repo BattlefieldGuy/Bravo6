@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 1462625650628229110}
   m_Layer: 0
   m_Name: ballista
-  m_TagString: Untagged
+  m_TagString: GridTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,7 +558,7 @@ Animation:
   m_GameObject: {fileID: 503011481524819577}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: cac2107cd82ee5f449e68217b0242826, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: cac2107cd82ee5f449e68217b0242826, type: 2}
   - {fileID: 7400000, guid: 969b85e55b4864d40ba94cda138b435e, type: 2}
@@ -954,7 +954,7 @@ Animation:
   m_GameObject: {fileID: 954032322054254984}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
   - {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
@@ -1322,7 +1322,7 @@ GameObject:
   - component: {fileID: 7421661774917027095}
   m_Layer: 0
   m_Name: ballista
-  m_TagString: Untagged
+  m_TagString: GridTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1520,7 +1520,7 @@ Animation:
   m_GameObject: {fileID: 1365251606513418015}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
   - {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
@@ -4049,7 +4049,7 @@ Transform:
   m_GameObject: {fileID: 4398227683251527227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -0.885, y: 0, z: -1.251}
+  m_LocalPosition: {x: -0.885, y: 0.01, z: -1.445}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4418,7 +4418,7 @@ Animation:
   m_GameObject: {fileID: 5190312600162197660}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: bb3a8bc638e16324fafc9288db4c7416, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: bb3a8bc638e16324fafc9288db4c7416, type: 2}
   - {fileID: 7400000, guid: 50a3662397cf90f4383828d57681cea5, type: 2}
@@ -4797,7 +4797,7 @@ Transform:
   m_GameObject: {fileID: 5752153747209540350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -0.885, y: 0, z: 0.769}
+  m_LocalPosition: {x: -0.885, y: 0.01, z: 1.032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5506,8 +5506,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e581cca946fc1064a98142615f262002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dHeart: {fileID: 0}
+  aHeart: {fileID: 0}
+  dWall: {fileID: 0}
+  aWall: {fileID: 0}
   attackersWin: {fileID: 0}
   defendersWin: {fileID: 0}
+  itsADraw: {fileID: 0}
   lastMinute: {fileID: 0}
   bar: {fileID: 0}
   bar2: {fileID: 0}
@@ -6077,7 +6082,7 @@ MonoBehaviour:
   baseStealAmount: 20
   baseStealTime: 35
   stealLevelMultiplier: 1
-  startersCoinsA: 2200
+  startersCoinsA: 99999999
   minionPrizeMultiplier: 1.1
   startersCoinsD: 99999999
 --- !u!1 &7381610208688580479
@@ -6737,15 +6742,21 @@ MonoBehaviour:
   gridTowerPrefab: {fileID: 4938735003479452662, guid: 188d933ac63a397458f545a88e81cbbd, type: 3}
   towerAnimR: {fileID: 7292477625316417113}
   towerAnimL: {fileID: 3517756971502273582}
-  towerPopUp: {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
-  towerPopDown: {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
-  towerVanish: {fileID: 7400000, guid: b2912b532d7772a449851cc6031d7813, type: 2}
+  towerPopUpR: {fileID: 7400000, guid: e9e1fdd04af2fa94c9015d4f8760af65, type: 2}
+  towerPopDownR: {fileID: 7400000, guid: 5e66c7f1c2e1dd84a9e099d314aa4a2e, type: 2}
+  towerVanishR: {fileID: 7400000, guid: b2912b532d7772a449851cc6031d7813, type: 2}
+  towerPopUpL: {fileID: 7400000, guid: cac2107cd82ee5f449e68217b0242826, type: 2}
+  towerPopDownL: {fileID: 7400000, guid: 969b85e55b4864d40ba94cda138b435e, type: 2}
+  towerVanishL: {fileID: 7400000, guid: 4cf3393d7ec778e4dae37c2463840b28, type: 2}
   gridWallPrefab: {fileID: 7474551484817438883, guid: 740b65d64d40597468c45a5b48e89eab, type: 3}
   wallAnimR: {fileID: 8226506540233710078}
   wallAnimL: {fileID: 820524718267561234}
-  wallPopUp: {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
-  wallPopDown: {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
-  wallVanish: {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
+  wallPopUpR: {fileID: 7400000, guid: 20870eb5195c2634f94bf0eec0ac2991, type: 2}
+  wallPopDownR: {fileID: 7400000, guid: 5cd9d9d7010055b4f989b2f0749c91f8, type: 2}
+  wallVanishR: {fileID: 7400000, guid: b694043b21a502f468fad08694ba5392, type: 2}
+  wallPopUpL: {fileID: 7400000, guid: bb3a8bc638e16324fafc9288db4c7416, type: 2}
+  wallPopDownL: {fileID: 7400000, guid: 50a3662397cf90f4383828d57681cea5, type: 2}
+  wallVanishL: {fileID: 7400000, guid: 044c42e03af4ef340bfb6f80e784e1c1, type: 2}
   gridTowerDisplayR: {fileID: 275299612656177245}
   gridWallDisplay: {fileID: 2924611752735140609}
   gridTowerDisplayL: {fileID: 1304705003754955487}
