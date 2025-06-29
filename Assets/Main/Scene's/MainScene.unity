@@ -3303,6 +3303,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.032
       objectReference: {fileID: 0}
+    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: coinCountA
+      value: 
+      objectReference: {fileID: 1149202582}
+    - target: {fileID: 4515414826076396158, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: coinCountD
+      value: 
+      objectReference: {fileID: 1690034807}
     - target: {fileID: 8210828645696377074, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: m_Name
       value: --- Managers ---

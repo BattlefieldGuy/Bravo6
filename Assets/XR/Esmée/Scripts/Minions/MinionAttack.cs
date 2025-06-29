@@ -10,6 +10,8 @@ public class MinionAttack : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private Animator animator;
+
     [SerializeField] private float radius;
     [SerializeField] private LayerMask layerMask;
 
@@ -24,6 +26,7 @@ public class MinionAttack : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         movement = FindFirstObjectByType<MinionMovement>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -44,6 +47,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Wall>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
+                animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -54,6 +58,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Heart>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
+                animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -64,6 +69,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Tower>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
+                animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -74,6 +80,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
+                animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -88,6 +95,7 @@ public class MinionAttack : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
+                    animator.SetTrigger("Attack");
                     coolDown = 2;
                 }
             }
@@ -108,6 +116,7 @@ public class MinionAttack : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
+                    animator.SetTrigger("Attack");
                     coolDown = 2;
                 }
             }
