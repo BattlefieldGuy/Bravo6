@@ -38,11 +38,11 @@ public class Card : MonoBehaviour
 
         if (gameObject.layer == LayerMask.NameToLayer("rotate"))
         {
-            if (_spawnPosition.z > spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
+            if (_spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
         }
         if (gameObject.layer == LayerMask.NameToLayer("Default"))
         {
-            if (_spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; }
+            if (_spawnPosition.z > spawnLine) { _spawnPosition.z = spawnLine; }
         }
 
 
