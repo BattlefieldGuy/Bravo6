@@ -129,6 +129,7 @@ public class CoinManager : MonoBehaviour
         if (incomeTimer < 0)//count down until ready, pays attacker in a passive way
         {
             AttackersCoins += passiveIncomeAmount;
+            DefendersCoins += passiveIncomeAmount;
             incomeTimer = passiveIncomeTime;
             UpdateUI();
         }
