@@ -65,7 +65,10 @@ public class Tower : MonoBehaviour
             anim.clip = animClip;
             anim.Play();
 
-            CoinManager.GainTowerPrize(Level, Prize);
+            if (gameObject.layer == LayerMask.NameToLayer("TargetsR"))
+                CoinManager.GainTowerPrize(Level, Prize);
+            else if (gameObject.layer == LayerMask.NameToLayer("TargetsL"))
+                CoinManager.GainMinionPrize(Level, Prize);
 
             this.GetComponent<CellManager>().RemoveItemR();
             this.GetComponent<Collider>().enabled = false;

@@ -54,6 +54,7 @@ public class ShopManager : MonoBehaviour
     private TMPro.TextMeshProUGUI coinCountDText;
     private TMPro.TextMeshProUGUI coinCountAText;
 
+    private int attackersCoins;
     private int defendersCoins;
 
 
@@ -78,6 +79,7 @@ public class ShopManager : MonoBehaviour
             coinCountAText.text = _attackersCoins.ToString();
 
         defendersCoins = _defendersCoins;
+        attackersCoins = _attackersCoins;
 
         CheckDisplays();
     }
@@ -170,14 +172,14 @@ public class ShopManager : MonoBehaviour
         }
         else // while not holding item
         {
-            if (defendersCoins >= gridTowerPrize)
+            if (attackersCoins >= gridTowerPrize)
             {
                 if (!isTowerDisplayVisableL)
                 {
                     towerAnimL.clip = towerPopUpL;
                     towerAnimL.Play();
                     //gridTowerDisplay.SetActive(true);
-                    isTowerDisplayVisableR = true;
+                    isTowerDisplayVisableL = true;
                 }
             }
             else // not the right buget
@@ -205,7 +207,7 @@ public class ShopManager : MonoBehaviour
         }
         else // while not holding item
         {
-            if (defendersCoins >= gridWallPrize)
+            if (attackersCoins >= gridWallPrize)
             {
                 if (!isWallDisplayVisableL)
                 {
