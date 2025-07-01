@@ -27,11 +27,17 @@ public class GridItemPlacer : MonoBehaviour
 
     public void GrabItem()
     {
-        shopManager.IsHoldingItem(ItemToPlace, true);
+        if (IsRightSide)
+            shopManager.IsHoldingItemR(ItemToPlace, true);
+        else if (!IsRightSide)
+            shopManager.IsHoldingItemL(ItemToPlace, true);
     }
 
     private void LetGoOfItem()
     {
-        shopManager.IsHoldingItem(ItemToPlace, false);
+        if (IsRightSide)
+            shopManager.IsHoldingItemR(ItemToPlace, false);
+        else if (!IsRightSide)
+            shopManager.IsHoldingItemL(ItemToPlace, false);
     }
 }

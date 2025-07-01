@@ -73,7 +73,7 @@ MonoBehaviour:
   radius: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
   projectilePrefab: {fileID: 8550301240954543888, guid: 9d77751cfd2e77446aa3a6a5496df894, type: 3}
   lWall: {fileID: 1735311652677560857, guid: 953bce26fdd00de4a87097ecc3cae993, type: 3}
   rWall: {fileID: 4494942350747924582, guid: 8cc500e46d6a5344383a1c6d78bd1012, type: 3}
@@ -109,7 +109,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -249,7 +249,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331779619558410078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 49dc9122eb18b814284694955af52bcc, type: 2}
   m_CullingMode: 0

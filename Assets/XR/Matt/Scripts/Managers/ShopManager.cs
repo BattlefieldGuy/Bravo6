@@ -5,30 +5,47 @@ public class ShopManager : MonoBehaviour
     [Header("Items")]
     [Header("Tower")]
     [SerializeField] private GameObject gridTowerPrefab;
-    [SerializeField] private Animation towerAnim;
-    [SerializeField] private AnimationClip towerPopUp;
-    [SerializeField] private AnimationClip towerPopDown;
-    [SerializeField] private AnimationClip towerVanish;
+    [SerializeField] private Animation towerAnimR;
+    [SerializeField] private Animation towerAnimL;
+    [SerializeField] private AnimationClip towerPopUpR;
+    [SerializeField] private AnimationClip towerPopDownR;
+    [SerializeField] private AnimationClip towerVanishR;
+    [SerializeField] private AnimationClip towerPopUpL;
+    [SerializeField] private AnimationClip towerPopDownL;
+    [SerializeField] private AnimationClip towerVanishL;
     private Tower gridTowerScript;
-    private bool isHoldingTower = false;
+    private bool isHoldingTowerR = false;
+    private bool isHoldingTowerL = false;
     private int gridTowerPrize;
 
     [Header("Wall")]
     [SerializeField] private GameObject gridWallPrefab;
-    [SerializeField] private Animation wallAnim;
-    [SerializeField] private AnimationClip wallPopUp;
-    [SerializeField] private AnimationClip wallPopDown;
-    [SerializeField] private AnimationClip wallVanish;
+    [SerializeField] private Animation wallAnimR;
+    [SerializeField] private Animation wallAnimL;
+    [SerializeField] private AnimationClip wallPopUpR;
+    [SerializeField] private AnimationClip wallPopDownR;
+    [SerializeField] private AnimationClip wallVanishR;
+    [SerializeField] private AnimationClip wallPopUpL;
+    [SerializeField] private AnimationClip wallPopDownL;
+    [SerializeField] private AnimationClip wallVanishL;
     private GridWall gridWallScript;
-    private bool isHoldingWall = false;
+    private bool isHoldingWallR = false;
+    private bool isHoldingWallL = false;
     private int gridWallPrize;
     //more towers later
 
     [Header("Displays")]
-    [SerializeField] private GameObject gridTowerDisplay;
-    bool isTowerDisplayVisable = true;
+    [Header("Right side")]
+    [SerializeField] private GameObject gridTowerDisplayR;
+    bool isTowerDisplayVisableR = true;
     [SerializeField] private GameObject gridWallDisplay;
-    bool isWallDisplayVisable = true;
+    bool isWallDisplayVisableR = true;
+
+    [Header("Left side")]
+    [SerializeField] private GameObject gridTowerDisplayL;
+    bool isTowerDisplayVisableL = true;
+    [SerializeField] private GameObject gridWallDisplayL;
+    bool isWallDisplayVisableL = true;
 
     [Header("UI")]
     [SerializeField] private GameObject coinCountD;
@@ -37,6 +54,7 @@ public class ShopManager : MonoBehaviour
     private TMPro.TextMeshProUGUI coinCountDText;
     private TMPro.TextMeshProUGUI coinCountAText;
 
+    private int attackersCoins;
     private int defendersCoins;
 
 
@@ -61,93 +79,184 @@ public class ShopManager : MonoBehaviour
             coinCountAText.text = _attackersCoins.ToString();
 
         defendersCoins = _defendersCoins;
+        attackersCoins = _attackersCoins;
 
         CheckDisplays();
     }
 
     private void CheckDisplays()
     {
-        //tower
-        if (isHoldingTower)
+        //Right side
+
+        //towerR
+        if (isHoldingTowerR)
         {
-            if (isTowerDisplayVisable)
+            if (isTowerDisplayVisableR)
             {
-                towerAnim.clip = towerVanish;
-                towerAnim.Play();
+                towerAnimR.clip = towerVanishR;
+                towerAnimR.Play();
                 //gridTowerDisplay.SetActive(false);
-                isTowerDisplayVisable = false;
+                isTowerDisplayVisableR = false;
             }
         }
         else // while not holding item
         {
             if (defendersCoins >= gridTowerPrize)
             {
-                if (!isTowerDisplayVisable)
+                if (!isTowerDisplayVisableR)
                 {
-                    towerAnim.clip = towerPopUp;
-                    towerAnim.Play();
+                    towerAnimR.clip = towerPopUpR;
+                    towerAnimR.Play();
                     //gridTowerDisplay.SetActive(true);
-                    isTowerDisplayVisable = true;
+                    isTowerDisplayVisableR = true;
                 }
             }
             else // not the right buget
             {
-                if (isTowerDisplayVisable)
+                if (isTowerDisplayVisableR)
                 {
-                    towerAnim.clip = towerPopDown;
-                    towerAnim.Play();
+                    towerAnimR.clip = towerPopDownR;
+                    towerAnimR.Play();
                     //gridTowerDisplay.SetActive(false);
-                    isTowerDisplayVisable = false;
+                    isTowerDisplayVisableR = false;
                 }
             }
         }
 
-        //wall
-        if (isHoldingWall)
+        //wallR
+        if (isHoldingWallR)
         {
-            if (isWallDisplayVisable)
+            if (isWallDisplayVisableR)
             {
-                wallAnim.clip = wallVanish;
-                wallAnim.Play();
+                wallAnimR.clip = wallVanishR;
+                wallAnimR.Play();
                 //gridWallDisplay.SetActive(false);
-                isWallDisplayVisable = false;
+                isWallDisplayVisableR = false;
             }
         }
         else // while not holding item
         {
             if (defendersCoins >= gridWallPrize)
             {
-                if (!isWallDisplayVisable)
+                if (!isWallDisplayVisableR)
                 {
-                    wallAnim.clip = wallPopUp;
-                    wallAnim.Play();
+                    wallAnimR.clip = wallPopUpR;
+                    wallAnimR.Play();
                     //gridWallDisplay.SetActive(true);
-                    isWallDisplayVisable = true;
+                    isWallDisplayVisableR = true;
                 }
             }
             else // not the right buget
             {
-                if (isWallDisplayVisable)
+                if (isWallDisplayVisableR)
                 {
-                    wallAnim.clip = wallPopDown;
-                    wallAnim.Play();
+                    wallAnimR.clip = wallPopDownR;
+                    wallAnimR.Play();
                     //gridWallDisplay.SetActive(false);
-                    isWallDisplayVisable = false;
+                    isWallDisplayVisableR = false;
+                }
+            }
+        }
+        // Left Side
+
+        //towerL
+        if (isHoldingTowerL)
+        {
+            if (isTowerDisplayVisableL)
+            {
+                towerAnimL.clip = towerVanishL;
+                towerAnimL.Play();
+                //gridTowerDisplay.SetActive(false);
+                isTowerDisplayVisableL = false;
+            }
+        }
+        else // while not holding item
+        {
+            if (attackersCoins >= gridTowerPrize)
+            {
+                if (!isTowerDisplayVisableL)
+                {
+                    towerAnimL.clip = towerPopUpL;
+                    towerAnimL.Play();
+                    //gridTowerDisplay.SetActive(true);
+                    isTowerDisplayVisableL = true;
+                }
+            }
+            else // not the right buget
+            {
+                if (isTowerDisplayVisableL)
+                {
+                    towerAnimL.clip = towerPopDownL;
+                    towerAnimL.Play();
+                    //gridTowerDisplay.SetActive(false);
+                    isTowerDisplayVisableL = false;
+                }
+            }
+        }
+
+        //wallL
+        if (isHoldingWallL)
+        {
+            if (isWallDisplayVisableL)
+            {
+                wallAnimL.clip = wallVanishL;
+                wallAnimL.Play();
+                //gridWallDisplay.SetActive(false);
+                isWallDisplayVisableL = false;
+            }
+        }
+        else // while not holding item
+        {
+            if (attackersCoins >= gridWallPrize)
+            {
+                if (!isWallDisplayVisableL)
+                {
+                    wallAnimL.clip = wallPopUpL;
+                    wallAnimL.Play();
+                    //gridWallDisplay.SetActive(true);
+                    isWallDisplayVisableL = true;
+                }
+            }
+            else // not the right buget
+            {
+                if (isWallDisplayVisableL)
+                {
+                    wallAnimL.clip = wallPopDownL;
+                    wallAnimL.Play();
+                    //gridWallDisplay.SetActive(false);
+                    isWallDisplayVisableL = false;
                 }
             }
         }
     }
 
-    public void IsHoldingItem(int _itemToFree, bool _value)
+    public void IsHoldingItemR(int _itemToFree, bool _value)
     {
         switch (_itemToFree)
         {
             case 1:
-                isHoldingTower = _value;
+                isHoldingTowerR = _value;
                 CheckDisplays();
                 break;
             case 2:
-                isHoldingWall = _value;
+                isHoldingWallR = _value;
+                CheckDisplays();
+                break;
+            case 0:
+                break;
+        }
+    }
+
+    public void IsHoldingItemL(int _itemToFree, bool _value)
+    {
+        switch (_itemToFree)
+        {
+            case 1:
+                isHoldingTowerL = _value;
+                CheckDisplays();
+                break;
+            case 2:
+                isHoldingWallL = _value;
                 CheckDisplays();
                 break;
             case 0:

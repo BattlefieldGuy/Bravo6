@@ -55,38 +55,77 @@ public class Touchscreen : MonoBehaviour
             {
 
                 Card card = originalCard.GetComponent<Card>();
+                bool _isRightSide = originalCard.layer == LayerMask.NameToLayer("rotate");
 
-                if (card != null && CoinManager.AttackersCoins >= card.CardCost)
+                if (_isRightSide)
                 {
-                    // Maak een kopie van de kaart om te slepen
-                    GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
-                    cardCopy.tag = "Untagged"; // voorkom dubbele selectie
 
-                    CoinManager.LoseATCoins(card.CardCost);
+                    if (card != null && CoinManager.DefendersCoins >= card.CardCost)
+                    {
+                        // Maak een kopie van de kaart om te slepen
+                        GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        cardCopy.tag = "Untagged"; // voorkom dubbele selectie
 
-                    activeDrags[finger.index] = cardCopy;
+                        CoinManager.LoseDECoins(card.CardCost);
+
+                        activeDrags[finger.index] = cardCopy;
+                    }
+                }
+                else if (!_isRightSide)
+                {
+                    if (card != null && CoinManager.AttackersCoins >= card.CardCost)
+                    {
+                        // Maak een kopie van de kaart om te slepen
+                        GameObject cardCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        cardCopy.tag = "Untagged"; // voorkom dubbele selectie
+
+                        CoinManager.LoseATCoins(card.CardCost);
+
+                        activeDrags[finger.index] = cardCopy;
+                    }
                 }
 
             }
             else if (originalCard.GetComponent<GridItemPlacer>())
             {
                 GridItemPlacer _item = originalCard.GetComponent<GridItemPlacer>();
-
+                bool _isRightSide = _item.IsRightSide;
                 int _itemID = _item.ItemToPlace;
                 int _prize = touchPlacer.ReturnPrize(_itemID);
-                if (_item != null && CoinManager.DefendersCoins >= _prize)
+                if (_isRightSide)
                 {
-                    // Maak een kopie van de kaart om te slepen
-                    GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
-                    _itemCopy.tag = "Untagged";// voorkom dubbele selectie
-                    _itemCopy.GetComponent<Collider>().isTrigger = true;
 
-                    _item.GrabItem();
+                    if (_item != null && CoinManager.DefendersCoins >= _prize)
+                    {
+                        // Maak een kopie van de kaart om te slepen
+                        GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        _itemCopy.tag = "Untagged";// voorkom dubbele selectie
+                        _itemCopy.GetComponent<Collider>().isTrigger = true;
 
-                    CoinManager.LoseDECoins(_prize);
+                        _item.GrabItem();
 
-                    activeDrags[finger.index] = _itemCopy;
+                        CoinManager.LoseDECoins(_prize);
 
+                        activeDrags[finger.index] = _itemCopy;
+
+                    }
+                }
+                else if (!_isRightSide)
+                {
+                    if (_item != null && CoinManager.AttackersCoins >= _prize)
+                    {
+                        // Maak een kopie van de kaart om te slepen
+                        GameObject _itemCopy = Instantiate(originalCard, originalCard.transform.position, originalCard.transform.rotation);
+                        _itemCopy.tag = "Untagged";// voorkom dubbele selectie
+                        _itemCopy.GetComponent<Collider>().isTrigger = true;
+
+                        _item.GrabItem();
+
+                        CoinManager.LoseATCoins(_prize);
+
+                        activeDrags[finger.index] = _itemCopy;
+
+                    }
                 }
             }
         }
@@ -164,18 +203,38 @@ public class Touchscreen : MonoBehaviour
                 else if (hit.collider.GetComponent<GridItemPlacer>())
                 {
                     GameObject _itemCopy = hit.collider.gameObject;
-                    int _prize = touchPlacer.ReturnPrize(_itemCopy.GetComponent<GridItemPlacer>().ItemToPlace);
-                    if (CoinManager.DefendersCoins >= _prize)
+                    GridItemPlacer _gridItemPlacer = hit.collider.GetComponent<GridItemPlacer>();
+                    int _prize = touchPlacer.ReturnPrize(_gridItemPlacer.ItemToPlace);
+                    bool _isRightSide = _gridItemPlacer.IsRightSide;
+                    if (_isRightSide)
                     {
+                        if (CoinManager.DefendersCoins >= _prize)
+                        {
 
-                        mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
-                        mouseDragObject.tag = "Untagged";
+                            mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
+                            mouseDragObject.tag = "Untagged";
 
-                        hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+                            hit.collider.GetComponent<GridItemPlacer>().GrabItem();
 
-                        CoinManager.LoseDECoins(_prize);
+                            CoinManager.LoseDECoins(_prize);
 
-                        mouseDragging = true;
+                            mouseDragging = true;
+                        }
+                    }
+                    else if (!_isRightSide)
+                    {
+                        if (CoinManager.AttackersCoins >= _prize)
+                        {
+
+                            mouseDragObject = Instantiate(_itemCopy, _itemCopy.transform.position, _itemCopy.transform.rotation);
+                            mouseDragObject.tag = "Untagged";
+
+                            hit.collider.GetComponent<GridItemPlacer>().GrabItem();
+
+                            CoinManager.LoseATCoins(_prize);
+
+                            mouseDragging = true;
+                        }
                     }
                 }
             }
@@ -209,7 +268,12 @@ public class Touchscreen : MonoBehaviour
                 else if (mouseDragObject.GetComponent<GridItemPlacer>())
                 {
                     GridItemPlacer _item = mouseDragObject.GetComponent<GridItemPlacer>();
-                    _item.SpawnItem(spawnPos);
+                    if (_item != null)
+                    {
+
+                        Debug.Log(spawnPos);
+                        _item.SpawnItem(spawnPos);
+                    }
                 }
 
                 Destroy(mouseDragObject);

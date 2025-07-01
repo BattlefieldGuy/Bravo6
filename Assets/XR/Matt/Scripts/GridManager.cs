@@ -23,6 +23,7 @@ public class GridManager : MonoBehaviour
         GenerateVisualGridR();
         GenerateVisualGridL();
         originR = gridParentR.transform.position;
+        originL = gridParentL.transform.position;
     }
 
     public void GenerateVisualGridR()
@@ -55,13 +56,17 @@ public class GridManager : MonoBehaviour
         }
     }
 
-
-    public Vector3 GetWorldPosition(int x, int z)
+    public Vector3 GetWorldPositionR(int x, int z)
     {
         return originR + new Vector3(x * cellSize, 0, z * cellSize);
     }
 
-    public Vector2Int GetGridCoordinates(Vector3 worldPos)
+    public Vector3 GetWorldPositionL(int x, int z)
+    {
+        return originL + new Vector3(x * cellSize, 0, z * cellSize);
+    }
+
+    public Vector2Int GetGridCoordinatesR(Vector3 worldPos)
     {
         Vector3 local = worldPos - originR;
         int x = Mathf.FloorToInt(local.x / cellSize);
@@ -69,7 +74,20 @@ public class GridManager : MonoBehaviour
         return new Vector2Int(x, z);
     }
 
-    public bool IsInBounds(int x, int z)
+    public Vector2Int GetGridCoordinatesL(Vector3 worldPos)
+    {
+        Vector3 local = worldPos - originL;
+        int x = Mathf.FloorToInt(local.x / cellSize);
+        int z = Mathf.FloorToInt(local.z / cellSize);
+        return new Vector2Int(x, z);
+    }
+
+    public bool IsInBoundsR(int x, int z)
+    {
+        return x >= 0 && z >= 0 && x < width && z < height;
+    }
+
+    public bool IsInBoundsL(int x, int z)
     {
         return x >= 0 && z >= 0 && x < width && z < height;
     }

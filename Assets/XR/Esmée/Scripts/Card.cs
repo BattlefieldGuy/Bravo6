@@ -18,7 +18,16 @@ public class Card : MonoBehaviour
 
         if (_spawnPosition.z < 4.3f || _spawnPosition.z > 6.2f)
         {
-            CoinManager.AddATCoins(costData.MCost);
+
+            if (gameObject.layer == LayerMask.NameToLayer("rotate"))
+            {
+                CoinManager.AddDECoins(costData.MCost);
+            }
+            if (gameObject.layer == LayerMask.NameToLayer("Default"))
+            {
+                CoinManager.AddATCoins(costData.MCost);
+            }
+
             hasBeenPlayed = false; //kijk hier naar
             Destroy(gameObject);
             return;
@@ -27,9 +36,18 @@ public class Card : MonoBehaviour
         if (hasBeenPlayed) return;
         hasBeenPlayed = true;
 
-        if (_spawnPosition.z > spawnLine || _spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
-        if (_spawnPosition.x < -5.2f) _spawnPosition.x = -5.2f;
-        if (_spawnPosition.x > -3.3f) _spawnPosition.x = -3.3f;
+        if (gameObject.layer == LayerMask.NameToLayer("rotate"))
+        {
+            if (_spawnPosition.z < spawnLine) { _spawnPosition.z = spawnLine; } //hi spawnt nu atijd op spawnlijn
+        }
+        if (gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+            if (_spawnPosition.z > spawnLine) { _spawnPosition.z = spawnLine; }
+        }
+
+
+        if (_spawnPosition.x > -3.404f) _spawnPosition.x = -3.404f;
+        if (_spawnPosition.x < -5.147f) _spawnPosition.x = -5.147f;
 
         {
             if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
