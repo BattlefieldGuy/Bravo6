@@ -6432,7 +6432,7 @@ MonoBehaviour:
   Damage: 35
   Level: 1
   Prize: 10
-  towerHealth: 120
+  towerHealth: 5
   muzzelLocation: {fileID: 4353283804938922685}
   ballistaModel: {fileID: 541630605907162048}
   projectilePrefab: {fileID: 6081269584894367260, guid: 9da25591a1be67c4fae4f6e3075a7e29, type: 3}
