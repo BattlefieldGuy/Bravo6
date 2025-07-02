@@ -38,11 +38,16 @@ public class GridWall : MonoBehaviour
             anim.Play();
 
             if (gameObject.layer == LayerMask.NameToLayer("TargetsR"))
+            {
                 CoinManager.GainTowerPrize(Level, Prize);
+                this.GetComponent<CellManager>().RemoveItemR();
+            }
             else if (gameObject.layer == LayerMask.NameToLayer("TargetsL"))
+            {
                 CoinManager.GainMinionPrize(Level, Prize);
+                this.GetComponent<CellManager>().RemoveItemL();
+            }
 
-            this.GetComponent<CellManager>().RemoveItemR();
             this.GetComponent<Collider>().enabled = false;
             this.GetComponent<AudioSource>().PlayOneShot(wallDestroy);
             StartCoroutine(enumerator());
