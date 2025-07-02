@@ -55,7 +55,7 @@ public class Touchscreen : MonoBehaviour
             {
 
                 Card card = originalCard.GetComponent<Card>();
-                bool _isRightSide = originalCard.layer != LayerMask.NameToLayer("rotate");
+                bool _isRightSide = originalCard.layer == LayerMask.NameToLayer("rotate");
 
                 if (_isRightSide)
                 {
