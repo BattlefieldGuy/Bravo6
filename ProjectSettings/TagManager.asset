@@ -13,6 +13,7 @@ TagManager:
   - GridTower
   - Minion
   - Range
+  - Rotate
   layers:
   - Default
   - TransparentFX
