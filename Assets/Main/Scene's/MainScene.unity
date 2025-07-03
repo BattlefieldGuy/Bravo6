@@ -2565,7 +2565,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7922251121040759823, guid: 3e97b892f0499d141be01f74203a4e2d, type: 3}
+  - {fileID: 2100000, guid: f052e02b18b15db4ab1ee86a7036d29b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4439,7 +4439,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7922251121040759823, guid: 3e97b892f0499d141be01f74203a4e2d, type: 3}
+  - {fileID: 2100000, guid: f052e02b18b15db4ab1ee86a7036d29b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4477,13 +4477,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812699199}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70698315, y: 0.0006171465, z: 0.0006169081, w: 0.70723}
+  m_LocalRotation: {x: 0.0006170884, y: 0.70710653, z: 0.70710653, w: -0.0006170884}
   m_LocalPosition: {x: -1.0970001, y: 0.007, z: -2.3620005}
   m_LocalScale: {x: 100.00003, y: 100.00003, z: 100.00002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 284480479}
-  m_LocalEulerAnglesHint: {x: -89.98, y: 90.1, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0.1}
 --- !u!1001 &815258995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4964,7 +4964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardCost: 15
-  minionPrefab: {fileID: 331779619558410078, guid: 1e34b8a5d6140c84bbfb7c8d39b8c283, type: 3}
+  minionPrefab: {fileID: 1755491879487672440, guid: 708070bf76ade6448b92adc61cf6eca2, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 5.286
 --- !u!65 &913324147
@@ -10104,7 +10104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardCost: 15
-  minionPrefab: {fileID: 331779619558410078, guid: b49f4ff87dae4b04b8c5e786ba313451, type: 3}
+  minionPrefab: {fileID: 1638772420023388886, guid: 8c68d68b5cb4ac641afadd01eb36d971, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 5.286
 --- !u!65 &1835299223
