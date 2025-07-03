@@ -9968,6 +9968,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 878718062783646134, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ee13959102fdde1418738feef8b85756, type: 2}
     - target: {fileID: 1655253798291783562, guid: a27ef853d9f1875458700ab221cd8a9a, type: 3}
       propertyPath: m_Name
       value: 2base minion 1
