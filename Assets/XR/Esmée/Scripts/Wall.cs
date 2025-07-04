@@ -36,7 +36,6 @@ public class Wall : MonoBehaviour
     public void TakeDamage(float _damageW)
     {
         WallHealth -= _damageW;
-        Debug.Log("waaaa dmage");
         if (CheckHealth()) BreakWall();
     }
 
@@ -50,7 +49,6 @@ public class Wall : MonoBehaviour
     {
         if (WallHealth <= 0)
         {
-            Debug.LogError("DEAD");
             return true;
         }
         else

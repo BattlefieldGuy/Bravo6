@@ -50,7 +50,7 @@ public class Card : MonoBehaviour
         if (_spawnPosition.x < -5.147f) _spawnPosition.x = -5.147f;
 
         {
-            if (minionPrefab != null && minionPrefab != null && hasBeenPlayed)
+            if (minionPrefab != null && hasBeenPlayed)
             {
                 _spawnPosition.y = 0.1f; //dit werkt goed zodra we echte minion  model met pivit beneden hebben
                 if (gameObject.layer == LayerMask.NameToLayer("rotate"))

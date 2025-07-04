@@ -2686,15 +2686,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: startersCoinsA
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: startersCoinsD
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: passiveIncomeAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: towerPrizeMultiplier
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3660577705194913120, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: bar
@@ -3980,7 +3984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc9f22fddfe8241b137db23dc79f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCost: 5
+  CardCost: 15
   minionPrefab: {fileID: 1638772420023388886, guid: 8c68d68b5cb4ac641afadd01eb36d971, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 5.286
@@ -5225,7 +5229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc9f22fddfe8241b137db23dc79f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCost: 5
+  CardCost: 20
   minionPrefab: {fileID: 4504151050496825997, guid: 5df92428743d30945bf8ab76194167f7, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 5.286
@@ -8355,7 +8359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc9f22fddfe8241b137db23dc79f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCost: 5
+  CardCost: 15
   minionPrefab: {fileID: 1755491879487672440, guid: 708070bf76ade6448b92adc61cf6eca2, type: 3}
   costData: {fileID: 11400000, guid: cd9bc9f37a84d4b40a95615a5e4cbdd3, type: 2}
   spawnLine: 5.286
@@ -8746,7 +8750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dc9f22fddfe8241b137db23dc79f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardCost: 5
+  CardCost: 20
   minionPrefab: {fileID: 4504151050496825997, guid: 73db0eb52f5000148b5aa85bc3dac930, type: 3}
   costData: {fileID: 11400000, guid: 37969fd8fa1e89f4baec0c1f76b7b311, type: 2}
   spawnLine: 5.286
