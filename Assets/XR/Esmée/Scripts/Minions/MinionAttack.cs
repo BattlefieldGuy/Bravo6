@@ -47,7 +47,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Wall>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
-                animator.SetTrigger("Attack");
+                if (animator != null) animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -58,7 +58,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Heart>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
-                animator.SetTrigger("Attack");
+                if (animator != null) animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -69,7 +69,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<Tower>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
-                animator.SetTrigger("Attack");
+                if (animator != null) animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -80,7 +80,7 @@ public class MinionAttack : MonoBehaviour
             {
                 collision.gameObject.GetComponent<GridWall>().TakeDamage(MDamageData.MDamage);
                 PlayAudio();
-                animator.SetTrigger("Attack");
+                if (animator != null) animator.SetTrigger("Attack");
                 coolDown = 2;
             }
         }
@@ -95,7 +95,7 @@ public class MinionAttack : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
-                    animator.SetTrigger("Attack");
+                    if (animator != null) animator.SetTrigger("Attack");
                     coolDown = 2;
                 }
             }
@@ -116,7 +116,7 @@ public class MinionAttack : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<MinionHealth>().TakeDamage(MDamageData.MDamage);
                     PlayAudio();
-                    animator.SetTrigger("Attack");
+                    if (animator != null) animator.SetTrigger("Attack");
                     coolDown = 2;
                 }
             }
