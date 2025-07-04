@@ -2698,7 +2698,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: towerPrizeMultiplier
-      value: 1.1
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2434039060643377327, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
+      propertyPath: minionPrizeMultiplier
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3660577705194913120, guid: b017dab9adb83c440a8ae1e34c5e0c15, type: 3}
       propertyPath: bar
