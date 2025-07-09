@@ -20,6 +20,7 @@ public class GameTimer : MonoBehaviour
 
 
     [SerializeField] private GameObject lastMinute;
+    [SerializeField] private GameObject extraMinute;
 
     [SerializeField] private Image bar;
     [SerializeField] private Image bar2;
@@ -79,6 +80,7 @@ public class GameTimer : MonoBehaviour
             if (!_noHealthD && !_noHealthA)
             {
                 endTimer = 60f;
+                extraMinute.SetActive(true);
             }
             alreadyChecked = true;
         }
