@@ -92,7 +92,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
-  projectilePrefab: {fileID: 8550301240954543888, guid: 9d77751cfd2e77446aa3a6a5496df894, type: 3}
+  projectilePrefab: {fileID: 8550301240954543888, guid: 0580e73d7a91ab14586b18dfc23ace06, type: 3}
   lWall: {fileID: 1735311652677560857, guid: 953bce26fdd00de4a87097ecc3cae993, type: 3}
   rWall: {fileID: 4494942350747924582, guid: 8cc500e46d6a5344383a1c6d78bd1012, type: 3}
 --- !u!65 &8872500483872567360
